@@ -196,6 +196,7 @@
             position: relative;
             z-index: 1;
         }
+        
 
         .hero-tag {
             display: inline-flex;
@@ -668,8 +669,7 @@
             color: var(--text-light);
             font-size: 1rem;
         }
-            z-index: 1;
-        }
+          
 
         /* Contact Section */
         .contact {
@@ -1043,138 +1043,135 @@
         }
 
         /* Mobile Styles */
-        @media (max-width: 900px) {
-            nav {
-                padding: 1rem 2rem;
-            }
+   
+@media (max-width: 900px) {
+    /* Navigation */
+    nav {
+        padding: 1rem 2rem;
+    }
 
-            .nav-links {
-                display: none;
-            }
+    .nav-links,
+    .nav-contact > .nav-cta {
+        display: none !important;
+    }
 
-            .hero {
-                padding: 6rem 2rem 4rem;
-            }
+    .mobile-menu-btn {
+        display: block;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
 
-            .hero-bg {
-                width: 100%;
-                right: 0;
-                opacity: 0.3;
-            }
+    .mobile-menu-btn svg {
+        width: 28px;
+        height: 28px;
+        color: var(--text);
+    }
 
-            .services {
-                padding: 4rem 2rem;
-            }
+    .nav-phone {
+        display: none;
+    }
 
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        right: 0;
+        background: var(--salt);
+        width: 200px;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 2rem;
+        border-left: 1px solid rgba(0,0,0,0.05);
+        transform: translateX(100%);
+        transition: transform 0.3s ease;
+        z-index: 999;
+    }
 
-            .about {
-                padding: 4rem 2rem;
-            }
+    .nav-links.active {
+        transform: translateX(0);
+    }
 
-            .about-container {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
+    /* Hero Section */
+    .hero {
+        padding: 6rem 2rem 4rem;
+    }
 
-            .about-image {
-                order: -1;
-                max-width: 400px;
-                margin: 0 auto;
-            }
+    .hero-bg {
+        width: 100%;
+        right: 0;
+        opacity: 0.3;
+    }
 
-            .about-features {
-                grid-template-columns: 1fr;
-            }
+    /* Services Section */
+    .services {
+        padding: 4rem 2rem;
+    }
 
-            .estimate {
-                padding: 4rem 2rem;
-            }
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
 
-            .estimate-form-wrapper {
-                padding: 2rem;
-            }
+    /* About Section */
+    .about {
+        padding: 4rem 2rem;
+    }
 
-            .form-row {
-                grid-template-columns: 1fr;
-            }
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
 
-            .contact {
-                padding: 4rem 2rem;
-            }
+    .about-image {
+        order: -1;
+        max-width: 400px;
+        margin: 0 auto;
+    }
 
-            .areas {
-                padding: 3rem 2rem;
-            }
+    .about-features {
+        grid-template-columns: 1fr;
+    }
 
-            .gallery {
-                padding: 4rem 2rem;
-            }
+    /* Estimate Section */
+    .estimate {
+        padding: 4rem 2rem;
+    }
 
-            .gallery-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
+    .estimate-form-wrapper {
+        padding: 2rem;
+    }
 
-            .gallery-header h2 {
-                font-size: 2rem;
-            }
+    .form-row {
+        grid-template-columns: 1fr;
+    }
 
-            .areas-list {
-                gap: 1.5rem;
-            }
+    /* Contact Section */
+    .contact {
+        padding: 4rem 2rem;
+    }
 
-            .area-item {
-                font-size: 1.4rem;
-            }
+    /* Areas Section */
+    .areas {
+        padding: 3rem 2rem;
+    }
 
-            footer {
-                padding: 3rem 2rem;
-            }
+    .areas-list {
+        gap: 1.5rem;
+    }
 
-            .footer-content {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .nontoxic-banner {
-                padding: 3rem 2rem;
-            }
+    .area-item {
+        font-size: 1.4rem;
+    }
+/* Gallery Section */
+        .gallery-grid {
+            grid-template-columns: 1fr;
         }
+    } /* <-- closes the @media block */
 
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            cursor: pointer;
-            padding: 0.5rem;
-        }
-
-        @media (max-width: 900px) {
-            .mobile-menu-btn {
-                display: block;
-            }
-            
-            .nav-phone {
-                display: none;
-            }
-
-            .nav-cta {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.85rem;
-            }
-        }
-
-        .mobile-menu-btn svg {
-            width: 28px;
-            height: 28px;
-            color: var(--text);
-        }
-    </style>
+ </style>
 </head>
 <body>
+
     <!-- Navigation -->
     <nav id="navbar">
         <a href="#" class="logo">
@@ -1544,9 +1541,12 @@ lightbox.addEventListener('click', e => {
             <p class="footer-copy">© 2025 Surfside Paint. All rights reserved. Licensed & Insured in California.</p>
         </div>
     </footer>
+</body>
+</html>
 
     <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
 
+    
       <script>
 document.addEventListener('DOMContentLoaded', () => {
     const galleryItems = document.querySelectorAll('.gallery-item');
@@ -1609,7 +1609,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-    
+<script>
+const menuBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+menuBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+</script>
+
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
