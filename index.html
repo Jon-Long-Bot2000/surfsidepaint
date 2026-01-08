@@ -50,8 +50,8 @@
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
             opacity: 0.03;
             pointer-events: none;
-            z-index: 1;
         }
+
 
         h1, h2, h3, h4 {
             font-family: 'Fraunces', serif;
@@ -248,6 +248,57 @@
             animation: fadeInUp 0.8s ease 0.3s forwards;
             opacity: 0;
         }
+        /* Lightbox base */
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+/* Content */
+.lightbox-content {
+    background: #111;
+    max-width: 1100px;
+    width: 90%;
+    max-height: 90vh;
+    padding: 30px;
+    position: relative;
+    overflow-y: auto;
+    border-radius: 12px;
+}
+
+/* Close button */
+.lightbox-close {
+    position: absolute;
+    top: 15px;
+    right: 18px;
+    font-size: 28px;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Grid layout */
+.lightbox-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* Images */
+.lightbox-grid img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 6px;
+    background: #222;
+}
+
 
         .btn {
             padding: 1rem 2rem;
@@ -773,7 +824,7 @@
             width: 100%;
             aspect-ratio: 4/3;
             overflow: hidden;
-            cursor: ew-resize;
+            cursor: pointer;
         }
 
         .comparison-image {
@@ -1184,7 +1235,7 @@
 
     <div class="gallery-grid">
         <!-- Ojai Project -->
-        <div class="gallery-item">
+        <div class="gallery-item" data-images="images/ojai-1.jpg, images/ojai-2.jpg, images/ojai-3.jpg, images/ojai-4.jpg">
             <div class="comparison-container">
                 <img src="images/ojai-after.jpg" alt="Ojai exterior painting after" class="comparison-image">
             </div>
@@ -1195,7 +1246,7 @@
         </div>
 
         <!-- Oxnard Project -->
-        <div class="gallery-item">
+        <div class="gallery-item" data-images="images/oxnard-1.jpg, images/oxnard-2.jpg, images/oxnard-3.jpg, images/oxnard-4.jpg">
             <div class="comparison-container">
                 <img src="images/oxnard-after.jpg" alt="Oxnard home makeover after" class="comparison-image">
             </div>
@@ -1206,7 +1257,7 @@
         </div>
 
         <!-- Ventura Deck Project -->
-        <div class="gallery-item">
+        <div class="gallery-item" data-images="images/deck-1.jpg, images/deck-2.jpg, images/deck-3.jpg, images/deck-4.jpg">
             <div class="comparison-container">
                 <img src="images/ventura-deck-after.jpg" alt="Ventura deck restoration after" class="comparison-image">
             </div>
@@ -1217,7 +1268,7 @@
         </div>
 
         <!-- Ventura East Project -->
-        <div class="gallery-item">
+        <div class="gallery-item" data-images="images/east-1.jpg, images/east-2.jpg, images/east-3.jpg, images/east-4.jpg">
             <div class="comparison-container">
                 <img src="images/ventura-east-after.jpg" alt="Ventura East Side exterior painting after" class="comparison-image">
             </div>
@@ -1228,7 +1279,7 @@
         </div>
 
         <!-- Ventura Keys Project -->
-        <div class="gallery-item">
+        <div class="gallery-item" data-images="images/keys-1.jpg, images/keys-2.jpg, images/keys-3.jpg, images/keys-4.jpg">
             <div class="comparison-container">
                 <img src="images/ventura-keys-after.jpg" alt="Ventura Keys home painting after" class="comparison-image">
             </div>
@@ -1238,8 +1289,57 @@
             </div>
         </div>
     </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close">&times;</button>
+            <div class="lightbox-grid"></div>
+        </div>
+    </div>
 </section>
 
+<!-- Lightbox Script -->
+<script>
+const lightbox = document.getElementById('lightbox');
+const lightboxGrid = lightbox.querySelector('.lightbox-grid');
+const lightboxClose = lightbox.querySelector('.lightbox-close');
+const galleryItems = document.querySelectorAll('.gallery-item');
+
+galleryItems.forEach(item => {
+    item.addEventListener('click', () => {
+        const imagesData = item.dataset.images ? item.dataset.images.trim() : '';
+        lightboxGrid.innerHTML = ''; // clear previous content
+
+        if (!imagesData) {
+            // If no images, show Under Construction
+            const msg = document.createElement('p');
+            msg.textContent = 'Under Construction';
+            msg.style.color = '#fff';
+            msg.style.fontSize = '1.5rem';
+            msg.style.textAlign = 'center';
+            lightboxGrid.appendChild(msg);
+        } else {
+            const images = imagesData.split(',').map(img => img.trim());
+            images.forEach(src => {
+                const imgEl = document.createElement('img');
+                imgEl.src = src;
+                lightboxGrid.appendChild(imgEl);
+            });
+        }
+
+        lightbox.style.display = 'flex';
+    });
+});
+
+// Close lightbox
+lightboxClose.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+});
+lightbox.addEventListener('click', e => {
+    if (e.target === lightbox) lightbox.style.display = 'none';
+});
+</script>
 
     <!-- Services Section -->
     <section class="services" id="services">
@@ -1445,7 +1545,71 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
+      <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxGrid = lightbox.querySelector('.lightbox-grid');
+    const lightboxClose = lightbox.querySelector('.lightbox-close');
+
+    galleryItems.forEach(item => {
+        item.addEventListener('click', () => {
+            lightboxGrid.innerHTML = ''; // Clear previous images
+
+            // Check for data-images attribute
+            let images = item.dataset.images 
+                ? item.dataset.images.split(',').map(src => src.trim())
+                : [];
+
+            if (images.length === 0) {
+                // Fallback to the main comparison image
+                const mainImage = item.querySelector('.comparison-image');
+                if (mainImage) {
+                    const img = document.createElement('img');
+                    img.src = mainImage.src;
+                    img.alt = mainImage.alt || "Gallery image";
+                    lightboxGrid.appendChild(img);
+                } else {
+                    // If no images at all, show Under Construction message
+                    const message = document.createElement('p');
+                    message.textContent = "Under Construction";
+                    message.style.color = "#fff";
+                    message.style.fontSize = "1.5rem";
+                    message.style.textAlign = "center";
+                    message.style.padding = "3rem";
+                    lightboxGrid.appendChild(message);
+                }
+            } else {
+                // Populate lightbox with data-images
+                images.forEach(src => {
+                    const img = document.createElement('img');
+                    img.src = src;
+                    img.alt = "Gallery image";
+                    lightboxGrid.appendChild(img);
+                });
+            }
+
+            lightbox.style.display = 'flex';
+        });
+    });
+
+    // Close lightbox
+    lightboxClose.addEventListener('click', () => {
+        lightbox.style.display = 'none';
+    });
+
+    // Close lightbox on click outside content
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+            lightbox.style.display = 'none';
+        }
+    });
+});
+</script>
+
+    
         // Navbar scroll effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
@@ -1458,21 +1622,7 @@
 
         // Smooth scroll for anchor links
         
-        // Before/After Image Comparison Sliders
-        document.querySelectorAll('.comparison-container').forEach(container => {
-            let isDragging = false;
-            
-            const updateSlider = (e) => {
-                const rect = container.getBoundingClientRect();
-                const x = (e.type.includes('mouse') ? e.clientX : e.touches[0].clientX) - rect.left;
-                const percentage = Math.max(0, Math.min(100, (x / rect.width) * 100));
-                
-                const slider = container.querySelector('.comparison-slider');
-                const afterImage = container.querySelector('.comparison-after');
-                
-                slider.style.left = percentage + '%';
-                afterImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
-            };
+        
             
             // Mouse events
             container.addEventListener('mousedown', (e) => {
