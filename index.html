@@ -1056,13 +1056,18 @@
     }
 
     .mobile-menu-btn {
-        display: block;
-        background: none;
-        border: none;
-        cursor: pointer;
-        padding: 0.5rem;
-    }
+    display: none; /* hide by default */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+}
 
+@media (max-width: 900px) {
+    .mobile-menu-btn {
+        display: block; /* show on mobile */
+    }
+}
     .mobile-menu-btn svg {
         width: 28px;
         height: 28px;
@@ -1226,8 +1231,7 @@
 <section class="gallery" id="gallery">
     <div class="gallery-header">
         <p class="section-tag">Recent Projects </p>
-        <h2>Fine finishes <em>exceptional reseults </em></h2>
-        <p>Click to expand.</p>
+        <h2><em>Photo Gallery</em></h2>
     </div>
 
     <div class="gallery-grid">
