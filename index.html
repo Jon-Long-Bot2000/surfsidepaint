@@ -1306,10 +1306,9 @@ const galleryItems = document.querySelectorAll('.gallery-item');
 galleryItems.forEach(item => {
     item.addEventListener('click', () => {
         const imagesData = item.dataset.images ? item.dataset.images.trim() : '';
-        lightboxGrid.innerHTML = ''; // clear previous content
+        lightboxGrid.innerHTML = '';
 
         if (!imagesData) {
-            // If no images, show Under Construction
             const msg = document.createElement('p');
             msg.textContent = 'Under Construction';
             msg.style.color = '#fff';
@@ -1329,12 +1328,24 @@ galleryItems.forEach(item => {
     });
 });
 
-// Close lightbox
 lightboxClose.addEventListener('click', () => {
     lightbox.style.display = 'none';
 });
 lightbox.addEventListener('click', e => {
     if (e.target === lightbox) lightbox.style.display = 'none';
+});
+
+// Mobile menu toggle
+const mobileBtn = document.querySelector('.mobile-menu-btn');
+const navLinks = document.querySelector('.nav-links');
+
+mobileBtn.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+});
+
+// Optional: close menu when a link is clicked
+navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => navLinks.classList.remove('active'));
 });
 </script>
 
