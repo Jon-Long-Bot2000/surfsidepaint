@@ -88,21 +88,34 @@
 .logo {
   display: flex;
   align-items: center;
+  gap: 0.35rem; /* breathing room between words */
   text-decoration: none;
 }
 
 .logo-text {
   font-family: 'Fraunces', serif;
-  font-size: 1.35rem;
-  font-weight: 500;
-  letter-spacing: -0.02em;
   color: var(--text);
   white-space: nowrap;
+  line-height: 1.1;
 }
 
-.logo-accent {
+/* Primary brand word */
+
+        .logo-primary {
+  font-size: 1.5rem;      /* slightly larger */
+  font-weight: 600;
+  letter-spacing: -0.02em;
   color: var(--ocean);
 }
+
+/* Secondary descriptor */
+.logo-secondary {
+  font-size: 1.2rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--text-light);
+}
+
 
         .nav-links {
             display: flex;
@@ -887,6 +900,13 @@
     gap: 1rem;
   }
 }
+.logo-primary {
+  font-size: 1.25rem;
+}
+
+.logo-secondary {
+    font-size: 1rem;
+  }
 
         
         /* Call Now Section */
@@ -1343,7 +1363,8 @@
     <!-- Navigation -->
     <nav id="navbar">
         <a href="#" class="logo logo-text">
-  <span class="logo-accent">Surfside</span> Painting Company
+  <span class="logo-accent logo-primary">Surfside</span>
+  <span class="logo-secondary">Painting Company</span>
 </a>
 
         <ul class="nav-links">
