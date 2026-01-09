@@ -1,51 +1,144 @@
-.review-card {
-  background: #fff;
-  max-width: 520px;
-  width: 100%;
-  padding: 3rem 2.5rem;
-  border-radius: 16px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
-  text-align: center;
-  border: 1px solid rgba(79, 134, 166, 0.08);
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leave a Review | Surfside Painting Company</title>
 
-.review-card h1 {
-  font-family: "Fraunces", serif;
-  font-size: 2.2rem;
-  margin-bottom: 1rem;
-}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
 
-.review-card p {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-  color: #44525c;
-}
+  <style>
+    :root {
+      --sand: #f4f8fb;
+      --sand-dark: #e6eff6;
+      --ocean: #4f86a6;
+      --ocean-light: #7fb2cc;
+      --ink: #1f2a33;
+    }
 
-.review-benefits {
-  list-style-position: inside;
-  padding: 0;
-  margin: 2rem auto 2.25rem;
-  display: inline-block;
-  text-align: center;
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-.review-benefits li {
-  margin: 0.75rem 0;
-}
+    body {
+      font-family: "DM Sans", sans-serif;
+      background: linear-gradient(135deg, var(--sand-dark), var(--sand));
+      color: var(--ink);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
 
-.stars {
-  font-size: 1.8rem;
-  margin-bottom: 2.25rem;
-  color: #f5b301;
-  animation: floatStars 2.5s ease-in-out infinite;
-}
+    .review-card {
+      background: #fff;
+      max-width: 520px;
+      width: 100%;
+      padding: 3rem 2.5rem;
+      border-radius: 16px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+      text-align: center;
+      border: 1px solid rgba(79, 134, 166, 0.08);
+    }
 
-@keyframes floatStars {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-4px);
-  }
-}
+    .review-card h1 {
+      font-family: "Fraunces", serif;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .review-card p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+      color: #44525c;
+    }
+
+    .review-benefits {
+      list-style-position: inside;
+      padding: 0;
+      margin: 2rem auto 2.25rem;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .review-benefits li {
+      margin: 0.75rem 0;
+    }
+
+    .stars {
+      font-size: 1.8rem;
+      margin-bottom: 2.25rem;
+      color: #f5b301;
+      animation: floatStars 2.5s ease-in-out infinite;
+    }
+
+    @keyframes floatStars {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    .review-btn {
+      display: inline-block;
+      width: 100%;
+      padding: 1rem 1.25rem;
+      font-size: 1.1rem;
+      font-weight: 500;
+      background: var(--ocean);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 10px;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+    }
+
+    .review-btn:hover {
+      background: var(--ocean-light);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(79, 134, 166, 0.35);
+    }
+
+    .helper-text {
+      margin-top: 1.25rem;
+      font-size: 0.9rem;
+      color: #6b7a86;
+    }
+  </style>
+</head>
+
+<body>
+  <main class="review-card">
+    <h1>Thanks a Million!</h1>
+
+    <p>
+      Every positive review makes a huge impact for<br>
+      <strong>Surfside Painting Company</strong>.
+    </p>
+
+    <ul class="review-benefits">
+      <li><strong>Higher Placement in Google Search</strong></li>
+      <li><strong>Stronger Relevance in Google Search</strong></li>
+      <li><strong>More Awesome People Calling My Phone!</strong></li>
+    </ul>
+
+    <p>Write a detailed review and add a photo!</p>
+
+    <div class="stars">★★★★★</div>
+
+    <a
+      class="review-btn"
+      href="https://g.page/r/CUA1-O66mJGXEBM/review"
+      target="_blank"
+      rel="noopener"
+    >
+      Support Surfside
+    </a>
+
+    <div class="helper-text">Surfside Painting Company</div>
+  </main>
+</body>
+</html>
