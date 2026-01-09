@@ -24,6 +24,10 @@
       padding: 0;
     }
 
+    html, body {
+      height: 100%;
+    }
+
     body {
       font-family: "DM Sans", sans-serif;
       background: linear-gradient(135deg, var(--sand-dark), var(--sand));
@@ -32,14 +36,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem;
+      padding: clamp(1rem, 4vw, 2rem);
+      -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
     }
 
     .review-card {
       background: #fff;
-      max-width: 520px;
       width: 100%;
-      padding: 3rem 2.5rem;
+      max-width: 520px;
+      padding: clamp(1.5rem, 5vw, 3rem) clamp(1.25rem, 5vw, 2.5rem);
       border-radius: 16px;
       box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
       text-align: center;
@@ -48,32 +54,39 @@
 
     .review-card h1 {
       font-family: "Fraunces", serif;
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
+      font-size: clamp(1.7rem, 5.5vw, 2.2rem);
+      line-height: 1.15;
+      margin-bottom: 0.9rem;
+      letter-spacing: -0.01em;
     }
 
     .review-card p {
-      font-size: 1.05rem;
-      line-height: 1.6;
-      margin-bottom: 2rem;
+      font-size: clamp(1rem, 3.8vw, 1.05rem);
+      line-height: 1.55;
+      margin-bottom: 1.5rem;
       color: #44525c;
+    }
+
+    .review-card p strong {
+      color: var(--ink);
     }
 
     .review-benefits {
       list-style-position: inside;
       padding: 0;
-      margin: 2rem auto 2.25rem;
+      margin: 1.5rem auto 1.75rem;
       display: inline-block;
       text-align: center;
+      max-width: 28ch;
     }
 
     .review-benefits li {
-      margin: 0.75rem 0;
+      margin: 0.65rem 0;
     }
 
     .stars {
-      font-size: 1.8rem;
-      margin-bottom: 2.25rem;
+      font-size: clamp(1.6rem, 6vw, 1.8rem);
+      margin-bottom: 1.75rem;
       color: #f5b301;
       animation: floatStars 2.5s ease-in-out infinite;
     }
@@ -84,16 +97,21 @@
     }
 
     .review-btn {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       width: 100%;
+      min-height: 52px;
       padding: 1rem 1.25rem;
       font-size: 1.1rem;
-      font-weight: 500;
+      font-weight: 600;
       background: var(--ocean);
       color: #fff;
       text-decoration: none;
-      border-radius: 10px;
+      border-radius: 12px;
       transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
     }
 
     .review-btn:hover {
@@ -102,10 +120,89 @@
       box-shadow: 0 10px 25px rgba(79, 134, 166, 0.35);
     }
 
+    .review-btn:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
     .helper-text {
-      margin-top: 1.25rem;
+      margin-top: 1rem;
       font-size: 0.9rem;
       color: #6b7a86;
+    }
+
+    /* --- Sticky CTA (mobile only) --- */
+    .sticky-cta {
+      display: none; /* hidden on desktop by default */
+    }
+
+    @media (max-width: 768px) {
+      body {
+        align-items: flex-start;
+      }
+
+      /* Give room for sticky bar */
+      body {
+        padding-bottom: calc(1rem + env(safe-area-inset-bottom) + 88px);
+      }
+
+      .review-card {
+        margin-top: 1rem;
+      }
+
+      /* Hide in-card button to avoid duplicate CTAs on mobile */
+      .review-card .review-btn {
+        display: none;
+      }
+
+      .sticky-cta {
+        display: block;
+        position: fixed;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom));
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(79, 134, 166, 0.12);
+        z-index: 9999;
+      }
+
+      .sticky-cta-inner {
+        max-width: 520px;
+        margin: 0 auto;
+        display: grid;
+        gap: 0.5rem;
+      }
+
+      .sticky-note {
+        font-size: 0.9rem;
+        color: #6b7a86;
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .review-benefits {
+        max-width: 100%;
+      }
+
+      .review-card p {
+        margin-bottom: 1.25rem;
+      }
+
+      .stars {
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .stars {
+        animation: none;
+      }
+      .review-btn {
+        transition: none;
+      }
     }
   </style>
 </head>
@@ -129,6 +226,7 @@
 
     <div class="stars">★★★★★</div>
 
+    <!-- Desktop CTA (hidden on mobile via CSS) -->
     <a
       class="review-btn"
       href="https://g.page/r/CUA1-O66mJGXEBM/review"
@@ -140,5 +238,20 @@
 
     <div class="helper-text">Surfside Painting Company</div>
   </main>
+
+  <!-- Mobile Sticky CTA (shown on mobile via CSS) -->
+  <div class="sticky-cta" aria-label="Leave a Google review">
+    <div class="sticky-cta-inner">
+      <a
+        class="review-btn"
+        href="https://g.page/r/CUA1-O66mJGXEBM/review"
+        target="_blank"
+        rel="noopener"
+      >
+        Leave a Google Review
+      </a>
+      <div class="sticky-note">Takes about 60 seconds 🙏</div>
+    </div>
+  </div>
 </body>
 </html>
