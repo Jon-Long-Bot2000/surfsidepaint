@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leave a Google Review | Surfside Painting Company</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --sand: #f4f8fb;        /* very light blue-white background */
+      --sand-dark: #e6eff6;   /* soft blue-gray */
+      --ocean: #4f86a6;       /* muted coastal blue (primary) */
+      --ocean-light: #7fb2cc; /* light sky blue accent */
+      --driftwood: #9bb6c8;   /* soft blue-gray neutral */
+      --salt: #ffffff;        /* clean white */
+      --kelp: #5f7480;        /* desaturated slate blue */
+      --sunset: #f2c7a1;      /* warm soft accent */
+      --text: #24323d;        /* deep blue-gray */
+      --text-light: #5c6f7d;  /* secondary */
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--sand);
+      color: var(--text);
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    body.no-scroll { overflow: hidden; }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.03;
+      pointer-events: none;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Fraunces', serif;
+      font-weight: 400;
+      line-height: 1.15;
+    }
+
+    /* =========================
+       NAVIGATION (yours + small fixes)
+    ========================== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 1.5rem 4rem;
+      min-height: 84px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: color-mix(in srgb, var(--sand) 92%, white);
+      box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      text-decoration: none;
+    }
+
+    .logo-text {
+      font-family: 'Fraunces', serif;
+      color: var(--text);
+      white-space: nowrap;
+      line-height: 1.1;
+      transform: scale(1.12);
+      transform-origin: left center;
+    }
+
+    .logo-primary {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--ocean);
+    }
+
+    .logo-secondary {
+      font-size: 1.2rem;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--text-light);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--ocean);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-contact {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+    }
+
+    .nav-cta {
+      background: var(--ocean);
+      color: var(--salt);
+      padding: 0.75rem 1.5rem;
+      border-radius: 2rem;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(45, 90, 90, 0.22);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      border: 0;
+      cursor: pointer;
+    }
+
+    .nav-cta:hover {
+      background: var(--ocean-light);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(45, 90, 90, 0.28);
+    }
+
+    /* Mobile menu button (you had HTML but no CSS) */
+    .mobile-menu-btn {
+      display: none;
+      background: transparent;
+      border: 1px solid rgba(36, 50, 61, 0.12);
+      border-radius: 14px;
+      padding: 10px 12px;
+      cursor: pointer;
+      color: var(--text);
+      transition: transform .08s ease, border-color .2s ease, background .2s ease;
+    }
+    .mobile-menu-btn:hover {
+      background: rgba(255,255,255,0.6);
+      border-color: rgba(36, 50, 61, 0.18);
+      transform: translateY(-1px);
+    }
+    .mobile-menu-btn svg { width: 22px; height: 22px; }
+
+    /* =========================
+       LANDING PAGE LAYOUT
+    ========================== */
+    .page {
+      padding-top: 104px; /* offset fixed nav */
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      padding: 4.25rem 0 2.25rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      padding: .5rem .85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(36, 50, 61, 0.12);
+      background: rgba(255,255,255,0.62);
+      backdrop-filter: blur(8px);
+      color: var(--text-light);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .badge-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--ocean) 65%, white);
+      box-shadow: 0 0 0 4px rgba(79, 134, 166, 0.16);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.1rem, 4.2vw, 3.25rem);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.85rem;
+    }
+
+    .hero p {
+      color: var(--text-light);
+      font-size: 1.08rem;
+      max-width: 58ch;
+      margin-bottom: 1.35rem;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem;
+      align-items: center;
+      margin: 1.15rem 0 1rem;
+    }
+
+    .btn {
+      border: 1px solid rgba(36, 50, 61, 0.12);
+      background: rgba(255,255,255,0.8);
+      color: var(--text);
+      padding: 0.95rem 1.1rem;
+      border-radius: 18px;
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      transition: transform .08s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: rgba(36, 50, 61, 0.18);
+      box-shadow: 0 10px 30px rgba(36, 50, 61, 0.10);
+      background: rgba(255,255,255,0.92);
+    }
+
+    .btn.primary {
+      background: var(--ocean);
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 12px 30px rgba(79, 134, 166, 0.25);
+    }
+    .btn.primary:hover { background: var(--ocean-light); }
+
+    .btn.small {
+      padding: 0.75rem 0.95rem;
+      border-radius: 16px;
+      font-weight: 600;
+    }
+
+    .fine {
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+    .fine a { color: var(--ocean); font-weight: 600; text-decoration: none; }
+    .fine a:hover { text-decoration: underline; }
+
+    /* Card on the right */
+    .panel {
+      background: rgba(255,255,255,0.7);
+      border: 1px solid rgba(36, 50, 61, 0.12);
+      border-radius: 22px;
+      padding: 1.35rem 1.35rem 1.2rem;
+      box-shadow: 0 16px 50px rgba(36, 50, 61, 0.10);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 108px;
+    }
+
+    .panel h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .steps {
+      list-style: none;
+      display: grid;
+      gap: 0.85rem;
+      margin: 0.95rem 0 1rem;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 40px 1fr;
+      gap: 0.85rem;
+      align-items: start;
+      padding: 0.95rem 0.95rem;
+      background: rgba(244, 248, 251, 0.9);
+      border: 1px solid rgba(36, 50, 61, 0.10);
+      border-radius: 18px;
+    }
+
+    .step-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-weight: 800;
+      color: var(--ocean);
+      background: rgba(127, 178, 204, 0.22);
+      border: 1px solid rgba(79, 134, 166, 0.18);
+    }
+
+    .step-title {
+      font-weight: 700;
+      margin-bottom: 0.1rem;
+    }
+
+    .step-desc {
+      color: var(--text-light);
+      font-size: 0.98rem;
+      line-height: 1.55;
+    }
+
+    .divider {
+      height: 1px;
+      background: rgba(36, 50, 61, 0.10);
+      margin: 1rem 0;
+    }
+
+    .mini {
+      font-size: 0.95rem;
+      color: var(--text-light);
+    }
+
+    /* Trust strip */
+    .trust {
+      padding: 1.25rem 0 3.25rem;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .trust-card {
+      background: rgba(255,255,255,0.65);
+      border: 1px solid rgba(36, 50, 61, 0.10);
+      border-radius: 22px;
+      padding: 1.25rem 1.2rem;
+      box-shadow: 0 16px 50px rgba(36, 50, 61, 0.08);
+      backdrop-filter: blur(10px);
+    }
+
+    .trust-card h4 {
+      font-size: 1.15rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .trust-card p {
+      color: var(--text-light);
+      font-size: 0.98rem;
+      line-height: 1.6;
+    }
+
+    /* Footer */
+    footer {
+      padding: 2rem 0 2.25rem;
+      color: var(--text-light);
+      font-size: 0.95rem;
+    }
+
+    /* =========================
+       RESPONSIVE
+    ========================== */
+    @media (max-width: 980px) {
+      nav { padding: 1.1rem 1.25rem; }
+      .nav-links { display: none; }
+      .mobile-menu-btn { display: inline-flex; }
+      .hero-grid { grid-template-columns: 1fr; }
+      .panel { position: relative; top: auto; }
+      .trust-grid { grid-template-columns: 1fr; }
+      .hero { padding: 3.25rem 0 1.5rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav id="navbar">
+    <a href="#" class="logo logo-text" aria-label="Surfside Painting Company home">
+      <span class="logo-accent logo-primary">Surfside</span>
+      <span class="logo-secondary">Painting Company</span>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#clients">Clients</a></li>
+      <li><a href="#gallery">Gallery</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-contact">
+      <a href="tel:+18057984995" class="nav-cta">Call Now</a>
+
+      <button class="mobile-menu-btn" aria-label="Menu" title="Menu">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+  </nav>
+
+  <main class="page">
+    <section class="hero">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Left: Main pitch -->
+          <div>
+            <div class="badge">
+              <span class="badge-dot" aria-hidden="true"></span>
+              Ventura County • Locally Owned • Trusted Results
+            </div>
+
+            <h1>Thanks for choosing Surfside.</h1>
+            <p>
+              If you loved the work, a quick <strong>Google review</strong> helps other homeowners feel confident hiring us.
+              It only takes about a minute — and it makes a huge difference.
+            </p>
+
+            <div class="cta-row">
+              <!-- ✅ Replace this link with your real Google review URL -->
+              <a class="btn primary" id="googleReviewBtn" href="YOUR_GOOGLE_REVIEW_LINK_HERE" target="_blank" rel="noopener">
+                Leave a Google Review
+                <span aria-hidden="true">→</span>
+              </a>
+
+              <button class="btn" id="copyReviewLink" type="button">
+                Copy Review Link
+              </button>
+
+              <a class="btn" id="textReviewLink" href="#">
+                Text This Link
+              </a>
+            </div>
+
+            <p class="fine">
+              Not totally satisfied? Please reach out and we’ll make it right:
+              <a href="tel:+18057984995">(805) 798-4995</a>
+            </p>
+          </div>
+
+          <!-- Right: Simple steps -->
+          <aside class="panel" aria-label="How to leave a review">
+            <h3>Quick steps</h3>
+            <ul class="steps">
+              <li class="step">
+                <div class="step-num">1</div>
+                <div>
+                  <div class="step-title">Tap “Leave a Google Review”</div>
+                  <div class="step-desc">It opens our Google review page in a new tab.</div>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-num">2</div>
+                <div>
+                  <div class="step-title">Choose your star rating</div>
+                  <div class="step-desc">If we earned 5 stars, we’d really appreciate it.</div>
+                </div>
+              </li>
+              <li class="step">
+                <div class="step-num">3</div>
+                <div>
+                  <div class="step-title">Write 1–2 sentences</div>
+                  <div class="step-desc">
+                    Mention what we painted + what you liked (quality, communication, cleanliness, timeliness).
+                  </div>
+                </div>
+              </li>
+            </ul>
+
+            <div class="divider"></div>
+
+            <p class="mini">
+              <strong>Need ideas?</strong><br>
+              “Surfside was professional, on time, and the finish looks amazing. Great communication and the job site stayed clean.”
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust strip (light, non-pushy) -->
+    <section class="trust" id="clients">
+      <div class="container">
+        <div class="trust-grid">
+          <div class="trust-card">
+            <h4>Quality you can see</h4>
+            <p>Clean lines, careful prep, and finishes built to last — inside and out.</p>
+          </div>
+          <div class="trust-card">
+            <h4>Clear communication</h4>
+            <p>We confirm details up front and keep you in the loop from start to finish.</p>
+          </div>
+          <div class="trust-card">
+            <h4>Respect for your home</h4>
+            <p>We protect surfaces, minimize disruption, and leave the site tidy every day.</p>
+          </div>
+        </div>
+
+        <footer>
+          © <span id="year"></span> Surfside Painting Company
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Update year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Copy review link button: copies the Google review URL (preferred)
+    const googleBtn = document.getElementById("googleReviewBtn");
+    const copyBtn = document.getElementById("copyReviewLink");
+
+    copyBtn.addEventListener("click", async () => {
+      const url = googleBtn.getAttribute("href");
+      if (!url || url.includes("YOUR_GOOGLE_REVIEW_LINK_HERE")) {
+        alert("Add your Google review link first (replace YOUR_GOOGLE_REVIEW_LINK_HERE).");
+        return;
+      }
+      try {
+        await navigator.clipboard.writeText(url);
+        alert("Google review link copied!");
+      } catch (e) {
+        // fallback
+        const tmp = document.createElement("input");
+        tmp.value = url;
+        document.body.appendChild(tmp);
+        tmp.select();
+        document.execCommand("copy");
+        tmp.remove();
+        alert("Google review link copied!");
+      }
+    });
+
+    // SMS link to send this page (useful if you're sending it to a spouse, etc.)
+    const textLink = document.getElementById("textReviewLink");
+    const pageUrl = window.location.href;
+    const smsBody = encodeURIComponent("Here’s the Surfside review link: " + pageUrl);
+    textLink.href = "sms:&body=" + smsBody;
+  </script>
+</body>
+</html>
