@@ -274,6 +274,50 @@
             animation: fadeInUp 0.8s ease 0.3s forwards;
             opacity: 0;
         }
+   
+        <-----PHOTO GALLERY----->    
+        .card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 20px;
+}
+
+.image-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.image-card img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.image-card:hover img {
+    transform: scale(1.05);
+}
+
+.card-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    padding: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.image-card:hover .card-caption {
+    opacity: 1;
+}
+
+        
+        
         /* Lightbox base */
 .lightbox {
     position: fixed;
@@ -1152,73 +1196,69 @@
     </section>
 
 <!-- Photo Gallery -->
-
----TESTING IMAGE CARDS---    
-    <section class="gallery-grid">
-  <div class="image-card">
-    <img src="images/ojai-after.jpg" alt="Ventura Coastline" onclick="openDialog(this)">
-    <div class="card-caption">Ventura Pier & Coastline</div>
-  </div>
-
-  <!-- Dialog element -->
-  <dialog id="imgDialog">
-    <img id="dialogImg" src="" alt="" style="width:100%; max-width:800px;">
-    <button onclick="document.getElementById('imgDialog').close()">Close</button>
-  </dialog>
-</section>
-
     
  <section class="gallery" id="gallery">
     <div class="gallery-header">
-        <p class="section-tag">Recent Projects</p>
-        <h2><em>Photo Gallery</em></h2>
+        <p class="section-tag">"Painting is just another way of keeping a diary" -Pablo Picasso</p>
+        <h2><em>Recent Projects</em></h2>
     </div>
-    <div class="gallery-grid">
-       
-                <!-- Ojai Project -->
-                        <div class="gallery-item" data-images="images/ojai-1.jpg, images/ojai-2.jpg, images/ojai-3.jpg, images/ojai-4.jpg">
-                    <img src="images/ojai-1.jpg" alt="Ojai Exterior Refresh" class="gallery-thumb">
-                    <div class="gallery-caption">
-                        <h3>Ojai Exterior Refresh</h3>
-                        <p>Complete exterior transformation</p>
-                    </div>
-                </div>
-                
-                <!-- Oxnard Project -->
-                       <div class="gallery-item" data-images="images/oxnard-1.jpg, images/oxnard-2.jpg, images/oxnard-3.jpg, images/oxnard-4.jpg">
-                 <img src="images/oxnard-after.jpg" alt="Oxnard home makeover after" class="gallery-thumb">
-                    <div class="gallery-caption">
-                        <h3>Oxnard Home Makeover</h3>
-                        <p>Fresh paint brings new life</p>
-                    </div>
-                </div>
-                
-                 <!-- Ventura Deck Project -->
-                          <div class="gallery-item" data-images="images/deck-1.jpg, images/deck-2.jpg, images/deck-3.jpg, images/deck-4.jpg">
-                 <img src="ventura-deck-after.jpg" alt="Ventura deck restoration" class="gallery-thumb">
-                    <div class="gallery-caption">
-                        <h3>Ventura Deck Restoration</h3>
-                        <p>From weathered to wonderful</p>
-                    </div>
-                </div>
-                
-                  <!-- Ventura East Project -->
-                         <div class="gallery-item" data-images="images/east-1.jpg, images/east-2.jpg, images/east-3.jpg, images/east-4.jpg">
-                 <img src="images/ventura-east-after.jpg" alt="Ventura East Side exterior painting" class="gallery-thumb">
-                    <div class="gallery-caption">
-                        <h3>Ventura East Side</h3>
-                        <p>Modern color palette</p>
-                    </div>
-                </div>
-    
-             <!-- Lightbox -->
-                <div class="lightbox" id="lightbox">
-                    <div class="lightbox-content">
-                        <button class="lightbox-close">&times;</button>
-                        <div class="lightbox-grid"></div>
-                    </div>
-                </div>
-            </section>
+
+    <div class="gallery-grid card-grid">
+        <!-- Ojai Project -->
+        <div class="image-card">
+            <img src="images/ojai-after.jpg" alt="Ojai Exterior Refresh">
+            <div class="card-caption">
+                <h3>Ojai Exterior Refresh</h3>
+                <p>Complete exterior transformation</p>
+            </div>
+        </div>
+
+        <!-- Oxnard Project -->
+        <div class="image-card">
+            <img src="images/oxnard-after.jpg" alt="Oxnard Home Makeover">
+            <div class="card-caption">
+                <h3>Oxnard Home Makeover</h3>
+                <p>Fresh paint brings new life</p>
+            </div>
+        </div>
+
+        <!-- Ventura Deck Project -->
+        <div class="image-card">
+            <img src="ventura-deck-after.jpg" alt="Ventura Deck Restoration">
+            <div class="card-caption">
+                <h3>Ventura Deck Restoration</h3>
+                <p>From weathered to wonderful</p>
+            </div>
+        </div>
+
+        <!-- Ventura East Project -->
+        <div class="image-card">
+            <img src="images/ventura-east-after.jpg" alt="Ventura East Side">
+            <div class="card-caption">
+                <h3>Ventura East Side</h3>
+                <p>Modern color palette</p>
+            </div>
+        </div>
+
+        <!-- Example Project 5 -->
+        <div class="image-card">
+            <img src="images/ventura-keys-after.jpg" alt="Project 5">
+            <div class="card-caption">
+                <h3>Project 5</h3>
+                <p>Description here</p>
+            </div>
+        </div>
+
+        <!-- Example Project 6 -->
+        <div class="image-card">
+            <img src="images/goleta-after.jpg" alt="Project 6">
+            <div class="card-caption">
+                <h3>Project 6</h3>
+                <p>Description here</p>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- Services Section -->
     <section class="services" id="services">
