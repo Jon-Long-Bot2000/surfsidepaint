@@ -212,14 +212,16 @@
                 z-index: 3;
                 }
       
-            .hero-bg.hero-background::after {
+           .hero-bg.hero-background::after {
                 content: "";
                 position: absolute;
                 inset: 0;
                 background: linear-gradient(
                     rgba(244, 248, 251, 0.6),
                     rgba(244, 248, 251, 0.6)
-                }
+                );
+            }
+
         
             .hero-tag {
                 display: inline-flex;
@@ -1065,58 +1067,44 @@
             display: none;
         }
 
-        /* Mobile Styles */
-   
+/* Mobile Navigation */
 @media (max-width: 900px) {
-    /* Navigation */
+
     nav {
         padding: 1rem 2rem;
     }
 
+    /* Hide desktop nav + CTA */
     .nav-links,
     .nav-contact > .nav-cta {
         display: none !important;
     }
 
-   .mobile-menu-btn {
-    display: none;
-}
-
-@media (max-width: 900px) {
+    /* Show hamburger button */
     .mobile-menu-btn {
         display: block;
     }
 
-}
     .mobile-menu-btn svg {
         width: 28px;
         height: 28px;
         color: var(--text);
     }
 
-    .nav-phone {
-        display: none;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 70px;
-        right: 0;
-        background: var(--salt);
-        width: 200px;
+    /* Show menu when active */
+    .nav-links.active {
+        display: flex !important;
         flex-direction: column;
         gap: 1.5rem;
+        background: var(--sand);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
         padding: 2rem;
-        border-left: 1px solid rgba(0,0,0,0.05);
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
         z-index: 999;
     }
-
-    .nav-links.active {
-        transform: translateX(0);
-    }
-
+}
     /* Hero Section */
     .hero {
         padding: 6rem 2rem 4rem;
@@ -1321,59 +1309,6 @@
     </div>
 </section>
 
-<!-- Lightbox Script -->
-<script>
-const lightbox = document.getElementById('lightbox');
-const lightboxGrid = lightbox.querySelector('.lightbox-grid');
-const lightboxClose = lightbox.querySelector('.lightbox-close');
-const galleryItems = document.querySelectorAll('.gallery-item');
-
-galleryItems.forEach(item => {
-    item.addEventListener('click', () => {
-        const imagesData = item.dataset.images ? item.dataset.images.trim() : '';
-        lightboxGrid.innerHTML = '';
-
-        if (!imagesData) {
-            const msg = document.createElement('p');
-            msg.textContent = 'Under Construction';
-            msg.style.color = '#fff';
-            msg.style.fontSize = '1.5rem';
-            msg.style.textAlign = 'center';
-            lightboxGrid.appendChild(msg);
-        } else {
-            const images = imagesData.split(',').map(img => img.trim());
-            images.forEach(src => {
-                const imgEl = document.createElement('img');
-                imgEl.src = src;
-                lightboxGrid.appendChild(imgEl);
-            });
-        }
-
-        lightbox.style.display = 'flex';
-    });
-});
-
-lightboxClose.addEventListener('click', () => {
-    lightbox.style.display = 'none';
-});
-lightbox.addEventListener('click', e => {
-    if (e.target === lightbox) lightbox.style.display = 'none';
-});
-
-// Mobile menu toggle
-const mobileBtn = document.querySelector('.mobile-menu-btn');
-const navLinks = document.querySelector('.nav-links');
-
-mobileBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-});
-
-// Optional: close menu when a link is clicked
-navLinks.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => navLinks.classList.remove('active'));
-});
-</script>
-
     <!-- Services Section -->
     <section class="services" id="services">
         <div class="section-header">
@@ -1577,77 +1512,84 @@ navLinks.querySelectorAll('a').forEach(link => {
             <p class="footer-copy">© 2025 Surfside Paint. All rights reserved. Licensed & Insured in California.</p>
         </div>
     </footer>
-</body>
-</html>
-
-    
-      <script>
+<script>
 document.addEventListener('DOMContentLoaded', () => {
+
+    /* =========================
+       LIGHTBOX FUNCTIONALITY
+    ========================== */
     const galleryItems = document.querySelectorAll('.gallery-item');
     const lightbox = document.getElementById('lightbox');
-    const lightboxGrid = lightbox.querySelector('.lightbox-grid');
-    const lightboxClose = lightbox.querySelector('.lightbox-close');
+    const lightboxGrid = lightbox?.querySelector('.lightbox-grid');
+    const lightboxClose = lightbox?.querySelector('.lightbox-close');
 
     galleryItems.forEach(item => {
         item.addEventListener('click', () => {
-            lightboxGrid.innerHTML = ''; // Clear previous images
+            if (!lightbox || !lightboxGrid) return;
 
-            // Check for data-images attribute
-            let images = item.dataset.images 
-                ? item.dataset.images.split(',').map(src => src.trim())
+            lightboxGrid.innerHTML = '';
+
+            const images = item.dataset.images
+                ? item.dataset.images.split(',').map(src => src.trim()).filter(Boolean)
                 : [];
 
-            if (images.length === 0) {
-                // Fallback to the main comparison image
-                const mainImage = item.querySelector('.comparison-image');
-                if (mainImage) {
-                    const img = document.createElement('img');
-                    img.src = mainImage.src;
-                    img.alt = mainImage.alt || "Gallery image";
-                    lightboxGrid.appendChild(img);
-                } else {
-                    // If no images at all, show Under Construction message
-                    const message = document.createElement('p');
-                    message.textContent = "Under Construction";
-                    message.style.color = "#fff";
-                    message.style.fontSize = "1.5rem";
-                    message.style.textAlign = "center";
-                    message.style.padding = "3rem";
-                    lightboxGrid.appendChild(message);
-                }
-            } else {
-                // Populate lightbox with data-images
+            if (images.length) {
                 images.forEach(src => {
                     const img = document.createElement('img');
                     img.src = src;
-                    img.alt = "Gallery image";
+                    img.alt = "Project image";
                     lightboxGrid.appendChild(img);
                 });
+            } else {
+                const fallback = item.querySelector('.comparison-image');
+                if (fallback) {
+                    const img = document.createElement('img');
+                    img.src = fallback.src;
+                    img.alt = fallback.alt || "Project image";
+                    lightboxGrid.appendChild(img);
+                } else {
+                    const msg = document.createElement('p');
+                    msg.textContent = "Under Construction";
+                    msg.style.color = "#fff";
+                    msg.style.fontSize = "1.5rem";
+                    msg.style.textAlign = "center";
+                    msg.style.padding = "3rem";
+                    lightboxGrid.appendChild(msg);
+                }
             }
 
             lightbox.style.display = 'flex';
         });
     });
 
-    // Close lightbox
-    lightboxClose.addEventListener('click', () => {
+    lightboxClose?.addEventListener('click', () => {
         lightbox.style.display = 'none';
     });
 
-    // Close lightbox on click outside content
-    lightbox.addEventListener('click', (e) => {
+    lightbox?.addEventListener('click', e => {
         if (e.target === lightbox) {
             lightbox.style.display = 'none';
         }
     });
+
+    /* =========================
+       MOBILE NAVIGATION
+    ========================== */
+    const mobileBtn = document.querySelector('.mobile-menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+
+    mobileBtn?.addEventListener('click', () => {
+        navLinks?.classList.toggle('active');
+    });
+
+    navLinks?.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+
 });
 </script>
 
-<script>
-const menuBtn = document.querySelector('.mobile-menu-btn');
-const navLinks = document.querySelector('.nav-links');
-
-menuBtn.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-});
-</script>
+</body>
+</html>
