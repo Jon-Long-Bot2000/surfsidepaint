@@ -38,7 +38,10 @@
             color: var(--text);
             line-height: 1.8;
             overflow-x: hidden;
-        }
+        }  
+            body.no-scroll {
+              overflow: hidden;
+            }
 
         body::before {
             content: '';
@@ -256,118 +259,220 @@
             opacity: 0;
         }
    
-   
-       .gallery {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 40px 20px;
+/* =========================
+   GALLERY
+   System: .gallery-grid / .gallery-item / .gallery-caption
+========================= */
+
+.gallery {
+  background: var(--salt);
+  padding: 6rem 2rem 4rem;
 }
 
 .gallery-header {
-    text-align: center;
-    margin-bottom: 40px;
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 3rem;
 }
 
 .gallery-header .section-tag {
-    font-weight: bold;
-    color: #555;
+  display: inline-block;
+  color: var(--ocean);
+  font-weight: 500;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
 }
 
-.gallery-header h2 em {
-    font-style: normal;
-    color: #222;
+.gallery-header h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  color: var(--text);
+  line-height: 1.2;
+  margin-bottom: 0.5rem;
 }
 
+/* Exactly 2 columns on desktop */
 .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    gap: 20px; /* spacing between cards */
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
 }
 
-.image-card {
-    position: relative;
-    overflow: hidden;
-    border-radius: 8px;
-    cursor: pointer;
+/* Card */
+.gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 14px;
+  background: var(--sand-dark);
+  cursor: pointer;
 }
 
-.image-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease;
+/* Image: consistent card height */
+.gallery-item img {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.35s ease;
 }
 
-.image-card:hover img {
-    transform: scale(1.05);
+.gallery-item:hover img {
+  transform: scale(1.05);
 }
 
-.card-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0,0,0,0.5);
-    color: white;
-    padding: 10px;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+/* Caption overlay */
+.gallery-caption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 14px 16px;
+  color: #fff;
+
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75),
+    rgba(0, 0, 0, 0.0)
+  );
+
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-.image-card:hover .card-caption {
+.gallery-item:hover .gallery-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery-caption h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+.gallery-caption p {
+  margin: 0.35rem 0 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+/* Mobile: 1 column + captions always visible */
+@media (max-width: 768px) {
+  .gallery {
+    padding: 4.5rem 1rem 3rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .gallery-item img {
+    height: 260px;
+  }
+
+  .gallery-caption {
     opacity: 1;
+    transform: none;
+  }
 }
 
         
-        /* Lightbox base */
+/* =========================
+   LIGHTBOX
+========================= */
+
 .lightbox {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.85);
-    display: none;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: none;              /* JS toggles to flex */
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 24px;              /* keeps content off edges */
 }
 
-/* Content */
 .lightbox-content {
-    background: #111;
-    max-width: 1100px;
-    width: 90%;
-    max-height: 90vh;
-    padding: 30px;
-    position: relative;
-    overflow-y: auto;
-    border-radius: 12px;
+  background: #111;
+  max-width: 1100px;
+  width: 100%;
+  max-height: 90vh;
+  padding: 28px;
+  position: relative;
+  overflow-y: auto;
+  border-radius: 12px;
 }
 
 /* Close button */
 .lightbox-close {
-    position: absolute;
-    top: 15px;
-    right: 18px;
-    font-size: 28px;
-    background: none;
-    border: none;
-    color: #fff;
-    cursor: pointer;
+  position: absolute;
+  top: 12px;
+  right: 12px;
+
+  width: 44px;                /* easier to tap */
+  height: 44px;
+  font-size: 28px;
+  line-height: 1;
+
+  background: transparent;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+}
+
+.lightbox-close:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+.lightbox-close:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.6);
+  outline-offset: 3px;
 }
 
 /* Grid layout */
 .lightbox-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 28px;           /* creates space under close button */
 }
 
 /* Images */
 .lightbox-grid img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 6px;
-    background: #222;
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #222;
+}
+
+/* Small screens */
+@media (max-width: 600px) {
+  .lightbox {
+    padding: 14px;
+  }
+
+  .lightbox-content {
+    padding: 18px;
+  }
+
+  .lightbox-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lightbox-grid img {
+    height: 220px;
+  }
 }
 
 
@@ -833,64 +938,6 @@
             text-align: center;
         }
 
- /* Photo Gallery */
-        .gallery {
-            padding: 6rem 4rem 4rem;
-            background: var(--salt);
-        }
-
-        .gallery-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto 4rem;
-        }
-
-        .gallery-header .section-tag {
-            display: inline-block;
-            color: var(--ocean);
-            font-weight: 500;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            margin-bottom: 1rem;
-        }
-
-        .gallery-header h2 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-            color: var(--text);
-            line-height: 1.2;
-        }
-
-        .gallery-header p {
-            font-size: 1.1rem;
-            color: var(--text-light);
-        }
-
-       .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-    
-
-        .gallery-caption {
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .gallery-caption h3 {
-            font-size: 1.3rem;
-            color: var(--text);
-            margin-bottom: 0.3rem;
-        }
-
-        .gallery-caption p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-
         .areas h3 {
             font-size: 1rem;
             color: var(--text-light);
@@ -1016,81 +1063,7 @@
         }
 
 
-    /* Hero Section */
-    .hero {
-        padding: 6rem 2rem 4rem;
-    }
-
-    .hero-bg {
-        width: 100%;
-        right: 0;
-        opacity: 0.3;
-    }
-
-    /* Services Section */
-    .services {
-        padding: 4rem 2rem;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* About Section */
-    .about {
-        padding: 4rem 2rem;
-    }
-
-    .about-container {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
-    .about-image {
-        order: -1;
-        max-width: 400px;
-        margin: 0 auto;
-    }
-
-    .about-features {
-        grid-template-columns: 1fr;
-    }
-
-    /* Estimate Section */
-    .estimate {
-        padding: 4rem 2rem;
-    }
-
-    .estimate-form-wrapper {
-        padding: 2rem;
-    }
-
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-
-    /* Contact Section */
-    .contact {
-        padding: 4rem 2rem;
-    }
-
-    /* Areas Section */
-    .areas {
-        padding: 3rem 2rem;
-    }
-
-    .areas-list {
-        gap: 1.5rem;
-    }
-
-    .area-item {
-        font-size: 1.4rem;
-    }
-/* Gallery Section */
-        .gallery-grid {
-            grid-template-columns: 1fr;
-        }
-    } /* <-- closes the @media block */
+   
 /* =========================
    MOBILE / TABLET (<= 900px)
 ========================= */
@@ -1239,33 +1212,6 @@
   }
 }
 
-/* =========================
-   SMALL SCREENS (<= 768px)
-   (gallery + tighter spacing)
-========================= */
-@media (max-width: 768px) {
-  .gallery-grid {
-    grid-template-columns: 1fr;
-  }
-
-  nav {
-    padding: 0.9rem 1rem;
-  }
-
-  .hero {
-    padding: 6rem 1rem 4rem;
-  }
-
-  .services,
-  .about,
-  .estimate,
-  .contact,
-  .areas {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-}
-
         
  </style>
 </head>
@@ -1322,71 +1268,95 @@
         </div>
     </section>
 
-<!-- Photo Gallery -->
-    
+
 <section class="gallery" id="gallery">
-    <div class="gallery-header">
-        <p class="section-tag">"Painting is just another way of keeping a diary" Pablo Picasso</p>
-        <h2><em>Recent Projects</em></h2>
-    </div>
+  <div class="gallery-header">
+    <p class="section-tag">"Painting is just another way of keeping a diary" — Pablo Picasso</p>
+    <h2><em>Recent Projects</em></h2>
+  </div>
 
-    <div class="gallery-grid">
-        <!-- Ojai Project -->
-        <div class="image-card">
-            <img src="images/surfside1.jpg" alt="Ojai Exterior Refresh">
-            <div class="card-caption">
-                <h3>Ojai Exterior Refresh</h3>
-                <p>Complete exterior transformation</p>
-            </div>
-        </div>
+  <div class="gallery-grid">
 
-        <!-- Oxnard Project -->
-        <div class="image-card">
-            <img src="images/surfside2.jpg" alt="Oxnard Home Makeover">
-            <div class="card-caption">
-                <h3>Oxnard Home Makeover</h3>
-                <p>Fresh paint brings new life</p>
-            </div>
-        </div>
+    <figure class="gallery-item" data-images="images/surfside1.jpg">
+      <img
+        src="images/surfside1.jpg"
+        alt="Ojai Exterior Refresh"
+        loading="lazy"
+        decoding="async"
+      />
+      <figcaption class="gallery-caption">
+        <h3>Ojai Exterior Refresh</h3>
+        <p>Complete exterior transformation</p>
+      </figcaption>
+    </figure>
 
-        <!-- Ventura Deck Project -->
-        <div class="image-card">
-            <img src="images/surfside3.jpg" alt="Ventura Deck Restoration">
-            <div class="card-caption">
-                <h3>Ventura Deck Restoration</h3>
-                <p>From weathered to wonderful</p>
-            </div>
-        </div>
+    <figure class="gallery-item" data-images="images/surfside2.jpg">
+      <img
+        src="images/surfside2.jpg"
+        alt="Oxnard Home Makeover"
+        loading="lazy"
+        decoding="async"
+      />
+      <figcaption class="gallery-caption">
+        <h3>Oxnard Home Makeover</h3>
+        <p>Fresh paint brings new life</p>
+      </figcaption>
+    </figure>
 
-        <!-- Ventura East Project -->
-        <div class="image-card">
-            <img src="images/surfside4.jpg" alt="Ventura East Side Painting">
-            <div class="card-caption">
-                <h3>Ventura East Side</h3>
-                <p>Modern color palette</p>
-            </div>
-        </div>
+    <figure class="gallery-item" data-images="images/surfside3.jpg">
+      <img
+        src="images/surfside3.jpg"
+        alt="Ventura Deck Restoration"
+        loading="lazy"
+        decoding="async"
+      />
+      <figcaption class="gallery-caption">
+        <h3>Ventura Deck Restoration</h3>
+        <p>From weathered to wonderful</p>
+      </figcaption>
+    </figure>
 
-        <!-- Project 5 -->
-        <div class="image-card">
-            <img src="images/surfside5.jpg" alt="Project 5">
-            <div class="card-caption">
-                <h3>Project 5</h3>
-                <p>Description of project</p>
-            </div>
-        </div>
+    <figure class="gallery-item" data-images="images/surfside4.jpg">
+      <img
+        src="images/surfside4.jpg"
+        alt="Ventura East Side Painting"
+        loading="lazy"
+        decoding="async"
+      />
+      <figcaption class="gallery-caption">
+        <h3>Ventura East Side</h3>
+        <p>Modern color palette</p>
+      </figcaption>
+    </figure>
 
-        <!-- Project 6 -->
-        <div class="image-card">
-            <img src="images/surfside6.jpg" alt="Project 6">
-            <div class="card-caption">
-                <h3>Project 6</h3>
-                <p>Description of project</p>
-            </div>
-        </div>
-    </div>
+    <figure class="gallery-item" data-images="images/surfside5.jpg">
+      <img
+        src="images/surfside5.jpg"
+        alt="Recent painting project"
+        loading="lazy"
+        decoding="async"
+      />
+      <figcaption class="gallery-caption">
+        <h3>Project 5</h3>
+        <p>Description of project</p>
+      </figcaption>
+    </figure>
+
+    <figure class="gallery-item" data-images="images/surfside6.jpg">
+      <img
+        src="images/surfside6.jpg"
+        alt="Recent painting project"
+        loading="lazy"
+        decoding="async"
+      />
+      <figcaption class="gallery-caption">
+        <h3>Project 6</h3>
+        <p>Description of project</p>
+      </figcaption>
+    </figure>
+
+  </div>
 </section>
-
 
     <!-- Services Section -->
     <section class="services" id="services">
@@ -1603,18 +1573,20 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
-  // ===== LIGHTBOX =====
-  const galleryItems = document.querySelectorAll('.image-card');
+  /* =========================
+     LIGHTBOX
+  ========================= */
+
+  const galleryItems = document.querySelectorAll('.gallery-item');
   const lightbox = document.getElementById('lightbox');
   const lightboxGrid = lightbox?.querySelector('.lightbox-grid');
   const lightboxClose = lightbox?.querySelector('.lightbox-close');
 
-  function openLightboxFromItem(item) {
+  function openLightbox(item) {
     if (!lightbox || !lightboxGrid) return;
 
     lightboxGrid.innerHTML = '';
 
-    // Optional multi-image support via data-images="a.jpg,b.jpg"
     const data = item.dataset.images;
     const images = data
       ? data.split(',').map(s => s.trim()).filter(Boolean)
@@ -1628,7 +1600,6 @@ document.addEventListener('DOMContentLoaded', () => {
         lightboxGrid.appendChild(img);
       });
     } else {
-      // Fallback: use the single card image
       const fallback = item.querySelector('img');
       if (fallback) {
         const img = document.createElement('img');
@@ -1638,18 +1609,25 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
+    /* 🔒 LOCK BACKGROUND SCROLL */
+    document.body.classList.add('no-scroll');
+
     lightbox.style.display = 'flex';
     lightbox.setAttribute('aria-hidden', 'false');
   }
 
   function closeLightbox() {
     if (!lightbox) return;
+
     lightbox.style.display = 'none';
     lightbox.setAttribute('aria-hidden', 'true');
+
+    /* 🔓 RESTORE BACKGROUND SCROLL */
+    document.body.classList.remove('no-scroll');
   }
 
   galleryItems.forEach(item => {
-    item.addEventListener('click', () => openLightboxFromItem(item));
+    item.addEventListener('click', () => openLightbox(item));
   });
 
   lightboxClose?.addEventListener('click', closeLightbox);
@@ -1662,44 +1640,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') closeLightbox();
   });
 
-  // ===== MOBILE NAV =====
-  const mobileBtn = document.querySelector('.mobile-menu-btn');
-  const navLinks = document.querySelector('.nav-links');
-
-  mobileBtn?.addEventListener('click', () => {
-    navLinks?.classList.toggle('active');
-  });
-
-  navLinks?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks?.classList.remove('active');
-    });
-  });
-
 });
 </script>
 
 
-    });
-
-    /* =========================
-       MOBILE NAVIGATION
-    ========================== */
-    const mobileBtn = document.querySelector('.mobile-menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-
-    mobileBtn?.addEventListener('click', () => {
-        navLinks?.classList.toggle('active');
-    });
-
-    navLinks?.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-        });
-    });
-
-});
-</script>
 
 </body>
 </html>
