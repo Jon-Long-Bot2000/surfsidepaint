@@ -1152,6 +1152,21 @@
     </section>
 
 <!-- Photo Gallery -->
+
+---TESTING IMAGE CARDS---    
+    <section class="gallery-grid">
+  <div class="image-card">
+    <img src="images/ojai-after.jpg" alt="Ventura Coastline" onclick="openDialog(this)">
+    <div class="card-caption">Ventura Pier & Coastline</div>
+  </div>
+
+  <!-- Dialog element -->
+  <dialog id="imgDialog">
+    <img id="dialogImg" src="" alt="" style="width:100%; max-width:800px;">
+    <button onclick="document.getElementById('imgDialog').close()">Close</button>
+  </dialog>
+</section>
+
     
  <section class="gallery" id="gallery">
     <div class="gallery-header">
