@@ -64,6 +64,7 @@
             top: 0;
             width: 100%;
             padding: 1.5rem 4rem;
+            min-height: 84px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -74,10 +75,10 @@
             transition: background 0.3s ease, box-shadow 0.3s ease;
         }
 
-        nav.scrolled {
-            background: rgba(245, 240, 232, 0.98);
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
-        }
+            nav.scrolled {
+              background: color-mix(in srgb, var(--sand) 92%, white);
+              box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            }
 
    .logo {
     display: flex;
@@ -86,10 +87,9 @@
 }
 
 .logo img {
-    max-height: calc(100% - 1rem); 
-    height: auto;                  
-    width: auto;
-    display: block;
+  height: 56px;
+  width: auto;
+  display: block;
 }
 
         .nav-links {
@@ -276,7 +276,8 @@
             opacity: 0;
         }
    
-        <-----PHOTO GALLERY----->    
+     /* ----- PHOTO GALLERY ----- */
+   
        .gallery {
     max-width: 1200px;
     margin: 0 auto;
@@ -900,19 +901,7 @@
             gap: 2.5rem;
         }
 
-        .gallery-item {
-            position: relative;
-            border-radius: 12px;
-            overflow: hidden;
-            background: var(--sand-dark);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-        }
+    
 
         .gallery-caption {
             padding: 1.5rem;
@@ -1068,8 +1057,8 @@
     }
 
     /* Show hamburger button */
-    .mobile-menu-btn {
-        display: block;
+    .mobile-menu-btn { display: none; background: none; border: 0; cursor: pointer; }
+
     }
 
     .mobile-menu-btn svg {
@@ -1243,7 +1232,7 @@
 
         <!-- Oxnard Project -->
         <div class="image-card">
-            <img src="images/surfside2.jpg.jpg" alt="Oxnard Home Makeover">
+            <img src="images/surfside2.jpg" alt="Oxnard Home Makeover">
             <div class="card-caption">
                 <h3>Oxnard Home Makeover</h3>
                 <p>Fresh paint brings new life</p>
@@ -1495,60 +1484,98 @@
 <script>
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* =========================
-       LIGHTBOX FUNCTIONALITY
-    ========================== */
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    const lightbox = document.getElementById('lightbox');
-    const lightboxGrid = lightbox?.querySelector('.lightbox-grid');
-    const lightboxClose = lightbox?.querySelector('.lightbox-close');
+<div id="lightbox" class="lightbox" aria-hidden="true">
+  <div class="lightbox-content" role="dialog" aria-modal="true" aria-label="Project photos">
+    <button class="lightbox-close" aria-label="Close">×</button>
+    <div class="lightbox-grid"></div>
+  </div>
+</div>
 
-    galleryItems.forEach(item => {
-        item.addEventListener('click', () => {
-            if (!lightbox || !lightboxGrid) return;
+                          <script>
+document.addEventListener('DOMContentLoaded', () => {
 
-            lightboxGrid.innerHTML = '';
+  // ===== LIGHTBOX =====
+  const galleryItems = document.querySelectorAll('.image-card');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxGrid = lightbox?.querySelector('.lightbox-grid');
+  const lightboxClose = lightbox?.querySelector('.lightbox-close');
 
-            const images = item.dataset.images
-                ? item.dataset.images.split(',').map(src => src.trim()).filter(Boolean)
-                : [];
+  galleryItems.forEach(item => {
+    item.addEventListener('click', () => {
+      if (!lightbox || !lightboxGrid) return;
 
-            if (images.length) {
-                images.forEach(src => {
-                    const img = document.createElement('img');
-                    img.src = src;
-                    img.alt = "Project image";
-                    lightboxGrid.appendChild(img);
-                });
-            } else {
-                if (fallback) {
-                    const img = document.createElement('img');
-                    img.src = fallback.src;
-                    img.alt = fallback.alt || "Project image";
-                    lightboxGrid.appendChild(img);
-                } else {
-                    const msg = document.createElement('p');
-                    msg.textContent = "Under Construction";
-                    msg.style.color = "#fff";
-                    msg.style.fontSize = "1.5rem";
-                    msg.style.textAlign = "center";
-                    msg.style.padding = "3rem";
-                    lightboxGrid.appendChild(msg);
-                }
-            }
+      lightboxGrid.innerHTML = '';
 
-            lightbox.style.display = 'flex';
+      // If you add data-images="a.jpg,b.jpg" later, this will use it
+      const data = item.dataset.images;
+      const images = data
+        ? data.split(',').map(s => s.trim()).filter(Boolean)
+        : [];
+
+      if (images.length) {
+        images.forEach(src => {
+          const img = document.createElement('img');
+          img.src = src;
+          img.alt = "Project image";
+          lightboxGrid.appendChild(img);
         });
-    });
-
-    lightboxClose?.addEventListener('click', () => {
-        lightbox.style.display = 'none';
-    });
-
-    lightbox?.addEventListener('click', e => {
-        if (e.target === lightbox) {
-            lightbox.style.display = 'none';
+      } else {
+        // Fallback: use the single card image
+        const fallback = item.querySelector('img');
+        if (fallback) {
+          const img = document.createElement('img');
+          img.src = fallback.src;
+          img.alt = fallback.alt || "Project image";
+          lightboxGrid.appendChild(img);
+        } else {
+          const msg = document.createElement('p');
+          msg.textContent = "Under Construction";
+          msg.style.color = "#fff";
+          msg.style.fontSize = "1.5rem";
+          msg.style.textAlign = "center";
+          msg.style.padding = "3rem";
+          lightboxGrid.appendChild(msg);
         }
+      }
+
+      lightbox.style.display = 'flex';
+      lightbox.setAttribute('aria-hidden', 'false');
+    });
+  });
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.style.display = 'none';
+    lightbox.setAttribute('aria-hidden', 'true');
+  }
+
+  lightboxClose?.addEventListener('click', closeLightbox);
+
+  lightbox?.addEventListener('click', e => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // ===== MOBILE NAV =====
+  const mobileBtn = document.querySelector('.mobile-menu-btn');
+  const navLinks = document.querySelector('.nav-links');
+
+  mobileBtn?.addEventListener('click', () => {
+    navLinks?.classList.toggle('active');
+  });
+
+  navLinks?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks?.classList.remove('active');
+    });
+  });
+
+});
+</script>
+
     });
 
     /* =========================
