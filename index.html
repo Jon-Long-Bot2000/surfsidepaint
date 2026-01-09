@@ -1460,9 +1460,8 @@
             <p class="footer-copy">© 2025 Surfside Paint. All rights reserved. Licensed & Insured in California.</p>
         </div>
     </footer>
-<script>
-document.addEventListener('DOMContentLoaded', () => {
 
+    <!-- Lightbox (place before scripts, still inside body) -->
 <div id="lightbox" class="lightbox" aria-hidden="true">
   <div class="lightbox-content" role="dialog" aria-modal="true" aria-label="Project photos">
     <button class="lightbox-close" aria-label="Close">×</button>
@@ -1470,7 +1469,7 @@ document.addEventListener('DOMContentLoaded', () => {
   </div>
 </div>
 
-                          <script>
+<script>
 document.addEventListener('DOMContentLoaded', () => {
 
   // ===== LIGHTBOX =====
@@ -1479,54 +1478,48 @@ document.addEventListener('DOMContentLoaded', () => {
   const lightboxGrid = lightbox?.querySelector('.lightbox-grid');
   const lightboxClose = lightbox?.querySelector('.lightbox-close');
 
-  galleryItems.forEach(item => {
-    item.addEventListener('click', () => {
-      if (!lightbox || !lightboxGrid) return;
+  function openLightboxFromItem(item) {
+    if (!lightbox || !lightboxGrid) return;
 
-      lightboxGrid.innerHTML = '';
+    lightboxGrid.innerHTML = '';
 
-      // If you add data-images="a.jpg,b.jpg" later, this will use it
-      const data = item.dataset.images;
-      const images = data
-        ? data.split(',').map(s => s.trim()).filter(Boolean)
-        : [];
+    // Optional multi-image support via data-images="a.jpg,b.jpg"
+    const data = item.dataset.images;
+    const images = data
+      ? data.split(',').map(s => s.trim()).filter(Boolean)
+      : [];
 
-      if (images.length) {
-        images.forEach(src => {
-          const img = document.createElement('img');
-          img.src = src;
-          img.alt = "Project image";
-          lightboxGrid.appendChild(img);
-        });
-      } else {
-        // Fallback: use the single card image
-        const fallback = item.querySelector('img');
-        if (fallback) {
-          const img = document.createElement('img');
-          img.src = fallback.src;
-          img.alt = fallback.alt || "Project image";
-          lightboxGrid.appendChild(img);
-        } else {
-          const msg = document.createElement('p');
-          msg.textContent = "Under Construction";
-          msg.style.color = "#fff";
-          msg.style.fontSize = "1.5rem";
-          msg.style.textAlign = "center";
-          msg.style.padding = "3rem";
-          lightboxGrid.appendChild(msg);
-        }
+    if (images.length) {
+      images.forEach(src => {
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = "Project image";
+        lightboxGrid.appendChild(img);
+      });
+    } else {
+      // Fallback: use the single card image
+      const fallback = item.querySelector('img');
+      if (fallback) {
+        const img = document.createElement('img');
+        img.src = fallback.src;
+        img.alt = fallback.alt || "Project image";
+        lightboxGrid.appendChild(img);
       }
+    }
 
-      lightbox.style.display = 'flex';
-      lightbox.setAttribute('aria-hidden', 'false');
-    });
-  });
+    lightbox.style.display = 'flex';
+    lightbox.setAttribute('aria-hidden', 'false');
+  }
 
   function closeLightbox() {
     if (!lightbox) return;
     lightbox.style.display = 'none';
     lightbox.setAttribute('aria-hidden', 'true');
   }
+
+  galleryItems.forEach(item => {
+    item.addEventListener('click', () => openLightboxFromItem(item));
+  });
 
   lightboxClose?.addEventListener('click', closeLightbox);
 
@@ -1554,6 +1547,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 </script>
+
 
     });
 
