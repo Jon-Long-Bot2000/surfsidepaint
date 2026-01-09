@@ -52,41 +52,29 @@
       border: 1px solid rgba(79, 134, 166, 0.08);
     }
 
+    /* Simple, consistent vertical spacing (replaces <br>) */
+    .review-card > * + * {
+      margin-top: 0.9rem;
+    }
+
     .review-card h1 {
       font-family: "Fraunces", serif;
       font-size: clamp(1.7rem, 5.5vw, 2.2rem);
       line-height: 1.15;
-      margin-bottom: 0.9rem;
       letter-spacing: -0.01em;
+      margin-top: 0; /* prevents extra top space from the spacing rule */
     }
 
     .review-card p {
       font-size: clamp(1rem, 3.8vw, 1.05rem);
       line-height: 1.55;
-      margin-bottom: 1.5rem;
       color: #44525c;
-    }
-
-    .review-card p strong {
-      color: var(--ink);
-    }
-
-    .review-benefits {
-      list-style-position: inside;
-      padding: 0;
-      margin: 1.5rem auto 1.75rem;
-      display: inline-block;
-      text-align: center;
-      max-width: 28ch;
-    }
-
-    .review-benefits li {
-      margin: 0.65rem 0;
     }
 
     .stars {
       font-size: clamp(1.6rem, 6vw, 1.8rem);
-      margin-bottom: 1.75rem;
+      margin-top: 1.25rem;
+      margin-bottom: 0.25rem;
       color: #f5b301;
       animation: floatStars 2.5s ease-in-out infinite;
     }
@@ -133,16 +121,12 @@
 
     /* --- Sticky CTA (mobile only) --- */
     .sticky-cta {
-      display: none; /* hidden on desktop by default */
+      display: none;
     }
 
     @media (max-width: 768px) {
       body {
         align-items: flex-start;
-      }
-
-      /* Give room for sticky bar */
-      body {
         padding-bottom: calc(1rem + env(safe-area-inset-bottom) + 88px);
       }
 
@@ -150,9 +134,8 @@
         margin-top: 1rem;
       }
 
-      /* Hide in-card button to avoid duplicate CTAs on mobile */
       .review-card .review-btn {
-        display: none;
+        display: none; /* avoid duplicate CTAs on mobile */
       }
 
       .sticky-cta {
@@ -182,47 +165,20 @@
       }
     }
 
-    @media (max-width: 420px) {
-      .review-benefits {
-        max-width: 100%;
-      }
-
-      .review-card p {
-        margin-bottom: 1.25rem;
-      }
-
-      .stars {
-        margin-bottom: 1.5rem;
-      }
-    }
-
     @media (prefers-reduced-motion: reduce) {
-      .stars {
-        animation: none;
-      }
-      .review-btn {
-        transition: none;
-      }
+      .stars { animation: none; }
+      .review-btn { transition: none; }
     }
   </style>
 </head>
 
 <body>
   <main class="review-card">
-    <h1>Thanks a Million!</h1>
+    <h1>Thank you</h1>
 
-    <p>
-      Every positive review makes a huge impact for<br>
-      <strong>Surfside Painting Company</strong>.
-    </p>
+    <p>Every positive review makes a huge impact for my small business. I'm super grateful for the support.</p>
 
-    <ul class="review-benefits">
-      <li><strong>Higher Placement in Google Search</strong></li>
-      <li><strong>Stronger Relevance in Google Search</strong></li>
-      <li><strong>More Awesome People Calling My Phone!</strong></li>
-    </ul>
-
-    <p>Write a detailed review and add a photo!</p>
+    <p>Please share some details of your experience and even add a photo — it’ll make all the difference.</p>
 
     <div class="stars">★★★★★</div>
 
