@@ -83,16 +83,25 @@
               box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
             }
 
-   .logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
+ 
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
 }
 
-.logo img {
-  height: 56px;
-  width: auto;
-  display: block;
+.logo-text {
+  font-family: 'Fraunces', serif;
+  font-size: 1.35rem;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.logo-accent {
+  color: var(--ocean);
 }
 
         .nav-links {
@@ -1333,9 +1342,10 @@
 
     <!-- Navigation -->
     <nav id="navbar">
-        <a href="#" class="logo">
-            <img src="images/SurfsideLogoTransparent.png" alt="Surfside Painting Company">
-        </a>
+        <a href="#" class="logo logo-text">
+  <span class="logo-accent">Surfside</span> Painting Company
+</a>
+
         <ul class="nav-links">
             <li><a href="#services">Services</a></li>
             <li><a href="#gallery">Gallery</a></li>
