@@ -318,13 +318,6 @@
     opacity: 1;
 }
 
-/* Responsive: stack on small screens */
-@media (max-width: 768px) {
-    .gallery-grid {
-        grid-template-columns: 1fr; /* single column on mobile */
-    }
-}
-
         
         /* Lightbox base */
 .lightbox {
@@ -1022,44 +1015,7 @@
             display: none;
         }
 
-/* Mobile Navigation */
-@media (max-width: 900px) {
 
-    nav {
-        padding: 1rem 2rem;
-    }
-
-    /* Hide desktop nav + CTA */
-    .nav-links,
-    .nav-contact > .nav-cta {
-        display: none !important;
-    }
-
-    /* Show hamburger button */
-    .mobile-menu-btn { display: none; background: none; border: 0; cursor: pointer; }
-
-    }
-
-    .mobile-menu-btn svg {
-        width: 28px;
-        height: 28px;
-        color: var(--text);
-    }
-
-    /* Show menu when active */
-    .nav-links.active {
-        display: flex !important;
-        flex-direction: column;
-        gap: 1.5rem;
-        background: var(--sand);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
-        padding: 2rem;
-        z-index: 999;
-    }
-}
     /* Hero Section */
     .hero {
         padding: 6rem 2rem 4rem;
@@ -1135,7 +1091,182 @@
             grid-template-columns: 1fr;
         }
     } /* <-- closes the @media block */
+/* =========================
+   MOBILE / TABLET (<= 900px)
+========================= */
 
+/* Default (desktop) hamburger state */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 0;
+}
+
+/* Helpful: keep button focus visible */
+.mobile-menu-btn:focus-visible {
+  outline: 2px solid var(--ocean);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.mobile-menu-btn svg {
+  width: 28px;
+  height: 28px;
+  color: var(--text);
+}
+
+@media (max-width: 900px) {
+  nav {
+    padding: 1rem 1.5rem;
+  }
+
+  /* Hide desktop nav links + desktop CTA */
+  .nav-links {
+    display: none;
+  }
+
+  .nav-contact > .nav-cta {
+    display: none;
+  }
+
+  /* Show hamburger */
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  /* Dropdown menu when active (JS toggles .active) */
+  .nav-links.active {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+
+    padding: 1.25rem 1.5rem;
+    background: var(--sand);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+    z-index: 999;
+  }
+
+  .nav-links.active a {
+    font-size: 1rem;
+    padding: 0.25rem 0;
+  }
+
+  /* Hero spacing */
+  .hero {
+    padding: 6rem 1.5rem 4rem;
+  }
+
+  .hero-bg {
+    width: 100%;
+    right: 0;
+    opacity: 0.3;
+  }
+
+  /* Sections */
+  .services,
+  .about,
+  .estimate,
+  .contact,
+  .areas {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  /* Services stack */
+  .services {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* About stack */
+  .about {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .about-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .about-image {
+    order: -1;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .about-features {
+    grid-template-columns: 1fr;
+  }
+
+  /* Estimate */
+  .estimate {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  /* Contact */
+  .contact {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  /* Areas */
+  .areas {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .areas-list {
+    gap: 1.5rem;
+  }
+
+  .area-item {
+    font-size: 1.4rem;
+  }
+}
+
+/* =========================
+   SMALL SCREENS (<= 768px)
+   (gallery + tighter spacing)
+========================= */
+@media (max-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  nav {
+    padding: 0.9rem 1rem;
+  }
+
+  .hero {
+    padding: 6rem 1rem 4rem;
+  }
+
+  .services,
+  .about,
+  .estimate,
+  .contact,
+  .areas {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+        
  </style>
 </head>
 <body>
