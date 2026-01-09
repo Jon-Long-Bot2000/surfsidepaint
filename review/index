@@ -182,3 +182,36 @@
             font-weight: 700;
             letter-spacing: 0.02em;
         }
+
+</style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <a href="#" class="logo logo-text">
+  <span class="logo-accent logo-primary">Surfside</span>
+  <span class="logo-secondary">Painting Company</span>
+</a>
+
+        <ul class="nav-links">
+  <li><a href="#services">Clients</a></li>
+  <li><a href="#gallery">Gallery</a></li>
+  <li><a href="#reviews">Reviews</a></li>
+  <li><a href="#about">About</a></li>
+  <li><a href="#contact">Contact</a></li>
+</ul>
+
+        <div class="nav-contact">
+            <a href="tel:+18057984995" class="nav-cta">
+                Call Now
+            </a>
+            <button class="mobile-menu-btn" aria-label="Menu">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+    </nav>
+</body>
+</html>
