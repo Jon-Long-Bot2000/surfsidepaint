@@ -1576,7 +1576,6 @@ document.addEventListener('DOMContentLoaded', () => {
   /* =========================
      LIGHTBOX
   ========================= */
-
   const galleryItems = document.querySelectorAll('.gallery-item');
   const lightbox = document.getElementById('lightbox');
   const lightboxGrid = lightbox?.querySelector('.lightbox-grid');
@@ -1596,7 +1595,7 @@ document.addEventListener('DOMContentLoaded', () => {
       images.forEach(src => {
         const img = document.createElement('img');
         img.src = src;
-        img.alt = "Project image";
+        img.alt = 'Project image';
         lightboxGrid.appendChild(img);
       });
     } else {
@@ -1604,12 +1603,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (fallback) {
         const img = document.createElement('img');
         img.src = fallback.src;
-        img.alt = fallback.alt || "Project image";
+        img.alt = fallback.alt || 'Project image';
         lightboxGrid.appendChild(img);
       }
     }
 
-    /* 🔒 LOCK BACKGROUND SCROLL */
+    // lock background scroll
     document.body.classList.add('no-scroll');
 
     lightbox.style.display = 'flex';
@@ -1622,7 +1621,7 @@ document.addEventListener('DOMContentLoaded', () => {
     lightbox.style.display = 'none';
     lightbox.setAttribute('aria-hidden', 'true');
 
-    /* 🔓 RESTORE BACKGROUND SCROLL */
+    // restore background scroll
     document.body.classList.remove('no-scroll');
   }
 
@@ -1640,8 +1639,31 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') closeLightbox();
   });
 
+  /* =========================
+     MOBILE NAV  ✅ ADD THIS HERE
+  ========================= */
+  const mobileBtn = document.querySelector('.mobile-menu-btn');
+  const navLinks = document.querySelector('.nav-links');
+
+  mobileBtn?.addEventListener('click', () => {
+    navLinks?.classList.toggle('active');
+  });
+
+  // Close menu after clicking a link
+  navLinks?.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('active'));
+  });
+
+  // Optional: click outside nav closes menu
+  document.addEventListener('click', (e) => {
+    if (!navLinks?.classList.contains('active')) return;
+    const clickedInsideNav = e.target.closest('nav');
+    if (!clickedInsideNav) navLinks.classList.remove('active');
+  });
+
 });
 </script>
+
 
 
 
