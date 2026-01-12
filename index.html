@@ -930,6 +930,28 @@
   font-size: 0.95rem;
   opacity: 0.95;
 }
+        
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0.25rem;
+  line-height: 0;
+}
+
+.mobile-menu-btn:focus-visible {
+  outline: 2px solid var(--ocean);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.mobile-menu-btn svg {
+  width: 28px;
+  height: 28px;
+  color: var(--text);
+}
+
 
 /* =========================
    MOBILE / TABLET (<= 900px)
@@ -1076,6 +1098,11 @@
   }
 }
 
+        </style>
+</head>
+<body>
+
+    
     <!-- Navigation -->
     <nav id="navbar">
         <a href="#" class="logo logo-text">
@@ -1108,13 +1135,11 @@
         <div class="hero-bg hero-background"></div>
         <div class="hero-bg"></div>
         <div class="hero-media" aria-hidden="true">
-  <img
-    src="images/hero-sunset-pier.jpeg"
-    alt=""
-    loading="eager"
-    decoding="async"
-    fetchpriority="high"
-  />
+  <picture>
+    <source media="(max-width: 900px)" srcset="">
+    <source media="(min-width: 901px)" srcset="images/hero-sunset-pier.jpeg">
+    <img src="images/hero-sunset-pier.jpeg" alt="" loading="lazy" decoding="async">
+  </picture>
 </div>
         <svg class="hero-wave" viewBox="0 0 1440 200" preserveAspectRatio="none">
             <path fill="var(--ocean)" d="M0,100 C360,200 720,0 1080,100 C1260,150 1380,50 1440,100 L1440,200 L0,200 Z"/>
@@ -1188,7 +1213,7 @@
       </figcaption>
     </figure>
 
-    <figure class="gallery-item" data-images="ventura-east-before.jpg">
+    <figure class="gallery-item" data-images="images/ventura-east-before.jpg">
       <img
         src="images/ventura-east-after.jpg"
         alt="Ventura East Side Painting"
@@ -1258,7 +1283,7 @@
       <!-- Optional secondary button -->
       <a
         class="btn btn-secondary"
-        href=https://g.page/r/CUA1-O66mJGXEAI/review
+        href="https://g.page/r/CUA1-O66mJGXEAI/review"
         target="_blank"
         rel="noopener noreferrer"
       >
