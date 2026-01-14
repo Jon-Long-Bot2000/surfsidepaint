@@ -1,1 +1,101 @@
 
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Surfside Painting Postcard</title>
+
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+  /* Print setup */
+  @page {
+    size: 5.5in 4.25in;
+    margin: 0;
+  }
+
+  body {
+    margin: 0;
+    background: #ccc;
+    font-family: 'Fraunces', serif;
+  }
+
+  /* Postcard canvas */
+  .postcard {
+    width: 5.5in;
+    height: 4.25in;
+    background: #f4f8fb; /* sand */
+    color: #24323d;      /* text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Content block */
+  .content {
+    text-align: center;
+    max-width: 4.5in;
+    padding: 0.5in;
+  }
+
+  h1 {
+    font-size: 28px;
+    line-height: 1.2;
+    margin: 0 0 0.25em;
+    color: #4f86a6; /* ocean */
+  }
+
+  p {
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0 0 1em;
+    color: #5c6f7d; /* text-light */
+  }
+
+  .qr {
+    margin: 0.5em auto;
+  }
+
+  .qr img {
+    width: 1.25in;
+    height: 1.25in;
+  }
+
+  .brand {
+    font-size: 12px;
+    color: #5f7480; /* kelp */
+    margin-top: 0.75em;
+  }
+
+  @media print {
+    body {
+      background: none;
+    }
+  }
+</style>
+</head>
+
+<body>
+  <div class="postcard">
+    <div class="content">
+      <h1>Just Moved In?</h1>
+
+      <p>
+        Fresh paint and smooth walls are easiest before furniture arrives.
+        We help new homeowners get it done cleanly and professionally.
+      </p>
+
+      <div class="qr">
+        <img src="images/SURFSIDE_QR.png" alt="Scan for a free quote">
+      </div>
+
+      <div class="brand">
+        Surfside Painting Company
+      </div>
+    </div>
+  </div>
+</body>
+</html>
