@@ -1,101 +1,243 @@
-
 <!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-<title>Surfside Painting Postcard</title>
+<title>Surfside Postcard — Hero</title>
 
-<!-- Google Font -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;600&display=swap" rel="stylesheet">
 
 <style>
-  /* Print setup */
-  @page {
-    size: 5.5in 4.25in;
-    margin: 0;
+  :root{
+    --sand: #f4f8fb;
+    --sand-dark: #e6eff6;
+    --ocean: #4f86a6;
+    --ocean-light: #7fb2cc;
+    --driftwood: #9bb6c8;
+    --salt: #ffffff;
+    --kelp: #5f7480;
+    --sunset: #f2c7a1;
+    --text: #24323d;
+    --text-light: #5c6f7d;
+
+    /* postcard geometry */
+    --w: 5.5in;
+    --h: 4.25in;
   }
 
-  body {
-    margin: 0;
-    background: #ccc;
+  @page { size: 5.5in 4.25in; margin: 0; }
+
+  body{
+    margin:0;
+    background:#ddd;
     font-family: 'Fraunces', serif;
   }
 
-  /* Postcard canvas */
-  .postcard {
-    width: 5.5in;
-    height: 4.25in;
-    background: #f4f8fb; /* sand */
-    color: #24323d;      /* text */
+  .postcard{
+    width: var(--w);
+    height: var(--h);
+    margin: 24px auto;
+    background: var(--salt);
+    overflow: hidden;
+  }
+
+  /* ===== HERO (postcard-adapted from your site hero) ===== */
+  .hero{
+    position: relative;
+    width: 100%;
+    height: 100%;          /* instead of min-height: 100vh */
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding: 0.42in 0.42in 0.55in; /* postcard-appropriate version of 8rem 4rem 4rem */
+    overflow: hidden;
   }
 
-  /* Content block */
-  .content {
-    text-align: center;
-    max-width: 4.5in;
-    padding: 0.5in;
+  .hero-bg{
+    position:absolute;
+    top:0;
+    bottom:0;
+    z-index:0;
   }
 
-  h1 {
-    font-size: 28px;
-    line-height: 1.2;
-    margin: 0 0 0.25em;
-    color: #4f86a6; /* ocean */
+  .hero-bg.hero-background{
+    left:0;
+    right:0;
+    background: linear-gradient(135deg, var(--sand-dark) 0%, var(--sand) 100%);
+    opacity: 0.8; /* slightly higher for print */
   }
 
-  p {
-    font-size: 14px;
-    line-height: 1.5;
-    margin: 0 0 1em;
-    color: #5c6f7d; /* text-light */
+  .hero-bg.hero-shape{
+    right: -10%;
+    width: 62%;
+    left: auto;
+    background: linear-gradient(135deg, var(--sand-dark) 0%, var(--sand) 100%);
+    border-radius: 0 0 0 40%;
+    opacity: 0.65;
   }
 
-  .qr {
-    margin: 0.5em auto;
+  /* Image “card” anchored bottom-right */
+  .hero-media{
+    position:absolute;
+    right: 0.35in;
+    bottom: 0.35in;
+    width: 2.15in;  /* tuned for postcard */
+    z-index: 2;
+    transform: translateY(0);
+    pointer-events:none;
   }
 
-  .qr img {
-    width: 1.25in;
-    height: 1.25in;
+  .hero-media img{
+    width:100%;
+    height: 2.35in;
+    object-fit: cover;
+    object-position: 50% 35%;
+    display:block;
+    border-radius: 16px;
+    box-shadow: 0 18px 32px rgba(0,0,0,0.16);
   }
 
-  .brand {
-    font-size: 12px;
-    color: #5f7480; /* kelp */
-    margin-top: 0.75em;
+  /* Bottom wave — simple SVG strip */
+  .hero-wave{
+    position:absolute;
+    left:0;
+    bottom:-1px;
+    width:100%;
+    height: 0.55in;
+    z-index: 3;
+    pointer-events:none;
   }
 
-  @media print {
-    body {
-      background: none;
-    }
+  .hero-content{
+    position: relative;
+    z-index: 4;
+    max-width: 2.95in; /* keep copy away from image */
+  }
+
+  .hero-tag{
+    display:inline-flex;
+    align-items:center;
+    gap: 0.12in;
+    background: var(--ocean);
+    color: var(--salt);
+    padding: 0.10in 0.18in;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 600;
+    margin-bottom: 0.18in;
+  }
+
+  .hero-tag svg{ width: 12px; height: 12px; }
+
+  .hero h1{
+    margin: 0 0 0.14in;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    font-size: 30px; /* postcard-safe (no clamp) */
+    font-weight: 600;
+  }
+
+  .hero h1 em{
+    font-style: italic;
+    color: var(--ocean);
+  }
+
+  .hero-subtitle{
+    margin: 0 0 0.22in;
+    color: var(--text-light);
+    line-height: 1.55;
+    font-size: 12.5px;
+    max-width: 2.8in;
+  }
+
+  .hero-cta{
+    display:flex;
+    gap: 0.12in;
+    flex-wrap: wrap;
+    align-items:center;
+  }
+
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    padding: 0.12in 0.18in;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    text-decoration:none;
+    border: 1px solid rgba(36,50,61,0.14);
+  }
+
+  .btn.primary{
+    background: var(--sunset);
+    color: var(--text);
+  }
+
+  .btn.secondary{
+    background: rgba(255,255,255,0.7);
+    color: var(--text);
+  }
+
+  /* Little brand line (optional) */
+  .brandline{
+    margin-top: 0.14in;
+    font-size: 10.5px;
+    color: var(--kelp);
+  }
+
+  /* Print hygiene */
+  @media print{
+    body{ background:none; }
+    .postcard{ margin:0; }
+    a{ color: inherit; }
   }
 </style>
 </head>
 
 <body>
   <div class="postcard">
-    <div class="content">
-      <h1>Just Moved In?</h1>
+    <section class="hero">
+      <!-- Background layers -->
+      <div class="hero-bg hero-background"></div>
+      <div class="hero-bg hero-shape"></div>
 
-      <p>
-        Fresh paint and smooth walls are easiest before furniture arrives.
-        We help new homeowners get it done cleanly and professionally.
-      </p>
+      <!-- Bottom wave (simple, print-safe) -->
+      <svg class="hero-wave" viewBox="0 0 1440 150" preserveAspectRatio="none" aria-hidden="true">
+        <path fill="#ffffff" d="M0,96 C240,150 480,20 720,72 C960,124 1200,170 1440,96 L1440,150 L0,150 Z"></path>
+      </svg>
 
-      <div class="qr">
-        <img src="images/SURFSIDE_QR.png" alt="Scan for a free quote">
+      <!-- Image card (swap src to your photo if you want) -->
+      <div class="hero-media">
+        <img src="images/SURFSIDE_QR.png" alt="Freshly painted interior">
       </div>
 
-      <div class="brand">
-        Surfside Painting Company
+      <!-- Content -->
+      <div class="hero-content">
+        <div class="hero-tag">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M7 7h10v10H7V7Z" stroke="white" stroke-width="2"/>
+            <path d="M9 9h6v6H9V9Z" stroke="white" stroke-width="2"/>
+          </svg>
+          New homeowner?
+        </div>
+
+        <h1>Make it feel <em>like yours</em>.</h1>
+
+        <p class="hero-subtitle">
+          Fresh paint + smooth drywall are easiest before furniture arrives.
+          We help you start clean — fast, professional, and done right.
+        </p>
+
+        <div class="hero-cta">
+          <span class="btn primary">Free Walk-Through & Quote</span>
+          <span class="btn secondary">Scan QR to book</span>
+        </div>
+
+        <div class="brandline">Surfside Painting Company</div>
       </div>
-    </div>
+    </section>
   </div>
 </body>
 </html>
