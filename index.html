@@ -1150,12 +1150,17 @@
         <div class="hero-bg hero-background"></div>
         <div class="hero-bg"></div>
         <div class="hero-media" aria-hidden="true">
-  <picture>
-    <source media="(max-width: 900px)" srcset="">
-    <source media="(min-width: 901px)" srcset="images/hero-sunset-pier.jpeg">
-    <img src="images/hero-sunset-pier.jpeg" alt="" loading="eager" decoding="async">
-  </picture>
-</div>
+ <picture>
+  <source media="(max-width: 900px)" srcset="">
+  <source media="(min-width: 901px)" srcset="images/hero-sunset-pier.jpeg">
+  <img
+    src="images/hero-sunset-pier.jpeg"
+    alt=""
+    loading="eager"
+    decoding="async"
+    fetchpriority="high"
+  >
+</picture>
         <svg class="hero-wave" viewBox="0 0 1440 200" preserveAspectRatio="none">
             <path fill="var(--ocean)" d="M0,100 C360,200 720,0 1080,100 C1260,150 1380,50 1440,100 L1440,200 L0,200 Z"/>
         </svg>
