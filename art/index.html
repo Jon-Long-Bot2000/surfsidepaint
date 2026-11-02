@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f8fb">
+  <title>Jon's Art | Surfside</title>
+  <meta name="description" content="Jon's Art and portfolio at Surfside.">
+  <link rel="canonical" href="https://www.surfsidepaint.com/art/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/art/styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner container">
+      <a class="logo" href="/" aria-label="Surfside Painting Company home">
+        <span class="logo-primary">Surfside</span>
+        <span class="logo-secondary">Painting Company</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="/">Home</a>
+        <a href="/art/" aria-current="page">Art</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main" class="art-main container">
+    <h1>Jon's Art</h1>
+    <section class="art-section current-development" aria-labelledby="current-development-title">
+      <h2 id="current-development-title">Current development</h2>
+      <div class="sculpture-player" role="group" aria-label="Water-activated sculpture animation">
+        <div class="study-heading">
+          <span>Water-activated sculpture</span>
+          <span class="study-number">Motion study 01</span>
+        </div>
+        <canvas id="sculpture-canvas" class="development-canvas" width="1200" height="600" role="img" aria-label="Animated study of wooden slats opening around a suspended water bowl" aria-describedby="sculpture-description">
+          Wooden slats form a narrow column at rest. Water pours into the central bowl, the slats spread outward, hold open, and return to rest.
+        </canvas>
+        <p id="sculpture-description" class="visually-hidden">A simplified model based on Jon's sculpture prototype: a ring of pale wooden slats, cords, a suspended bowl, and a metal stand. The cycle moves from resting to water input, activated, open, and back to resting. Use the stage buttons to pause at a particular state.</p>
+        <div class="sculpture-controls" id="sculpture-controls" hidden>
+          <div class="playback-row">
+            <div class="playback-actions">
+              <button type="button" id="sculpture-play" class="play-button">Pause</button>
+              <button type="button" id="sculpture-restart">Restart</button>
+            </div>
+            <p id="sculpture-status" role="status" aria-live="polite" aria-atomic="true">Resting</p>
+            <label class="speed-control">Speed
+              <select id="sculpture-speed">
+                <option value="0.5">0.5×</option>
+                <option value="1" selected>1×</option>
+                <option value="1.5">1.5×</option>
+              </select>
+            </label>
+          </div>
+          <label class="visually-hidden" for="sculpture-timeline">Animation timeline</label>
+          <input type="range" id="sculpture-timeline" min="0" max="20" step="0.01" value="0" aria-valuetext="Resting, 0 of 20 seconds">
+          <div class="stage-buttons" role="group" aria-label="Inspect an animation stage">
+            <button type="button" data-stage="0" aria-current="step">Resting</button>
+            <button type="button" data-stage="1">Water input</button>
+            <button type="button" data-stage="2">Activated</button>
+            <button type="button" data-stage="3">Open</button>
+            <button type="button" data-stage="4">Return to rest</button>
+          </div>
+        </div>
+        <noscript><p class="study-note">Enable JavaScript to view the sculpture animation.</p></noscript>
+        <p class="study-note">Based on the physical prototype. Motion and reset timing are approximate.</p>
+      </div>
+    </section>
+    <section class="art-section portfolio-section" aria-labelledby="portfolio-title">
+      <h2 id="portfolio-title">Portfolio</h2>
+      <div class="portfolio-grid">
+        <article class="portfolio-card">
+          <h3>Sculptures</h3>
+        </article>
+        <article class="portfolio-card">
+          <h3>Music</h3>
+        </article>
+        <article class="portfolio-card">
+          <h3>Writing</h3>
+        </article>
+      </div>
+    </section>
+  </main>
+  <script type="module" src="/art/sculpture.js"></script>
+</body>
+</html>
