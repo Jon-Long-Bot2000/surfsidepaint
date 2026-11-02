@@ -31,32 +31,32 @@
     <h1>Jon's Art</h1>
     <section class="art-section current-development" aria-labelledby="current-development-title">
       <h2 id="current-development-title">Current development</h2>
-      <div class="sculpture-player" role="group" aria-label="Water-activated sculpture animation">
+      <div class="sculpture-player" data-sculpture="austin-rain-prototype" role="group" aria-label="Austin Rain Prototype animation">
         <div class="study-heading">
-          <span>Water-activated sculpture</span>
+          <a href="/art/sculptures/austin-rain-prototype/">Austin Rain Prototype</a>
           <span class="study-number">Motion study 01</span>
         </div>
-        <canvas id="sculpture-canvas" class="development-canvas" width="1200" height="600" role="img" aria-label="Animated study of wooden slats opening around a suspended water bowl" aria-describedby="sculpture-description">
+        <canvas id="austin-rain-featured-canvas" class="development-canvas" width="1200" height="600" role="img" aria-label="Austin Rain Prototype: wooden slats opening around a suspended water bowl" aria-describedby="austin-rain-featured-description">
           Wooden slats form a narrow column at rest. Water pours into the central bowl, the slats spread outward, hold open, and return to rest.
         </canvas>
-        <p id="sculpture-description" class="visually-hidden">A simplified model based on Jon's sculpture prototype: a ring of pale wooden slats, cords, a suspended bowl, and a metal stand. The cycle moves from resting to water input, activated, open, and back to resting. Use the stage buttons to pause at a particular state.</p>
-        <div class="sculpture-controls" id="sculpture-controls" hidden>
+        <p id="austin-rain-featured-description" class="visually-hidden">A simplified model based on Jon's sculpture prototype: a ring of pale wooden slats, cords, a suspended bowl, and a metal stand. The cycle moves from resting to water input, activated, open, and back to resting. Use the stage buttons to pause at a particular state.</p>
+        <div class="sculpture-controls" data-role="controls" hidden>
           <div class="playback-row">
             <div class="playback-actions">
-              <button type="button" id="sculpture-play" class="play-button">Pause</button>
-              <button type="button" id="sculpture-restart">Restart</button>
+              <button type="button" data-action="play" class="play-button">Pause</button>
+              <button type="button" data-action="restart">Restart</button>
             </div>
-            <p id="sculpture-status" role="status" aria-live="polite" aria-atomic="true">Resting</p>
+            <p class="sculpture-status" data-role="status" role="status" aria-live="polite" aria-atomic="true">Resting</p>
             <label class="speed-control">Speed
-              <select id="sculpture-speed">
+              <select data-role="speed">
                 <option value="0.5">0.5×</option>
                 <option value="1" selected>1×</option>
                 <option value="1.5">1.5×</option>
               </select>
             </label>
           </div>
-          <label class="visually-hidden" for="sculpture-timeline">Animation timeline</label>
-          <input type="range" id="sculpture-timeline" min="0" max="20" step="0.01" value="0" aria-valuetext="Resting, 0 of 20 seconds">
+          <label class="visually-hidden" for="austin-rain-featured-timeline">Animation timeline</label>
+          <input type="range" class="sculpture-timeline" data-role="timeline" id="austin-rain-featured-timeline" min="0" max="20" step="0.01" value="0" aria-valuetext="Resting, 0 of 20 seconds">
           <div class="stage-buttons" role="group" aria-label="Inspect an animation stage">
             <button type="button" data-stage="0" aria-current="step">Resting</button>
             <button type="button" data-stage="1">Water input</button>
@@ -74,6 +74,7 @@
       <div class="portfolio-grid">
         <article class="portfolio-card">
           <h3>Sculptures</h3>
+          <p><a href="/art/sculptures/austin-rain-prototype/">Austin Rain Prototype</a></p>
         </article>
         <article class="portfolio-card">
           <h3>Music</h3>
@@ -84,6 +85,6 @@
       </div>
     </section>
   </main>
-  <script type="module" src="/art/sculpture.js"></script>
+  <script type="module" src="/art/sculptures/austin-rain-prototype/index.js"></script>
 </body>
 </html>

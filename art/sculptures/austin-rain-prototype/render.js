@@ -1,44 +1,12 @@
-// Buildless canvas study. Geometry and timings are intentionally kept here for refinement.
-const DURATION = 20;
-const STAGES = [
-  { name: 'Resting', start: 0, inspect: 0 },
-  { name: 'Water input', start: 2.5, inspect: 4.5 },
-  { name: 'Activated', start: 6, inspect: 7.8 },
-  { name: 'Open', start: 9.5, inspect: 10.5 },
-  { name: 'Return to rest', start: 13.5, inspect: 16.3 },
-];
-const MODEL = { slats: 16, radius: 73, length: 270, handle: 70, width: 23, opening: 0.80 };
-const canvas = document.querySelector('#sculpture-canvas');
-const ctx = canvas.getContext('2d');
+import { MODEL } from './model.js';
 
-if (ctx) startStudy();
-
-function startStudy() {
-  const playButton = document.querySelector('#sculpture-play');
-  const restartButton = document.querySelector('#sculpture-restart');
-  const timeline = document.querySelector('#sculpture-timeline');
-  const speedSelect = document.querySelector('#sculpture-speed');
-  const status = document.querySelector('#sculpture-status');
-  const stageButtons = [...document.querySelectorAll('[data-stage]')];
-  const motionPreference = matchMedia('(prefers-reduced-motion: reduce)');
-  let playing = !motionPreference.matches;
-  let inView = true;
-  let time = 0;
-  let speed = 1;
-  let lastTimestamp = null;
-  let frame = null;
-  let activeStage = -1;
-  let viewWidth = 1200;
-  let viewHeight = 600;
+// Drawing only: the player owns playback and motion.js supplies the pose.
+export function createRenderer(canvas) {
+  const ctx = canvas.getContext('2d');
+  if (!ctx) return null;
 
   // Projection from a slightly elevated, fixed camera. Positive z is nearer the viewer.
   const project = ([x, y, z]) => [600 + x, 150 + y * 0.96 + z * 0.29];
-  const smooth = (value) => {
-    const t = Math.max(0, Math.min(1, value));
-    return t * t * (3 - 2 * t);
-  };
-  const ramp = (t, from, to) => smooth((t - from) / (to - from));
-
   function path(points, fill, stroke, lineWidth = 1) {
     ctx.beginPath();
     points.forEach((point, index) => {
@@ -164,22 +132,18 @@ function startStudy() {
     ctx.restore();
   }
 
-  function render() {
-    const opening = ramp(time, 6, 9.5) * (1 - ramp(time, 13.5, 18.5));
-    const water = ramp(time, 2.8, 6.5) * (1 - ramp(time, 11.5, 18));
-    const pour = ramp(time, 2.5, 3) * (1 - ramp(time, 6.8, 7.5));
-    const tilt = 0.035 + opening * MODEL.opening;
-    const bowlY = 195 + opening * 31;
+  return function draw({ time, pose, width, height }) {
+    const { opening, water, pour, tilt, bowlY, drainOpacity } = pose;
     const boards = Array.from({ length: MODEL.slats }, (_, i) => {
       const angle = i / MODEL.slats * Math.PI * 2 + 0.12;
       return { angle, index: i, depth: Math.sin(angle) };
     }).sort((a, b) => a.depth - b.depth);
 
-    ctx.setTransform(canvas.width / viewWidth, 0, 0, canvas.height / viewHeight, 0, 0);
-    ctx.clearRect(0, 0, viewWidth, viewHeight);
+    ctx.setTransform(canvas.width / width, 0, 0, canvas.height / height, 0, 0);
+    ctx.clearRect(0, 0, width, height);
     // Fit the same model to a square phone canvas, keeping all of the open slats visible.
-    const scale = Math.min(viewWidth / 790, viewHeight / 600);
-    ctx.translate(viewWidth / 2, viewHeight / 2);
+    const scale = Math.min(width / 790, height / 600);
+    ctx.translate(width / 2, height / 2);
     ctx.scale(scale, scale);
     ctx.translate(-600, -300);
 
@@ -210,8 +174,8 @@ function startStudy() {
     drawPour(pour, time, bowlY);
     boards.filter(board => board.depth >= 0).forEach(board => drawSlat(board.angle, tilt, board.index));
     // A few falling drops suggest the release of water during the reset study.
-    if (time > 12 && time < 18) {
-      ctx.save(); ctx.globalAlpha = Math.sin((time - 12) / 6 * Math.PI) * 0.6;
+    if (drainOpacity > 0) {
+      ctx.save(); ctx.globalAlpha = drainOpacity;
       for (let i = 0; i < 6; i++) {
         const age = (time * 0.7 + i / 6) % 1;
         const [x, y] = project([4 + Math.sin(i * 9) * 4, bowlY + 58 + age * (355 - bowlY), 8]);
@@ -219,86 +183,5 @@ function startStudy() {
       }
       ctx.restore();
     }
-    updateControls();
-  }
-
-  function updateControls() {
-    const index = Math.max(0, STAGES.findLastIndex(stage => time >= stage.start));
-    const name = index === 4 && time >= 18.5 ? 'Resting' : STAGES[index].name;
-    if (index !== activeStage || status.textContent !== name) {
-      activeStage = index;
-      status.textContent = name;
-      stageButtons.forEach((button, i) => {
-        if (i === index) button.setAttribute('aria-current', 'step');
-        else button.removeAttribute('aria-current');
-      });
-    }
-    timeline.value = String(time);
-    timeline.setAttribute('aria-valuetext', `${name}, ${time.toFixed(1)} of ${DURATION} seconds`);
-    playButton.textContent = playing ? 'Pause' : 'Play';
-  }
-
-  function tick(timestamp) {
-    frame = null;
-    if (!playing || document.hidden || !inView) { lastTimestamp = null; return; }
-    if (lastTimestamp !== null) time = (time + Math.min((timestamp - lastTimestamp) / 1000, 0.1) * speed) % DURATION;
-    lastTimestamp = timestamp;
-    render();
-    schedule();
-  }
-
-  function schedule() {
-    if (playing && !document.hidden && inView && frame === null) frame = requestAnimationFrame(tick);
-  }
-
-  function setPlaying(value) {
-    playing = value;
-    lastTimestamp = null;
-    if (frame !== null) cancelAnimationFrame(frame);
-    frame = null;
-    updateControls();
-    schedule();
-  }
-
-  function seek(value) {
-    setPlaying(false);
-    time = Math.max(0, Math.min(DURATION, value));
-    render();
-  }
-
-  playButton.addEventListener('click', () => setPlaying(!playing));
-  restartButton.addEventListener('click', () => {
-    time = 0;
-    render();
-    setPlaying(!motionPreference.matches);
-  });
-  timeline.addEventListener('input', () => seek(Number(timeline.value)));
-  speedSelect.addEventListener('change', () => { speed = Number(speedSelect.value); });
-  stageButtons.forEach((button, i) => button.addEventListener('click', () => seek(STAGES[i].inspect)));
-  motionPreference.addEventListener('change', () => { if (motionPreference.matches) setPlaying(false); });
-  document.addEventListener('visibilitychange', () => { lastTimestamp = null; schedule(); });
-  window.addEventListener('pagehide', () => {
-    if (frame !== null) cancelAnimationFrame(frame);
-    frame = null; lastTimestamp = null;
-  });
-  window.addEventListener('pageshow', schedule);
-  new IntersectionObserver(([entry]) => {
-    inView = entry.isIntersecting;
-    lastTimestamp = null;
-    schedule();
-  }).observe(canvas);
-
-  new ResizeObserver(() => {
-    const rect = canvas.getBoundingClientRect();
-    viewWidth = rect.width;
-    viewHeight = rect.height;
-    const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width = Math.round(rect.width * dpr);
-    canvas.height = Math.round(rect.height * dpr);
-    render();
-  }).observe(canvas);
-
-  document.querySelector('#sculpture-controls').hidden = false;
-  render();
-  schedule();
+  };
 }
