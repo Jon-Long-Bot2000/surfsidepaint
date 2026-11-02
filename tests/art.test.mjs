@@ -5,6 +5,9 @@ import { fileURLToPath } from 'node:url';
 import { mountPlayer } from '../art/shared/player.js';
 import { DURATION, STAGES, poseAt, stageAt } from '../art/sculptures/austin-rain-prototype/motion.js';
 import { createRenderer } from '../art/sculptures/austin-rain-prototype/render.js';
+import { MODEL as TWO_STEP_MODEL, channelPoint, conePosition } from '../art/sculptures/two-step-sculpture/model.js';
+import { DURATION as TWO_STEP_DURATION, STAGES as TWO_STEP_STAGES, poseAt as twoStepPose, stageAt as twoStepStage } from '../art/sculptures/two-step-sculpture/motion.js';
+import { createRenderer as createTwoStepRenderer } from '../art/sculptures/two-step-sculpture/render.js';
 
 const root = new URL('../', import.meta.url);
 
@@ -149,4 +152,84 @@ test('gallery and standalone page use the renamed study with valid assets and ac
     }
   }
   assert.equal(createRenderer({ getContext: () => null }), null);
+});
+
+test('Two-Step preserves equal opposite strokes, upright discharge, and immediate valve closure', () => {
+  const rest = twoStepPose(0);
+  const top = twoStepPose(20);
+  assert.ok(Math.abs(top.cupY - rest.cupY - 5) < 1e-12);
+  assert.ok(Math.abs(rest.bowlY - top.bowlY - 5) < 1e-12);
+  assert.equal(top.valveOpen, true);
+  const departure = twoStepPose(23.01);
+  assert.ok(departure.cupY < top.cupY);
+  assert.ok(departure.cupWater > 0);
+  assert.equal(departure.valveOpen, false);
+  assert.equal(departure.valveFlow, 0);
+  for (let t = 0; t <= TWO_STEP_DURATION; t += 0.05) {
+    const pose = twoStepPose(t);
+    assert.ok(Math.abs((pose.cupY - rest.cupY) - (rest.bowlY - pose.bowlY)) < 1e-12);
+    if (pose.valveOpen) assert.equal(pose.travel, 1);
+    for (const water of [pose.cupWater, pose.bowlWater, ...pose.coneWater]) assert.ok(water >= 0 && water <= 1);
+  }
+  assert.deepEqual(twoStepPose(TWO_STEP_DURATION), rest);
+});
+
+test('Two-Step redirects input and retains independent cone drainage through return', () => {
+  assert.equal(TWO_STEP_MODEL.emitterY - TWO_STEP_MODEL.cupRestY, 1);
+  assert.equal(twoStepPose(0).aqueductFeed, 0);
+  assert.ok(twoStepPose(8.5).overflow > 0);
+  assert.equal(twoStepPose(20).aqueductFeed, 1);
+  assert.equal(twoStepPose(32).travel, 0);
+  assert.ok(twoStepPose(32).coneDrain > 0);
+  assert.ok(twoStepPose(32).coneWater.every(water => water > 0));
+  assert.ok(twoStepPose(38).coneWater.every(water => water === 0));
+  for (const stage of TWO_STEP_STAGES) assert.ok(twoStepStage(stage.inspect).name.length > 0);
+  const cones = Array.from({ length: 4 }, (_, i) => conePosition(i));
+  assert.equal(new Set(cones.map(p => p.join(','))).size, 4);
+  for (let i = 0; i < 4; i++) {
+    assert.ok(cones[i][1] < channelPoint(i, 1)[1]);
+    assert.ok(cones[i][1] - TWO_STEP_MODEL.coneDepth > 0);
+    const next = cones[(i + 1) % 4];
+    assert.ok(Math.abs(cones[i][0] * next[0] + cones[i][2] * next[2]) < 1e-10);
+  }
+});
+
+test('Two-Step page has valid assets, unique accessible IDs, and its own player entry', async () => {
+  const page = new URL('art/sculptures/two-step-sculpture/index.html', root);
+  const html = await readFile(page, 'utf8');
+  const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
+  assert.equal(ids.length, new Set(ids).size);
+  assert.match(html, /data-sculpture="two-step-sculpture"/);
+  assert.match(html, /not a physics simulation/);
+  assert.doesNotMatch(html, /austin-rain-prototype\/index.js/);
+  for (const match of html.matchAll(/\b(?:for|aria-describedby|aria-labelledby)="([^"]+)"/g)) {
+    for (const id of match[1].split(' ')) assert.ok(ids.includes(id), id);
+  }
+  for (const match of html.matchAll(/\b(?:src|href)="((?:\/|\.\/)[^"#]*)"/g)) {
+    let target = match[1].endsWith('/') ? match[1] + 'index.html' : match[1];
+    const url = target.startsWith('/') ? new URL(target.slice(1), root) : new URL(target, page);
+    await access(fileURLToPath(url));
+  }
+});
+
+test('Two-Step renderer handles all inspection poses at desktop and phone sizes', () => {
+  let commands = 0;
+  const context = new Proxy({}, {
+    get: (_, property) => {
+      if (property === 'createLinearGradient') return () => ({ addColorStop() {} });
+      return (...args) => {
+        commands++;
+        for (const value of args.flat()) if (typeof value === 'number') assert.ok(Number.isFinite(value), property);
+      };
+    },
+    set: () => true,
+  });
+  const draw = createTwoStepRenderer({ width: 1080, height: 880, getContext: () => context });
+  for (const width of [375, 1280]) {
+    for (const t of [0, 8.5, 13.5, 17, 20, 23.01, 26.5, 32, 40]) {
+      draw({ time: t, pose: twoStepPose(t), width, height: width < 620 ? 510 : 1000 });
+    }
+  }
+  assert.ok(commands > 0);
+  assert.equal(createTwoStepRenderer({ getContext: () => null }), null);
 });

@@ -33,6 +33,7 @@ From `/Users/jcountryman/Projects/surfsidepaint`, install with `npm ci` when nee
 
 - Art hub: `/art/`
 - Austin Rain Prototype: `/art/sculptures/austin-rain-prototype/`
+- Two-Step Sculpture: `/art/sculptures/two-step-sculpture/` — prescribed fountain motion study; [design record and initial atlas](sculptures/two-step-sculpture/README.md)
 - Original references: `.local/art/austin-rain-prototype/references/`
 - Temporary exports: `.local/art/austin-rain-prototype/renders/`
 

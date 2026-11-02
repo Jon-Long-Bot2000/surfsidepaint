@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f8fb">
+  <title>Two-Step Sculpture | Jon's Art</title>
+  <meta name="description" content="An illustrative motion study of a recirculating kinetic fountain: a pulley-linked cup and bowl, four spiral aqueducts, and four slow-draining storage cones.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/art/styles.css">
+  <link rel="stylesheet" href="./study.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner container">
+      <a class="logo" href="/" aria-label="Surfside Painting Company home"><span class="logo-primary">Surfside</span><span class="logo-secondary">Painting Company</span></a>
+      <nav aria-label="Main navigation"><a href="/">Home</a><a href="/art/" aria-current="page">Art</a><a href="/#contact">Contact</a></nav>
+    </div>
+  </header>
+  <main id="main" class="art-main container">
+    <a class="study-back" href="/art/">← All art</a>
+    <h1>Two-Step Sculpture</h1>
+    <p class="study-intro">A kinetic fountain in two independent mechanisms. Water separates a nested cup and bowl, then flows through four spiral aqueducts into four connected cones that descend and spin along the lower screw stand.</p>
+    <section class="art-section" aria-labelledby="two-step-title">
+      <h2 id="two-step-title">Motion study</h2>
+      <div class="sculpture-player" data-sculpture="two-step-sculpture" role="group" aria-label="Two-Step Sculpture animation">
+        <div class="study-heading"><span>Two-Step Sculpture · First study</span><span class="study-number">Prescribed motion</span></div>
+        <canvas id="two-step-canvas" class="development-canvas" width="1080" height="880" role="img" aria-label="A pulley-linked upright cup and bowl surrounded by four spiral channels and four cone-shaped water stores" aria-describedby="two-step-description">
+          A nested cup fills and overflows into a bowl. The bowl descends as the cup rises. Fixed jets reach four spiral channels and storage cones. At the top, a contact-operated valve discharges cup water into the bowl. The bowl drains and rises, lowering the upright cup; its valve closes immediately when top contact ends.
+        </canvas>
+        <p id="two-step-description" class="visually-hidden">Prescribed 40-second motion study, not a physics simulation. Each vessel has a five-foot target stroke. The cup may return with water remaining. Four cones share a ring and central sleeve. They descend and rotate on the lower screw, then rise with reverse rotation under a proposed counterweight reset. Use the stage buttons or keyboard-accessible timeline to pause and inspect. Geometry, support details, water levels, and timing are illustrative.</p>
+        <div class="sculpture-controls" data-role="controls" hidden>
+          <div class="playback-row">
+            <div class="playback-actions"><button type="button" data-action="play" class="play-button">Pause</button><button type="button" data-action="restart">Restart</button></div>
+            <p class="sculpture-status" data-role="status" role="status" aria-live="polite" aria-atomic="true">Resting / input</p>
+            <label class="speed-control">Speed <select data-role="speed"><option value="0.5">0.5×</option><option value="1" selected>1×</option><option value="1.5">1.5×</option></select></label>
+          </div>
+          <label class="visually-hidden" for="two-step-timeline">Animation timeline</label>
+          <input type="range" class="sculpture-timeline" data-role="timeline" id="two-step-timeline" min="0" max="40" step="0.01" value="0" aria-valuetext="Resting / input, 0 of 40 seconds">
+          <div class="stage-buttons" role="group" aria-label="Inspect an animation stage">
+            <button type="button" data-stage="0" aria-current="step">Resting / input</button>
+            <button type="button" data-stage="1">Cup overflows</button>
+            <button type="button" data-stage="2">Activated</button>
+            <button type="button" data-stage="3">Top valve open</button>
+            <button type="button" data-stage="4">Cup returns / cones spin</button>
+            <button type="button" data-stage="5">Cones at bottom</button>
+            <button type="button" data-stage="6">Counterweight reset</button>
+          </div>
+        </div>
+        <noscript><p class="study-note">Enable JavaScript to view the animation. The mechanism descriptions below remain available.</p></noscript>
+        <p class="study-note"><strong>Illustrative study, not a physics simulation.</strong> The 40-second loop prescribes movement and water levels. Five-foot strokes are targets; the specified 10-foot cord has not been fitted to the illustrated pulley path. Quick concept preview: screw lead, cone travel, counterweight, return sequence, valve linkage, flow, and drainage are schematic. Counterweight reset is proposed; friction and clearances are not calculated.</p>
+      </div>
+    </section>
+    <section class="art-section" aria-labelledby="two-step-reading">
+      <h2 id="two-step-reading">Reading the fountain</h2>
+      <div class="mechanism-notes">
+        <article><h3>M01 · Cup and bowl</h3><p>The hollow stand <strong>P01</strong> supplies four fixed emitters <strong>P07</strong>, one foot above the resting cup rim. Cup <strong>P03</strong> overflows into bowl <strong>P04</strong>. The bowl descends and pulls the cup upward through cord <strong>P05</strong> over pulley <strong>P06</strong>. The fixed jets then reach the aqueducts.</p><p>At the top, contact <strong>P13</strong> opens cup valve <strong>P14</strong>. Water falls mostly into the bowl, which continues draining through <strong>P12</strong>. The valve closes on departure; the upright cup returns with some water remaining.</p></article>
+        <article><h3>M02 · Chandelier storage</h3><p>Four fixed, open-top spiral aqueducts <strong>P08</strong> feed four equally spaced cone-shaped stores <strong>P15</strong> below their outlets at rest. Once the cones move away, this preview sends channel water straight to the basin; intermittent recapture is not modeled. Restricted outlets <strong>P16</strong> drain toward catch basin <strong>P09</strong>; pump <strong>P10</strong> recirculates the water.</p><p>The cones are joined by a circular ring connected to a sleeve around the lower screw stand. As the loaded assembly descends it rotates; the channels remain fixed. A proposed guided counterweight beside the stand lifts the draining assembly back up with reverse rotation. A separate lift collar and thrust bearing keep the counterweight cord from rotating with the sleeve. No forces, flow rates, water conservation, or physical activation threshold are calculated.</p></article>
+      </div>
+      <p class="record-link"><a href="./README.md">Design record and part atlas</a> · Original empty startup is not shown; the loop begins with water retained from the previous return.</p>
+    </section>
+  </main>
+  <script type="module" src="./index.js"></script>
+</body>
+</html>
