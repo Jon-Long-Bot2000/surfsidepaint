@@ -1,0 +1,4 @@
+.DS_Store
+.gallery-data/
+tmp/
+.wrangler/
