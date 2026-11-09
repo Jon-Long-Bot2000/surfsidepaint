@@ -14,12 +14,14 @@ button { font: inherit; cursor: pointer; }
 button:focus-visible { outline: 3px solid #2695ad; outline-offset: 4px; }
 .skip-link { position: fixed; left: 16px; top: -100px; z-index: 10; padding: 12px; background: white; }
 .skip-link:focus { top: 12px; }
-.page-header { position: sticky; top: 0; z-index: 2; background: #ffffffed; backdrop-filter: blur(12px); }
+.page-header { background: #fff; }
 .site-nav { display: flex; align-items: center; justify-content: space-between; gap: 24px; max-width: 1200px; min-height: 82px; padding: 15px 28px; margin: auto; }
 .site-brand { display: inline-flex; align-items: center; gap: 10px; color: #005e4b; text-decoration: none; }
 .site-brand img { display: block; object-fit: contain; }
 .site-brand > span { font-size: 17px; font-weight: 650; line-height: 1.12; letter-spacing: -.025em; }
 .site-brand > span > span { display: block; margin-top: 4px; color: #647780; font-size: 11px; font-weight: 450; letter-spacing: .035em; }
+.home-link { padding: 10px 0; color: #334f55; font-size: 13px; font-weight: 550; text-decoration: none; }
+.home-link:hover { color: #005e4b; text-decoration: underline; text-underline-offset: 5px; }
 .download-button { flex: none; display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 44px; padding: 12px 18px; border-radius: 7px; background: #005e4b; color: #fff; font-size: 13px; font-weight: 600; line-height: 1.2; text-decoration: none; box-shadow: 0 2px 4px #123b3110; }
 .download-button:hover { background: #004c3d; }
 .download-button:active { transform: translateY(1px); }
