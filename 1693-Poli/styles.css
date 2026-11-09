@@ -29,8 +29,9 @@ main { padding: 28px 24px 44px; }
 .hero { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: 56px; max-width: 1120px; margin: 12px auto 48px; }
 .hero h1 { margin: 0; font-size: clamp(38px, 4vw, 56px); line-height: 1.06; font-weight: 650; letter-spacing: -.045em; }
 .hero-copy > p { max-width: 330px; margin: 22px 0 0; color: #647780; font-size: 19px; line-height: 1.5; }
-.hero-photo { margin: 0; overflow: hidden; border-radius: 12px; background: #dfe8e0; box-shadow: 0 2px 15px #183e4710; }
+.hero-photo { position: relative; margin: 0; overflow: hidden; border-radius: 12px; background: #dfe8e0; box-shadow: 0 2px 15px #183e4710; }
 .hero-photo img { display: block; width: 100%; height: auto; }
+.hero-photo-note { position: absolute; right: 10px; bottom: 10px; max-width: calc(100% - 20px); padding: 5px 8px; border-radius: 4px; background: #14231fcc; color: #fff; font-size: 10px; line-height: 1.35; text-align: right; }
 .proposal-section { max-width: 900px; margin: auto; padding-top: 30px; border-top: 1px solid #d5dfe0; scroll-margin-top: 100px; outline: none; }
 .proposal-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 22px; }
 .proposal-heading h2 { margin: 0; font-size: 26px; letter-spacing: -.035em; font-weight: 650; }
