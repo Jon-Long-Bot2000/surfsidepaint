@@ -1,0 +1,50 @@
+:root {
+  color-scheme: light;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color: #183e47;
+  background: #f4f6f5;
+  font-synthesis: none;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+a { color: #00624e; }
+a:focus-visible { outline: 3px solid #2695ad; outline-offset: 4px; }
+.skip-link { position: fixed; left: 16px; top: -100px; z-index: 10; padding: 12px; background: white; }
+.skip-link:focus { top: 12px; }
+.toolbar { position: sticky; top: 0; z-index: 2; background: #ffffffed; border-bottom: 1px solid #dce4e5; backdrop-filter: blur(12px); }
+.toolbar-inner { max-width: 1200px; min-height: 88px; padding: 16px 28px; margin: auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+.project-heading { min-width: 0; }
+h1 { margin: 0; font-size: 20px; font-weight: 650; letter-spacing: -.025em; }
+.project-heading p { margin: 5px 0 0; color: #647780; font-size: 12px; line-height: 1.4; }
+.document-label::before { content: " / "; margin: 0 4px; color: #99a8aa; }
+.download-button { flex: none; display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 44px; padding: 12px 18px; border-radius: 7px; background: #005e4b; color: #fff; font-size: 13px; font-weight: 600; line-height: 1.2; text-decoration: none; box-shadow: 0 2px 4px #123b3110; }
+.download-button:hover { background: #004c3d; }
+.download-button:active { transform: translateY(1px); }
+main { padding: 28px 24px 44px; outline: none; scroll-margin-top: 110px; }
+.viewer-status { margin: 56px auto; text-align: center; color: #647780; font-size: 14px; }
+.viewer-status[hidden], [hidden] { display: none !important; }
+.pdf-pages, .fallback { width: 100%; max-width: 900px; margin: auto; }
+.pdf-page { position: relative; width: 100%; margin: 0 0 24px; background: #fff; box-shadow: 0 2px 15px #183e4710; }
+.pdf-page canvas { display: block; width: 100%; height: auto; }
+.screen-reader-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: pre-wrap; }
+.fallback p { font-size: 14px; line-height: 1.5; margin: 0 0 20px; }
+.fallback img { display: block; width: 100%; height: auto; background: #fff; box-shadow: 0 2px 15px #183e4710; }
+html:has(noscript .fallback) .viewer-status { display: none; }
+
+@media (max-width: 600px) {
+  .toolbar-inner { min-height: 76px; padding: 13px 16px; gap: 12px; }
+  h1 { font-size: 18px; }
+  .project-heading p { font-size: 11px; }
+  .company-name { display: none; }
+  .document-label::before { content: none; }
+  .download-button { padding: 12px 14px; gap: 7px; font-size: 12px; }
+  main { padding: 16px 10px 24px; }
+  .pdf-page { margin-bottom: 16px; }
+}
+
+@media print {
+  .toolbar, .skip-link, .viewer-status { display: none; }
+  main { padding: 0; }
+  .pdf-page { margin: 0; box-shadow: none; break-after: page; }
+}
