@@ -26,13 +26,18 @@ button:focus-visible { outline: 3px solid #2695ad; outline-offset: 4px; }
 .toolbar { background: #f4f6f5a6; border-top: 1px solid #e5ebea; border-bottom: 1px solid #dce4e5; }
 .toolbar-inner { max-width: 1200px; min-height: 88px; padding: 16px 28px; margin: auto; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
 .project-heading { min-width: 0; }
-h1 { margin: 0; font-size: 20px; font-weight: 650; letter-spacing: -.025em; }
+.project-heading .project-title { margin: 0; color: #183e47; font-size: 20px; font-weight: 650; letter-spacing: -.025em; }
 .project-heading p { margin: 5px 0 0; color: #647780; font-size: 12px; line-height: 1.4; }
 .document-label::before { content: " / "; margin: 0 4px; color: #99a8aa; }
 .download-button { flex: none; display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 44px; padding: 12px 18px; border-radius: 7px; background: #005e4b; color: #fff; font-size: 13px; font-weight: 600; line-height: 1.2; text-decoration: none; box-shadow: 0 2px 4px #123b3110; }
 .download-button:hover { background: #004c3d; }
 .download-button:active { transform: translateY(1px); }
 main { padding: 28px 24px 44px; outline: none; scroll-margin-top: 190px; }
+.hero { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); align-items: center; gap: 56px; max-width: 1120px; margin: 12px auto 48px; }
+.hero h1 { margin: 0; font-size: clamp(38px, 4vw, 56px); line-height: 1.06; font-weight: 650; letter-spacing: -.045em; }
+.hero-copy > p { max-width: 330px; margin: 22px 0 0; color: #647780; font-size: 19px; line-height: 1.5; }
+.hero-photo { margin: 0; overflow: hidden; border-radius: 12px; background: #dfe8e0; box-shadow: 0 2px 15px #183e4710; }
+.hero-photo img { display: block; width: 100%; height: auto; }
 .viewer-status { margin: 56px auto; text-align: center; color: #647780; font-size: 14px; }
 .viewer-status[hidden], [hidden] { display: none !important; }
 .pdf-pages, .fallback { width: 100%; max-width: 900px; margin: auto; }
@@ -67,6 +72,12 @@ body.photo-viewer-open { overflow: hidden; }
 .photo-previous { left: 8px; }
 .photo-next { right: 8px; }
 
+@media (max-width: 760px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 24px; margin: 8px auto 32px; }
+  .hero h1 { max-width: 17ch; font-size: clamp(34px, 7vw, 46px); }
+  .hero-copy > p { max-width: none; margin-top: 14px; font-size: 17px; }
+}
+
 @media (max-width: 600px) {
   .site-nav { min-height: 68px; padding: 12px 16px; gap: 16px; }
   .site-brand img { width: 38px; height: 38px; }
@@ -74,7 +85,7 @@ body.photo-viewer-open { overflow: hidden; }
   .site-links { flex-direction: column; align-items: flex-end; gap: 0; }
   .site-links a { padding: 5px 0; font-size: 12px; }
   .toolbar-inner { min-height: 76px; padding: 13px 16px; gap: 12px; }
-  h1 { font-size: 18px; }
+  .project-heading .project-title { font-size: 18px; }
   .project-heading p { font-size: 11px; }
   .company-name { display: none; }
   .document-label::before { content: none; }
@@ -97,7 +108,7 @@ body.photo-viewer-open { overflow: hidden; }
 @media (prefers-reduced-motion: reduce) { .gallery-photo img { transition: none; } }
 
 @media print {
-  .page-header, .skip-link, .viewer-status, .gallery, .photo-dialog { display: none; }
+  .page-header, .hero, .skip-link, .viewer-status, .gallery, .photo-dialog { display: none; }
   main { padding: 0; }
   .pdf-page { margin: 0; box-shadow: none; break-after: page; }
 }
