@@ -9,7 +9,7 @@
     <meta name="description" content="View and download the Surfside Painting Company proposal for 1693 Poli Street, Ventura.">
     <link rel="stylesheet" href="./styles.css">
     <script type="module" src="./viewer.mjs"></script>
-    <script type="module" src="./gallery.mjs"></script>
+    <script type="module" src="./gallery.mjs?v=2"></script>
   </head>
   <body>
     <a class="skip-link" href="#proposal">Skip to proposal</a>
@@ -59,10 +59,14 @@
           <p>1693 Poli Street</p>
         </div>
         <div class="gallery-page-heading">
-          <h3 id="before-title">Before</h3>
-          <p>35 photos</p>
+          <div class="gallery-tabs" role="tablist" aria-label="Photo gallery stage">
+            <button id="before-tab" class="gallery-tab" type="button" role="tab" aria-selected="true" aria-controls="before-panel">Before</button>
+            <button id="after-tab" class="gallery-tab" type="button" role="tab" aria-selected="false" aria-controls="after-panel" tabindex="-1">After</button>
+          </div>
+          <p id="gallery-count">35 photos</p>
         </div>
-        <div class="photo-grid" aria-labelledby="before-title">
+        <div id="before-panel" class="gallery-panel" role="tabpanel" aria-labelledby="before-tab">
+        <div class="photo-grid" aria-label="Before photos">
           <!-- gallery:start -->
           <a class="gallery-photo" href="./gallery/before/IMG_0680.webp" aria-label="Open before photo 1 of 35">
             <img src="./gallery/before/thumbs/IMG_0680.webp" width="480" height="640" alt="Before renovation, photo 1 of 35" loading="lazy" decoding="async">
@@ -205,6 +209,10 @@
             <span aria-hidden="true">35</span>
           </a>
           <!-- gallery:end -->
+        </div>
+        </div>
+        <div id="after-panel" class="gallery-panel" role="tabpanel" aria-labelledby="after-tab" tabindex="0" hidden>
+          <p class="gallery-empty">Photos added as they become available.</p>
         </div>
       </section>
     </main>

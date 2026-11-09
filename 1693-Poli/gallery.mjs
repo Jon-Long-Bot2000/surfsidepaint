@@ -1,3 +1,32 @@
+const tabs = Array.from(document.querySelectorAll('.gallery-tab'));
+const photoCount = document.querySelector('#gallery-count');
+
+function selectTab(selected, focus = false) {
+  tabs.forEach(tab => {
+    const active = tab === selected;
+    tab.setAttribute('aria-selected', String(active));
+    tab.tabIndex = active ? 0 : -1;
+    document.getElementById(tab.getAttribute('aria-controls')).hidden = !active;
+  });
+  photoCount.hidden = selected.id !== 'before-tab';
+  if (focus) selected.focus();
+}
+
+tabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => selectTab(tab));
+  tab.addEventListener('keydown', event => {
+    let next;
+    if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+    if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+    if (event.key === 'Home') next = 0;
+    if (event.key === 'End') next = tabs.length - 1;
+    if (next !== undefined) {
+      event.preventDefault();
+      selectTab(tabs[next], true);
+    }
+  });
+});
+
 const photos = Array.from(document.querySelectorAll('.gallery-photo'));
 const dialog = document.querySelector('.photo-dialog');
 const image = document.querySelector('#expanded-photo');
