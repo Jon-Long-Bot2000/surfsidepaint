@@ -14,10 +14,10 @@
 .homes-page .homes-skip:focus { transform: none; }
 .homes-page .homes-header-band { background: #eaf0e8; border-bottom: 1px solid var(--homes-line); }
 .homes-page .homes-header { min-height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-top: env(safe-area-inset-top); }
-.homes-page .homes-brand { display: inline-flex; align-items: center; gap: 12px; text-decoration: none; flex-shrink: 0; }
+.homes-page .homes-brand { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; flex-shrink: 0; }
 .homes-page .homes-brand > .homes-icon { width: 36px; height: 40px; color: var(--homes-green); stroke-width: 1.3; }
 .homes-page .homes-brand > span { display: grid; font-size: 1.35rem; font-weight: 750; line-height: 1.15; letter-spacing: -.045em; }
-.homes-page .homes-brand > span > span { font-size: .66rem; letter-spacing: .08em; font-weight: 550; margin-top: 5px; }
+.homes-page .homes-brand > span > span { font-size: .66rem; letter-spacing: .08em; font-weight: 550; margin-top: 3px; }
 .homes-page .homes-header nav { display: flex; gap: 32px; }
 .homes-page .homes-header nav a, .homes-page .homes-login { display: inline-flex; align-items: center; gap: 10px; min-height: 44px; text-decoration: none; font-size: .8rem; font-weight: 550; }
 .homes-page .homes-header nav a:hover, .homes-page .homes-login:hover, .homes-page .homes-text-link:hover { text-decoration: underline; text-underline-offset: 5px; }
@@ -25,15 +25,28 @@
 .homes-page .homes-login { padding: 0 4px; white-space: nowrap; }
 .homes-page .homes-header-actions > .button { min-height: 44px; padding: 10px 16px; border-color: #bdd4c3; background: #dceee0; color: var(--homes-ink); font-size: .8rem; white-space: nowrap; }
 .homes-page .homes-header-actions > .button:hover { background: #cbe4d1; }
-.homes-page .homes-hero { display: grid; grid-template-columns: 1.15fr 1fr; grid-template-areas: 'intro map'; align-items: center; column-gap: 48px; padding-block: 64px 74px; }
+.homes-page .homes-hero { padding-block: 64px 74px; }
 .homes-page .homes-hero-copy { position: relative; z-index: 1; grid-area: intro; }
 .homes-page .homes-hero-copy > .homes-eyebrow { display: flex; align-items: center; gap: 9px; color: var(--homes-green); margin-bottom: 24px; }
 .homes-page .homes-hero-copy > .homes-eyebrow > span { width: 6px; height: 6px; border-radius: 50%; background: var(--homes-green); }
 .homes-page .homes-hero h1 { font-size: clamp(2.8rem, 5.65vw, 4.65rem); font-weight: 650; line-height: 1.2; max-width: 660px; }
-.homes-page .homes-hero h1 > span { display: block; color: var(--homes-green); }
+.homes-page .homes-hero h1 > span { display: block; margin-top: 3px; color: var(--homes-green); }
 .homes-page .homes-lead { font-size: 1.1rem; line-height: 1.7; max-width: 450px; margin-top: 26px; color: var(--homes-muted); }
 .homes-page .homes-lead strong { display: block; margin-top: 12px; font-size: .9rem; color: var(--homes-ink); font-weight: 600; }
-.homes-page .homes-hero-service { min-width: 0; grid-area: map; }
+.homes-page .homes-subscription-overview { max-width: 740px; margin-top: 28px; padding: 36px 24px 24px; border: 1px solid var(--homes-line); border-radius: 18px; background: #fff; }
+.homes-page .homes-hero-subtext { margin-top: 22px; font-size: .95rem; line-height: 1.6; color: var(--homes-muted); }
+.homes-page .homes-hero-subtext > strong { display: block; color: var(--homes-green); font-weight: 650; }
+.homes-page .homes-hero-subtext > span { display: block; }
+.homes-page .homes-hero-illustrations { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; max-width: 740px; margin-top: 0; }
+.homes-page .homes-hero-illustrations > div { min-width: 0; }
+.homes-page .homes-hero-illustrations img { display: block; width: 100%; height: auto; }
+.homes-page .homes-illustration-heading { margin-top: 6px; text-align: center; font-size: 1.1rem; line-height: 1.35; letter-spacing: -.025em; font-weight: 650; }
+
+.homes-page .homes-overview-price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin-top: 0; }
+.homes-page .homes-overview-price strong { color: var(--homes-green); font-size: 1.2rem; font-weight: 650; }
+.homes-page .homes-overview-price > span { font-size: .87rem; color: var(--homes-muted); }
+.homes-page .homes-overview-note { font-size: .73rem; line-height: 1.5; color: var(--homes-muted); margin-top: 12px; }
+.homes-page .homes-area > .homes-service-map { max-width: 580px; margin-inline: auto; }
 .homes-page .homes-service-map { overflow: hidden; border: 1px solid #cbd9cf; border-radius: 24px; background: #eef2e8; box-shadow: 0 14px 38px #183e470a; scroll-margin-top: 24px; }
 .homes-page .homes-map-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; padding: 22px 24px 18px; background: #fff; border-bottom: 1px solid #d5e1d9; }
 .homes-page .homes-map-heading p { font-size: .55rem; letter-spacing: .15em; font-weight: 700; color: var(--homes-green); margin-bottom: 7px; }
@@ -181,7 +194,6 @@
 .homes-page .homes-footer > a:last-child { display: inline-flex; align-items: center; gap: 9px; min-height: 44px; font-size: .75rem; text-decoration: none; }
 .homes-page .homes-footer > a:last-child .homes-icon { width: 17px; }
 @media (max-width: 1000px) {
-  .homes-page .homes-hero { column-gap: 24px; }
   .homes-page .homes-actions { gap: 14px; }
   .homes-page .homes-hero-visual { min-height: 510px; }
   .homes-page .homes-visual-note { left: -12px; bottom: 42px; }
@@ -206,7 +218,7 @@
   .homes-page .homes-login { font-size: .75rem; }
   .homes-page .homes-header-actions > .button { padding: 10px; font-size: .75rem; }
   .homes-page .homes-section { padding-block: 64px; }
-  .homes-page .homes-hero { grid-template-columns: 1fr; grid-template-areas: 'intro' 'map'; gap: 22px; padding-block: 48px 34px; }
+  .homes-page .homes-hero { padding-block: 48px 34px; }
   .homes-page .homes-hero h1 { font-size: clamp(2.65rem, 9.3vw, 4rem); max-width: 540px; }
   .homes-page .homes-hero-copy > .homes-eyebrow { font-size: .55rem; margin-bottom: 21px; }
   .homes-page .homes-lead { font-size: 1rem; margin-top: 21px; }
@@ -214,7 +226,6 @@
   .homes-page .homes-actions > .button { width: 100%; }
   .homes-page .homes-actions > .homes-text-link { justify-content: center; width: 100%; }
   .homes-page .homes-hero-note { font-size: .67rem; margin-top: 15px; align-items: flex-start; }
-  .homes-page .homes-hero-service { margin-top: 8px; }
   .homes-page .homes-map-heading { padding: 18px 18px 15px; }
   .homes-page .homes-map-heading h2 { font-size: .9rem; }
   .homes-page .homes-map-local { display: none; }
@@ -276,3 +287,58 @@
 @media (prefers-reduced-motion: reduce) {
   .homes-page *, .homes-page *::before, .homes-page *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+@media (max-width: 720px) {
+  .homes-page .homes-subscription-overview { margin-top: 24px; padding: 30px 18px 18px; border-radius: 14px; }
+  .homes-page .homes-overview-price { gap: 2px 10px; }
+  .homes-page .homes-subscription-footer > .button { width: 100%; padding-inline: 12px; font-size: .83rem; }
+}
+
+@media (max-width: 720px) {
+  .homes-page .homes-hero-illustrations { gap: 8px; margin-top: 0; }
+}
+
+@media (max-width: 720px) {
+  .homes-page .homes-illustration-heading { font-size: .9rem; margin-top: 4px; }
+}
+
+.homes-page .homes-illustration-benefit { margin-top: 7px; text-align: center; color: var(--homes-muted); font-size: .86rem; line-height: 1.5; }
+.homes-page .homes-subscription-footer { margin-top: 24px; padding-top: 22px; text-align: center; }
+.homes-page .homes-subscription-footer .homes-overview-price { justify-content: center; }
+.homes-page .homes-subscription-footer > .button { margin-top: 16px; }
+@media (max-width: 720px) {
+  .homes-page .homes-illustration-benefit { font-size: .8rem; margin-top: 6px; }
+  .homes-page .homes-subscription-footer { margin-top: 20px; padding-top: 18px; }
+  .homes-page .homes-subscription-footer .homes-overview-price { flex-direction: column; align-items: center; gap: 4px; }
+}
+
+.homes-page .homes-subscription-title, .homes-page .homes-subscription-summary { color: var(--homes-ink); font-size: 1.9rem; line-height: 1.3; letter-spacing: -.035em; font-weight: 650; }
+.homes-page .homes-subscription-title { margin-bottom: 36px; text-align: center; }
+@media (max-width: 720px) {
+  .homes-page .homes-subscription-title, .homes-page .homes-subscription-summary { font-size: 1.5rem; }
+  .homes-page .homes-subscription-title { margin-bottom: 32px; }
+}
+
+.homes-page .homes-subscription-arrows { display: block; width: 100%; height: auto; margin: 12px auto 8px; overflow: visible; color: var(--homes-green); }
+.homes-page .homes-subscription-summary { margin-top: 0; margin-bottom: 0; }
+@media (max-width: 720px) {
+  .homes-page .homes-subscription-arrows { margin-top: 14px; margin-bottom: 10px; }
+}
+
+.homes-page .homes-subscription-price-card { position: relative; width: 100%; max-width: 440px; margin: -49px auto 0; }
+.homes-page .homes-subscription-price-card > img { display: block; width: 100%; height: auto; }
+.homes-page .homes-subscription-join { position: absolute; left: 5.73%; right: 5.73%; top: calc(80% + 20px); transform: translateY(-50%); display: flex; align-items: center; justify-content: center; height: 52px; min-height: 52px; padding: 8px 12px; border: 1px solid var(--homes-green); border-radius: 10px; background: var(--homes-green); color: #fff; font-size: .875rem; font-weight: 650; line-height: 1.2; text-align: center; text-decoration: none; touch-action: manipulation; box-shadow: 0 2px 3px #183e4706, 0 4px 8px #183e4708, 0 8px 16px #1466570e, 0 12px 22px #14665706; animation: homes-subscription-join-reveal .65s cubic-bezier(.22,1,.36,1) .15s both; transition: background-color .2s ease, box-shadow .2s ease; }
+.homes-page .homes-subscription-join:hover { background: #104f45; box-shadow: 0 2px 4px #183e4708, 0 5px 10px #183e470a, 0 10px 19px #14665712, 0 14px 25px #14665709; }
+.homes-page .homes-subscription-join:focus-visible { outline: 3px solid var(--homes-ink); outline-offset: 3px; }
+.homes-page .homes-subscription-price-microcopy { position: absolute; left: 5.73%; right: 5.73%; top: calc(80% + 54px); margin: 0; color: var(--homes-muted); font-size: .75rem; font-weight: 450; line-height: 1.4; text-align: center; }
+@keyframes homes-subscription-join-reveal { from { opacity: 0; transform: translateY(calc(-50% + 15px)); } to { opacity: 1; transform: translateY(-50%); } }
+@media (prefers-reduced-motion: reduce) { .homes-page .homes-subscription-join { animation: none; transition: none; } }
+
+@media (max-width: 720px) {
+  .homes-page .homes-subscription-price-card { max-width: none; margin-top: -37px; }
+}
+
+.homes-page .homes-subscription-membership-art { position: relative; z-index: 1; left: 50%; width: 125%; max-width: 450px; margin: -15px 0 0; transform: translateX(-50%); }
+.homes-page .homes-subscription-membership-art > img { display: block; width: 100%; height: auto; }
+
+.homes-page .homes-subscription-kicker { margin-bottom: 8px; text-align: center; color: var(--homes-muted); font-size: .65rem; font-weight: 600; letter-spacing: .15em; line-height: 1.5; }

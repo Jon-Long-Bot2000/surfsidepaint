@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="270" viewBox="0 0 360 270" role="img" aria-labelledby="title desc">
+  <title id="title">Handyman Requests — a cracked window through the camera</title>
+  <desc id="desc">A camera-shaped body with a raised viewfinder and top shutter button frames a four-pane window with a cracked upper-right pane. White viewfinder corners frame the damage, with a centered shutter control, Capture Photo label on the left, and Save To-Do button with a right arrow on the right.</desc>
+  <ellipse cx="178" cy="243" rx="118" ry="10" fill="#183e47" opacity=".06"/>
+  <rect x="48" y="35" width="250" height="202" rx="18" fill="#dfe9da"/>
+  <g transform="rotate(-5 176 128)">
+    <rect x="245" y="19" width="28" height="15" rx="4" fill="#146657"/>
+    <path d="M61 30H126l12-18a9 9 0 0 1 8-4h54a9 9 0 0 1 8 4l12 18h59a15 15 0 0 1 15 15v166a15 15 0 0 1-15 15H61a15 15 0 0 1-15-15V45a15 15 0 0 1 15-15Z" fill="#183e47" stroke="#183e47" stroke-width="1" stroke-linejoin="round"/>
+    <rect x="152" y="15" width="40" height="10" rx="3" fill="#789889"/>
+    <path d="M159 18h25" stroke="#dfe9da" stroke-width="2" stroke-linecap="round"/>
+    <defs><clipPath id="h1-photo"><rect x="51" y="35" width="238" height="162" rx="10"/></clipPath></defs>
+    <g clip-path="url(#h1-photo)">
+      <rect x="51" y="35" width="238" height="162" fill="#e9ecdf"/>
+      <path d="M51 74h238M51 157h238" stroke="#d7dfcf" stroke-width="2"/>
+      <rect x="90" y="50" width="160" height="132" rx="4" fill="#f6f3e7" stroke="#146657" stroke-width="3"/>
+      <path d="M98 58h65v51H98Zm79 0h65v51h-65ZM98 123h65v51H98Zm79 0h65v51h-65Z" fill="#d6e7e3"/>
+      <path d="m102 96 31-34m-28 97 31-33m45 30 27-29" fill="none" stroke="#f4f7f4" stroke-width="7" opacity=".8"/>
+      <path d="M170 52v128M92 116h156" fill="none" stroke="#146657" stroke-width="6"/>
+      <g fill="none" stroke="#183e47" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m206 84 8-13-4-13m-4 26 16 3 11-8 9 2m-36 3 4 13 15 12m-19-25-13 7-16-5m29-2-11-11-3-15"/>
+        <path d="m193 91-5 11m34-15 4 10m-12-26 12-8" stroke-width="1.8"/>
+      </g>
+      <path d="M83 183h175v9H83Z" fill="#789889"/>
+      <g fill="none" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M62 63V46h17m185 0h14v17M62 170v16h17m185 0h14v-16" stroke="#183e47" stroke-width="5" opacity=".18"/>
+        <path d="M62 63V46h17m185 0h14v17M62 170v16h17m185 0h14v-16" stroke="#fff" stroke-width="2.8"/>
+      </g>
+    </g>
+    <text x="153" y="211" fill="#f6f3e7" font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="8" font-weight="600" text-anchor="end">Capture Photo</text>
+    <circle cx="170" cy="208" r="11" fill="none" stroke="#f6f3e7" stroke-width="1.8"/>
+    <circle cx="170" cy="208" r="7.5" fill="#f6f3e7"/>
+    <g aria-hidden="true">
+      <rect x="219" y="199" width="61" height="18" rx="9" fill="#146657" stroke="#dfe9da" stroke-width=".8"/>
+      <text x="226" y="210.5" fill="#fff" font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="7" font-weight="600">Save To-Do</text><path d="M268 208h6m-2.5-2.5 2.5 2.5-2.5 2.5" fill="none" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+    </g>
+  </g>
+  
+</svg>
