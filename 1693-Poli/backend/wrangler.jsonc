@@ -1,6 +1,8 @@
 {
   "name": "surfsidepaint-1693-poli-gallery",
+  "account_id": "ab187777f9f73176bc293d3b43f28bec",
   "main": "worker.mjs",
+  "workers_dev": true,
   "compatibility_date": "2026-11-09",
   "r2_buckets": [
     { "binding": "PHOTOS", "bucket_name": "surfsidepaint-1693-poli-photos" }

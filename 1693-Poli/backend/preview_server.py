@@ -49,6 +49,9 @@ class Handler(SimpleHTTPRequestHandler):
 
     def do_GET(self):
         path = unquote(urlsplit(self.path).path)
+        if path == '/gallery-config.json':
+            self.json_response({'apiBase': '/api/gallery'})
+            return
         if path == '/api/gallery':
             with LOCK:
                 records = [json.loads(p.read_text()) for p in self.server.storage.glob('*.json')]

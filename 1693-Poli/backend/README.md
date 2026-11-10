@@ -1,3 +1,11 @@
+# Current release: static gallery only
+
+Photo uploads and all shared-gallery API requests are disabled for the initial
+production release at the user's request. No Worker or R2 bucket is deployed.
+The existing Before photos are served by GitHub Pages; After shows its placeholder.
+Backend files below are retained for future work. A billing alert is not an
+automatic usage cutoff. Do not enable the backend until cost controls are tested.
+
 # Shared gallery upload service
 
 The GitHub Pages frontend uses this Cloudflare Worker and an R2 bucket for shared
