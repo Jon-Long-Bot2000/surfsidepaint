@@ -7,7 +7,7 @@
     <meta name="theme-color" content="#f4f6f5">
     <title>1693 Poli | Surfside Painting Company Proposal</title>
     <meta name="description" content="View and download the Surfside Painting Company proposal for 1693 Poli Street, Ventura.">
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles.css?v=2">
     <script type="module" src="./viewer.mjs"></script>
     <script type="module" src="./gallery.mjs?v=4"></script>
   </head>
@@ -42,14 +42,16 @@
           </a>
         </div>
       <p id="viewer-status" class="viewer-status" role="status">Loading proposal…</p>
-      <div id="pdf-pages" class="pdf-pages" aria-label="Proposal document"></div>
-      <div id="fallback" class="fallback" hidden>
-        <img src="./proposal-preview.png" width="1160" height="1500" alt="Surfside Painting Company proposal for 1693 Poli Street. Download the PDF above for the complete document.">
-      </div>
+      <a class="proposal-document-link" href="./1693Poli_Surfside_Proposal.pdf" aria-label="Open proposal PDF">
+        <div id="pdf-pages" class="pdf-pages" aria-label="Proposal document"></div>
+        <div id="fallback" class="fallback" hidden>
+          <img src="./proposal-preview.png" width="1160" height="1500" alt="Surfside Painting Company proposal for 1693 Poli Street.">
+        </div>
+      </a>
       <noscript>
         <div class="fallback">
           <p><a href="./1693Poli_Surfside_Proposal.pdf">Open the PDF</a> or use the download button above.</p>
-          <img src="./proposal-preview.png" width="1160" height="1500" alt="Surfside Painting Company proposal for 1693 Poli Street.">
+          <a class="proposal-document-link" href="./1693Poli_Surfside_Proposal.pdf" aria-label="Open proposal PDF"><img src="./proposal-preview.png" width="1160" height="1500" alt="Surfside Painting Company proposal for 1693 Poli Street."></a>
         </div>
       </noscript>
       </section>
