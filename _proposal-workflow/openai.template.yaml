@@ -1,0 +1,7 @@
+interface:
+  display_name: "Surfside Proposal Workflow"
+  short_description: "Create Surfside proposal PDFs and project webpages"
+  icon_large: "./assets/preview.png"
+  default_prompt: "Use $artifact-template-surfside-proposal-workflow to create a proposal for [project address] with the approved Surfside design."
+policy:
+  allow_implicit_invocation: true

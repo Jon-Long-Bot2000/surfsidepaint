@@ -1,0 +1,21 @@
+{
+  "template_version": "1.0.0",
+  "business_name": "Surfside Painting Company",
+  "prepared_by": {
+    "name": "Jon Long",
+    "address": [
+      "2110 N Ventura Ave",
+      "Ventura, CA 93001"
+    ],
+    "phone": "805-798-4995",
+    "email": "jon@surfsidepaint.com"
+  },
+  "web_title": "Surfside Paint",
+  "terms_candidates": [
+    "Proposal is good for 30 days from the proposal date.",
+    "Additional work outside the scope requires a written change order, signed by both parties with price and schedule adjustments, before proceeding.",
+    "Start date and payment schedule will be agreed in writing before work begins.",
+    "Schedule depends on weather, drying and curing, material availability, access, and other trades.",
+    "Work areas will be protected and job-related debris removed upon completion."
+  ]
+}

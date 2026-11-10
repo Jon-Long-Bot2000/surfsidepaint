@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#f4f6f5">
+    <title>@@PAGE_TITLE@@</title>
+    <meta name="description" content="@@DESCRIPTION@@">
+    <link rel="stylesheet" href="./styles.css?v=2">
+    <script type="module" src="./viewer.mjs"></script>
+    <script type="module" src="./gallery.mjs?v=4"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#proposal">Skip to proposal</a>
+    <header class="page-header">
+      <nav class="site-nav" aria-label="Surfside navigation">
+        <a class="site-brand" href="https://www.surfsidepaint.com/" aria-label="Surfside Painting Company home">
+          <img src="./brand-mark.png" width="44" height="44" alt="">
+          <span>Surfside<span>Painting Company</span></span>
+        </a>
+        <a class="home-link" href="https://www.surfsidepaint.com/">Home</a>
+      </nav>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <h1 id="hero-title">Surfside Paint</h1>
+          <p>@@SITE_ADDRESS@@</p>
+        </div>
+        @@HERO@@
+      </section>
+      <section id="proposal" class="proposal-section" aria-labelledby="proposal-title" tabindex="-1">
+        <div class="proposal-heading">
+          <h2 id="proposal-title">Proposal</h2>
+          <a class="download-button" href="./@@PDF_FILENAME@@" download="@@PDF_FILENAME@@">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12m-4-4 4 4 4-4M5 16v4h14v-4"/></svg>
+            <span>Download PDF</span>
+          </a>
+        </div>
+      @@DRAFT_BANNER@@
+      <p id="viewer-status" class="viewer-status" role="status">Loading proposal…</p>
+      <a class="proposal-document-link" href="./@@PDF_FILENAME@@" aria-label="Open proposal PDF">
+        <div id="pdf-pages" class="pdf-pages" aria-label="Proposal document"></div>
+        <div id="fallback" class="fallback" hidden>
+          <img src="./proposal-preview.png" width="1160" height="1500" alt="Surfside Painting Company proposal for @@PROJECT_NAME@@.">
+        </div>
+      </a>
+      <noscript>
+        <div class="fallback">
+          <p><a href="./@@PDF_FILENAME@@">Open the PDF</a> or use the download button above.</p>
+          <a class="proposal-document-link" href="./@@PDF_FILENAME@@" aria-label="Open proposal PDF"><img src="./proposal-preview.png" width="1160" height="1500" alt="Surfside Painting Company proposal for @@PROJECT_NAME@@."></a>
+        </div>
+      </noscript>
+      </section>
+      <section class="gallery" aria-labelledby="gallery-title">
+        <div class="gallery-heading">
+          <h2 id="gallery-title">Photo Gallery</h2>
+          <p>@@PROJECT_NAME@@</p>
+        </div>
+        <div class="gallery-page-heading">
+          <div class="gallery-tabs" role="tablist" aria-label="Photo gallery stage">
+            <button id="before-tab" class="gallery-tab" type="button" role="tab" aria-selected="true" aria-controls="before-panel">Before</button>
+            <button id="after-tab" class="gallery-tab" type="button" role="tab" aria-selected="false" aria-controls="after-panel" tabindex="-1">After</button>
+          </div>
+          <p id="gallery-count"@@COUNT_HIDDEN@@>@@PHOTO_COUNT@@</p>
+        </div>
+        <div id="before-panel" class="gallery-panel" role="tabpanel" aria-labelledby="before-tab">
+        <p class="gallery-empty"@@BEFORE_EMPTY_HIDDEN@@>Photos added as they become available.</p>
+        <div class="photo-grid" aria-label="Before photos">
+          @@BEFORE_PHOTOS@@
+        </div>
+        </div>
+        <div id="after-panel" class="gallery-panel" role="tabpanel" aria-labelledby="after-tab" tabindex="0" hidden>
+          <p class="gallery-empty"@@AFTER_EMPTY_HIDDEN@@>Photos added as they become available.</p>
+          <div class="photo-grid" aria-label="After photos">@@AFTER_PHOTOS@@</div>
+        </div>
+      </section>
+    </main>
+    <dialog class="photo-dialog" aria-label="Before photo viewer">
+      <div class="photo-viewer">
+        <div class="photo-viewer-toolbar">
+          <p id="photo-caption" aria-live="polite"></p>
+          <button class="photo-close" type="button" aria-label="Close photo viewer" autofocus>
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg>
+          </button>
+        </div>
+        <div class="photo-stage">
+          <button class="photo-previous" type="button" aria-label="Previous photo">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m15 5-7 7 7 7"/></svg>
+          </button>
+          <img id="expanded-photo" alt="">
+          <button class="photo-next" type="button" aria-label="Next photo">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m9 5 7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+    </dialog>
+  </body>
+</html>
