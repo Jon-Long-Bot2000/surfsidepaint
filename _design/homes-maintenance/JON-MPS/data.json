@@ -1,0 +1,2120 @@
+{
+  "source": "MPS - Matrix - Sheet1.csv",
+  "namedRows": 28,
+  "excludedRows": [
+    {
+      "csvRow": 30,
+      "reason": "Task name, description, frequency and duration are blank."
+    }
+  ],
+  "timeMethod": "Midpoint of source time range, rounded to the nearest 15 minutes. Longer scopes are split into visits of no more than 120 minutes.",
+  "ratioMethod": "Midpoint of the largest named repair-price range divided by the midpoint service cost. A plus sign is retained in displayed prices; the comparison uses the two published figures even when higher costs are possible. One repair scenario is compared per task; unrelated repairs are not added together. Catch-up review/inspection prices are excluded. Complete service scopes are selected in descending ratio order within a 24-hour budget, with the displayed study visit counts. Ratios are price comparisons, not expected savings or failure probabilities.",
+  "tasks": [
+    {
+      "id": "t01",
+      "row": 2,
+      "name": "Annual home inspection",
+      "short": "Home inspection",
+      "description": "General condition review and maintenance priorities.",
+      "frequency": "Not fixed — 1/year would be Surfside’s chosen review schedule.",
+      "sourceTime": "2–4 hours",
+      "service": "$300–500",
+      "repairs": "Another inspection: $300–500; repairs depend on findings. Source",
+      "benefit": "Clear priorities and fewer unknowns.",
+      "minutes": 180,
+      "timeLow": 120,
+      "timeHigh": 240,
+      "serviceRanges": [
+        {
+          "low": 300,
+          "high": 500,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 300,
+          "high": 500,
+          "label": "Another inspection",
+          "openEnded": false
+        }
+      ],
+      "ratio": null,
+      "comparisonRepair": null,
+      "location": "whole",
+      "category": "planning",
+      "icon": "home"
+    },
+    {
+      "id": "t02",
+      "row": 3,
+      "name": "Service HVAC system & replace air filters",
+      "short": "HVAC & air filters",
+      "description": "Professional maintenance and accessible filter replacement.",
+      "frequency": "2/year HVAC checks; filter checks monthly.",
+      "sourceTime": "1–2 hours/system",
+      "service": "$70–200/system",
+      "repairs": "AC repair: $150–650; compressor replacement: $1,300–2,500. Source",
+      "benefit": "Consistent comfort; suitable filtration may help reduce airborne allergens.",
+      "minutes": 90,
+      "timeLow": 60,
+      "timeHigh": 120,
+      "serviceRanges": [
+        {
+          "low": 70,
+          "high": 200,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 150,
+          "high": 650,
+          "label": "AC repair",
+          "openEnded": false
+        },
+        {
+          "low": 1300,
+          "high": 2500,
+          "label": "compressor replacement",
+          "openEnded": false
+        }
+      ],
+      "ratio": 14.074,
+      "comparisonRepair": {
+        "low": 1300,
+        "high": 2500,
+        "label": "compressor replacement",
+        "openEnded": false
+      },
+      "location": "interior",
+      "category": "comfort",
+      "icon": "air"
+    },
+    {
+      "id": "t03",
+      "row": 4,
+      "name": "Clean accessible vents & exhaust fans",
+      "short": "Vents & exhaust fans",
+      "description": "Registers, bathroom fans, and exterior vent openings.",
+      "frequency": "Model-/condition-dependent",
+      "sourceTime": "1–2½ hours",
+      "service": "$50–200*",
+      "repairs": "Replace an existing bathroom fan: $150–550 each. Source",
+      "benefit": "Less dust buildup and better bathroom ventilation.",
+      "minutes": 105,
+      "timeLow": 60,
+      "timeHigh": 150,
+      "serviceRanges": [
+        {
+          "low": 50,
+          "high": 200,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 150,
+          "high": 550,
+          "label": "Replace an existing bathroom fan",
+          "openEnded": false
+        }
+      ],
+      "ratio": 2.8,
+      "comparisonRepair": {
+        "low": 150,
+        "high": 550,
+        "label": "Replace an existing bathroom fan",
+        "openEnded": false
+      },
+      "location": "interior",
+      "category": "comfort",
+      "icon": "air"
+    },
+    {
+      "id": "t04",
+      "row": 5,
+      "name": "Clean & service kitchen appliances",
+      "short": "Kitchen appliance care",
+      "description": "Refrigerator coils, hood filters, dishwasher filter/seals, and connections.",
+      "frequency": "Mixed schedules — some monthly; others model-dependent.",
+      "sourceTime": "1½–2½ hours",
+      "service": "$75–200*",
+      "repairs": "Dishwasher repair: $100–300; refrigerator repair: $125–500. Source",
+      "benefit": "Cleaner appliances, fewer odors, dependable use.",
+      "minutes": 120,
+      "timeLow": 90,
+      "timeHigh": 150,
+      "serviceRanges": [
+        {
+          "low": 75,
+          "high": 200,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 100,
+          "high": 300,
+          "label": "Dishwasher repair",
+          "openEnded": false
+        },
+        {
+          "low": 125,
+          "high": 500,
+          "label": "refrigerator repair",
+          "openEnded": false
+        }
+      ],
+      "ratio": 2.273,
+      "comparisonRepair": {
+        "low": 125,
+        "high": 500,
+        "label": "refrigerator repair",
+        "openEnded": false
+      },
+      "location": "interior",
+      "category": "comfort",
+      "icon": "spark"
+    },
+    {
+      "id": "t05",
+      "row": 6,
+      "name": "Clean & service washing machine",
+      "short": "Washing machine care",
+      "description": "Washer cleaning, connections, and straightforward hose replacement.",
+      "frequency": "Monthly cleaning; hose replacement per manufacturer, such as every 5 years.",
+      "sourceTime": "1–2 hours",
+      "service": "$50–160*",
+      "repairs": "Washer repair: $100–400; replacement appliance: $700–1,300, before installation. Source",
+      "benefit": "Fresher laundry equipment and fewer interruptions.",
+      "minutes": 90,
+      "timeLow": 60,
+      "timeHigh": 120,
+      "serviceRanges": [
+        {
+          "low": 50,
+          "high": 160,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 100,
+          "high": 400,
+          "label": "Washer repair",
+          "openEnded": false
+        },
+        {
+          "low": 700,
+          "high": 1300,
+          "label": "replacement appliance",
+          "openEnded": false
+        }
+      ],
+      "ratio": 9.524,
+      "comparisonRepair": {
+        "low": 700,
+        "high": 1300,
+        "label": "replacement appliance",
+        "openEnded": false
+      },
+      "location": "interior",
+      "category": "comfort",
+      "icon": "spark"
+    },
+    {
+      "id": "t06",
+      "row": 7,
+      "name": "Clean & service dryer vent",
+      "short": "Dryer vent cleaning",
+      "description": "Exhaust duct, connections, exterior termination, and airflow.",
+      "frequency": "1/year, sooner if performance deteriorates.",
+      "sourceTime": "1–2 hours",
+      "service": "$80–185 for a standard vent",
+      "repairs": "Dryer repair: $100–300; replacement appliance: $800–1,200, before installation. Cleaning, repairs",
+      "benefit": "Faster drying and less lint-related overheating concern.",
+      "minutes": 90,
+      "timeLow": 60,
+      "timeHigh": 120,
+      "serviceRanges": [
+        {
+          "low": 80,
+          "high": 185,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 100,
+          "high": 300,
+          "label": "Dryer repair",
+          "openEnded": false
+        },
+        {
+          "low": 800,
+          "high": 1200,
+          "label": "replacement appliance",
+          "openEnded": false
+        }
+      ],
+      "ratio": 7.547,
+      "comparisonRepair": {
+        "low": 800,
+        "high": 1200,
+        "label": "replacement appliance",
+        "openEnded": false
+      },
+      "location": "interior",
+      "category": "safety",
+      "icon": "air"
+    },
+    {
+      "id": "t07",
+      "row": 8,
+      "name": "Inspect & service plumbing fixtures",
+      "short": "Plumbing & fixture checks",
+      "description": "Leak checks, toilets, pressure, aerators, showerheads, and bathroom caulking inspection.",
+      "frequency": "Not fixed for the package; monthly water-bill review and prompt leak repairs.",
+      "sourceTime": "1½–3 hours",
+      "service": "$70–450* using plumber rates",
+      "repairs": "Typical plumbing job: $125–450; separate water mitigation can cost $1,300–5,200. Plumbing, water mitigation",
+      "benefit": "Reliable fixtures and fewer leak worries.",
+      "minutes": 135,
+      "timeLow": 90,
+      "timeHigh": 180,
+      "serviceRanges": [
+        {
+          "low": 70,
+          "high": 450,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 125,
+          "high": 450,
+          "label": "Typical plumbing job",
+          "openEnded": false
+        },
+        {
+          "low": 1300,
+          "high": 5200,
+          "label": "separate water mitigation can cost",
+          "openEnded": false
+        }
+      ],
+      "ratio": 12.5,
+      "comparisonRepair": {
+        "low": 1300,
+        "high": 5200,
+        "label": "separate water mitigation can cost",
+        "openEnded": false
+      },
+      "location": "interior",
+      "category": "water",
+      "icon": "drop"
+    },
+    {
+      "id": "t08",
+      "row": 9,
+      "name": "Service water heater",
+      "short": "Water heater service",
+      "description": "Appropriate flushing and accessible anode inspection.",
+      "frequency": "1/year for the cited conventional tank models.",
+      "sourceTime": "1½–2½ hours",
+      "service": "$70–375* using plumber rates",
+      "repairs": "Repair: $150–700; standard tank replacement: $600–3,100. Repair, replacement",
+      "benefit": "Dependable hot water.",
+      "minutes": 120,
+      "timeLow": 90,
+      "timeHigh": 150,
+      "serviceRanges": [
+        {
+          "low": 70,
+          "high": 375,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 150,
+          "high": 700,
+          "label": "Repair",
+          "openEnded": false
+        },
+        {
+          "low": 600,
+          "high": 3100,
+          "label": "standard tank replacement",
+          "openEnded": false
+        }
+      ],
+      "ratio": 8.315,
+      "comparisonRepair": {
+        "low": 600,
+        "high": 3100,
+        "label": "standard tank replacement",
+        "openEnded": false
+      },
+      "location": "interior",
+      "category": "water",
+      "icon": "drop"
+    },
+    {
+      "id": "t09",
+      "row": 10,
+      "name": "Replace water filters",
+      "short": "Water filter replacement",
+      "description": "Refrigerator and/or whole-house cartridges, flushing, and leak checks.",
+      "frequency": "2/year for the cited refrigerator filters; other systems model-dependent.",
+      "sourceTime": "20–45 min",
+      "service": "$20–60* plus cartridges",
+      "repairs": "Whole-house filtration-system repair: $200–500. Source",
+      "benefit": "Maintained filtration performance and applicable taste/odor benefits.",
+      "minutes": 30,
+      "timeLow": 20,
+      "timeHigh": 45,
+      "serviceRanges": [
+        {
+          "low": 20,
+          "high": 60,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 200,
+          "high": 500,
+          "label": "Whole-house filtration-system repair",
+          "openEnded": false
+        }
+      ],
+      "ratio": 8.75,
+      "comparisonRepair": {
+        "low": 200,
+        "high": 500,
+        "label": "Whole-house filtration-system repair",
+        "openEnded": false
+      },
+      "location": "interior",
+      "category": "water",
+      "icon": "drop"
+    },
+    {
+      "id": "t10",
+      "row": 11,
+      "name": "Clean & service gutters and drainage",
+      "short": "Gutters & drainage",
+      "description": "Gutters, seams, fasteners, downspouts, discharge routes, and surface drains.",
+      "frequency": "At least 2/year gutter/downspout inspections; cleaning as needed.",
+      "sourceTime": "3–5 hours",
+      "service": "$150–400*",
+      "repairs": "Soffit/fascia repair: $500–2,600; major foundation water-leak repair: $4,500–15,000+, if that damage exists. Fascia, foundation",
+      "benefit": "Less overflow and pooling around the home.",
+      "minutes": 240,
+      "timeLow": 180,
+      "timeHigh": 300,
+      "serviceRanges": [
+        {
+          "low": 150,
+          "high": 400,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 500,
+          "high": 2600,
+          "label": "Soffit/fascia repair",
+          "openEnded": false
+        },
+        {
+          "low": 4500,
+          "high": 15000,
+          "label": "major foundation water-leak repair",
+          "openEnded": true
+        }
+      ],
+      "ratio": 35.455,
+      "comparisonRepair": {
+        "low": 4500,
+        "high": 15000,
+        "label": "major foundation water-leak repair",
+        "openEnded": true
+      },
+      "location": "exterior",
+      "category": "water",
+      "icon": "rain"
+    },
+    {
+      "id": "t11",
+      "row": 12,
+      "name": "Test & inspect sump pump",
+      "short": "Sump pump check",
+      "description": "Pump, float switch, and discharge checks.",
+      "frequency": "3–4/year operational checks; 1/year fuller cleaning.",
+      "sourceTime": "20–40 min",
+      "service": "$100–250 for annual maintenance",
+      "repairs": "Pump repair: $200–870, excluding flood damage. Source",
+      "benefit": "Confidence during wet weather.",
+      "minutes": 30,
+      "timeLow": 20,
+      "timeHigh": 40,
+      "serviceRanges": [
+        {
+          "low": 100,
+          "high": 250,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 200,
+          "high": 870,
+          "label": "Pump repair",
+          "openEnded": false
+        }
+      ],
+      "ratio": 3.057,
+      "comparisonRepair": {
+        "low": 200,
+        "high": 870,
+        "label": "Pump repair",
+        "openEnded": false
+      },
+      "location": "interior",
+      "category": "water",
+      "icon": "drop"
+    },
+    {
+      "id": "t12",
+      "row": 13,
+      "name": "Inspect roof, attic & crawl spaces",
+      "short": "Roof, attic & crawl spaces",
+      "description": "Visible roof, flashing, insulation, moisture, and pest concerns.",
+      "frequency": "At least 2/year for roof checks; attic/crawl-space schedule property-specific.",
+      "sourceTime": "1½–3 hours",
+      "service": "$75–240* for basic visual checks",
+      "repairs": "Moderate roof/leak repair: $1,000–3,000, excluding unrelated interior restoration. Source",
+      "benefit": "Earlier awareness of hidden problems.",
+      "minutes": 135,
+      "timeLow": 90,
+      "timeHigh": 180,
+      "serviceRanges": [
+        {
+          "low": 75,
+          "high": 240,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 1000,
+          "high": 3000,
+          "label": "Moderate roof/leak repair",
+          "openEnded": false
+        }
+      ],
+      "ratio": 12.698,
+      "comparisonRepair": {
+        "low": 1000,
+        "high": 3000,
+        "label": "Moderate roof/leak repair",
+        "openEnded": false
+      },
+      "location": "whole",
+      "category": "water",
+      "icon": "home"
+    },
+    {
+      "id": "t13",
+      "row": 14,
+      "name": "Inspect & maintain exterior paint, caulking & trim",
+      "short": "Exterior paint, seals & trim",
+      "description": "Finish/seal inspection and selected small paint touch-ups.",
+      "frequency": "1/year condition checks; repairs and touch-ups as needed.",
+      "sourceTime": "3–6 hours",
+      "service": "$150–480* plus materials",
+      "repairs": "Soffit/fascia repairs: $500–2,600. Source",
+      "benefit": "Better appearance and pride of ownership.",
+      "minutes": 270,
+      "timeLow": 180,
+      "timeHigh": 360,
+      "serviceRanges": [
+        {
+          "low": 150,
+          "high": 480,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 500,
+          "high": 2600,
+          "label": "Soffit/fascia repairs",
+          "openEnded": false
+        }
+      ],
+      "ratio": 4.921,
+      "comparisonRepair": {
+        "low": 500,
+        "high": 2600,
+        "label": "Soffit/fascia repairs",
+        "openEnded": false
+      },
+      "location": "exterior",
+      "category": "exterior",
+      "icon": "brush"
+    },
+    {
+      "id": "t14",
+      "row": 15,
+      "name": "Wash exterior siding, entry & paths",
+      "short": "Exterior washing",
+      "description": "Suitable cleaning of siding/stucco and selected hardscape.",
+      "frequency": "Condition-dependent",
+      "sourceTime": "5–10 hours",
+      "service": "$250–800* plus equipment/materials",
+      "repairs": "Catch-up washing: $250–800* for the same scope; surface restoration requires a separate assessment.",
+      "benefit": "A cleaner, more welcoming exterior.",
+      "minutes": 450,
+      "timeLow": 300,
+      "timeHigh": 600,
+      "serviceRanges": [
+        {
+          "low": 250,
+          "high": 800,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 250,
+          "high": 800,
+          "label": "Catch-up washing",
+          "openEnded": false
+        }
+      ],
+      "ratio": null,
+      "comparisonRepair": null,
+      "location": "exterior",
+      "category": "exterior",
+      "icon": "spark"
+    },
+    {
+      "id": "t15",
+      "row": 16,
+      "name": "Trim vegetation & clear perimeter debris",
+      "short": "Vegetation & debris",
+      "description": "Light trimming and removal of vegetation/debris near the home.",
+      "frequency": "Ongoing/condition-dependent",
+      "sourceTime": "2–4 hours",
+      "service": "$100–320*",
+      "repairs": "Published yard-cleanup pricing: approximately $125–400/visit, depending on scope. Source",
+      "benefit": "Usable outdoor space and maintained clearance.",
+      "minutes": 180,
+      "timeLow": 120,
+      "timeHigh": 240,
+      "serviceRanges": [
+        {
+          "low": 100,
+          "high": 320,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 125,
+          "high": 400,
+          "label": "Published yard-cleanup pricing: approximately",
+          "openEnded": false
+        }
+      ],
+      "ratio": 1.25,
+      "comparisonRepair": {
+        "low": 125,
+        "high": 400,
+        "label": "Published yard-cleanup pricing: approximately",
+        "openEnded": false
+      },
+      "location": "exterior",
+      "category": "exterior",
+      "icon": "leaf"
+    },
+    {
+      "id": "t16",
+      "row": 17,
+      "name": "Inspect & maintain fences, gates, decks & walkways",
+      "short": "Fences, decks & walkways",
+      "description": "Condition checks and minor accessible hardware adjustments.",
+      "frequency": "1/year deck inspection; other components condition-dependent.",
+      "sourceTime": "1½–3 hours",
+      "service": "$75–240* for checks/minor adjustments",
+      "repairs": "Fence repair: $300–900; deck repair: $750–2,500. Fence, deck",
+      "benefit": "Easier access and fewer loose components.",
+      "minutes": 135,
+      "timeLow": 90,
+      "timeHigh": 180,
+      "serviceRanges": [
+        {
+          "low": 75,
+          "high": 240,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 300,
+          "high": 900,
+          "label": "Fence repair",
+          "openEnded": false
+        },
+        {
+          "low": 750,
+          "high": 2500,
+          "label": "deck repair",
+          "openEnded": false
+        }
+      ],
+      "ratio": 10.317,
+      "comparisonRepair": {
+        "low": 750,
+        "high": 2500,
+        "label": "deck repair",
+        "openEnded": false
+      },
+      "location": "exterior",
+      "category": "exterior",
+      "icon": "home"
+    },
+    {
+      "id": "t17",
+      "row": 18,
+      "name": "Inspect, clean & reseal concrete",
+      "short": "Concrete care",
+      "description": "Inspection, cleaning, and resealing selected surfaces.",
+      "frequency": "Product-/condition-dependent",
+      "sourceTime": "4–8 hours across visits",
+      "service": "$200–640* plus sealer/materials",
+      "repairs": "Small driveway cracks/potholes: $100–400; major repairs/resurfacing: $600–3,000. Source",
+      "benefit": "Better appearance and easier surface care.",
+      "minutes": 360,
+      "timeLow": 240,
+      "timeHigh": 480,
+      "serviceRanges": [
+        {
+          "low": 200,
+          "high": 640,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 100,
+          "high": 400,
+          "label": "Small driveway cracks/potholes",
+          "openEnded": false
+        },
+        {
+          "low": 600,
+          "high": 3000,
+          "label": "major repairs/resurfacing",
+          "openEnded": false
+        }
+      ],
+      "ratio": 4.286,
+      "comparisonRepair": {
+        "low": 600,
+        "high": 3000,
+        "label": "major repairs/resurfacing",
+        "openEnded": false
+      },
+      "location": "exterior",
+      "category": "exterior",
+      "icon": "home"
+    },
+    {
+      "id": "t18",
+      "row": 19,
+      "name": "Inspect & adjust irrigation",
+      "short": "Irrigation check",
+      "description": "Zone operation, leaks, coverage, heads, and timer settings.",
+      "frequency": "Monthly during use; seasonal schedule adjustments.",
+      "sourceTime": "45–90 min",
+      "service": "$40–120* for checks/minor adjustments",
+      "repairs": "Irrigation repair: $100–400, excluding excess water charges. Source",
+      "benefit": "More consistent watering and fewer puddles.",
+      "minutes": 75,
+      "timeLow": 45,
+      "timeHigh": 90,
+      "serviceRanges": [
+        {
+          "low": 40,
+          "high": 120,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 100,
+          "high": 400,
+          "label": "Irrigation repair",
+          "openEnded": false
+        }
+      ],
+      "ratio": 3.125,
+      "comparisonRepair": {
+        "low": 100,
+        "high": 400,
+        "label": "Irrigation repair",
+        "openEnded": false
+      },
+      "location": "exterior",
+      "category": "water",
+      "icon": "leaf"
+    },
+    {
+      "id": "t19",
+      "row": 20,
+      "name": "Inspect & service window and door weather seals",
+      "short": "Window & door seals",
+      "description": "Seal checks, weep openings, and selected weatherstripping replacement.",
+      "frequency": "1/year windows; 2/year exterior-door weatherstripping checks",
+      "sourceTime": "1½–3 hours",
+      "service": "$75–240* plus materials",
+      "repairs": "Window-frame repair: $150–600; door-frame repair: $75–220. Source",
+      "benefit": "Fewer drafts and improved comfort.",
+      "minutes": 135,
+      "timeLow": 90,
+      "timeHigh": 180,
+      "serviceRanges": [
+        {
+          "low": 75,
+          "high": 240,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 150,
+          "high": 600,
+          "label": "Window-frame repair",
+          "openEnded": false
+        },
+        {
+          "low": 75,
+          "high": 220,
+          "label": "door-frame repair",
+          "openEnded": false
+        }
+      ],
+      "ratio": 2.381,
+      "comparisonRepair": {
+        "low": 150,
+        "high": 600,
+        "label": "Window-frame repair",
+        "openEnded": false
+      },
+      "location": "exterior",
+      "category": "comfort",
+      "icon": "window"
+    },
+    {
+      "id": "t20",
+      "row": 21,
+      "name": "Inspect for storm damage, moisture & mold signs",
+      "short": "After-rain moisture check",
+      "description": "Post-weather observations, moisture checks, and documentation.",
+      "frequency": "After relevant events or symptoms",
+      "sourceTime": "1–2 hours",
+      "service": "$50–160* for visual screening",
+      "repairs": "Water mitigation: $1,300–5,200; mold remediation: $1,500–6,000 if needed. These scopes may overlap. Water, mold",
+      "benefit": "Less uncertainty about dampness and mustiness.",
+      "minutes": 90,
+      "timeLow": 60,
+      "timeHigh": 120,
+      "serviceRanges": [
+        {
+          "low": 50,
+          "high": 160,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 1300,
+          "high": 5200,
+          "label": "Water mitigation",
+          "openEnded": false
+        },
+        {
+          "low": 1500,
+          "high": 6000,
+          "label": "mold remediation",
+          "openEnded": false
+        }
+      ],
+      "ratio": 35.714,
+      "comparisonRepair": {
+        "low": 1500,
+        "high": 6000,
+        "label": "mold remediation",
+        "openEnded": false
+      },
+      "location": "whole",
+      "category": "water",
+      "icon": "rain"
+    },
+    {
+      "id": "t21",
+      "row": 22,
+      "name": "Inspect chimney & fireplace and document condition",
+      "short": "Chimney & fireplace",
+      "description": "Routine specialist inspection and condition report.",
+      "frequency": "At least 1/year inspection; cleaning as needed.",
+      "sourceTime": "1–2 hours",
+      "service": "$100–250 for Level 1 inspection",
+      "repairs": "Minor repairs: $200–850; extensive repairs: $500–7,000. Inspection, repairs",
+      "benefit": "Confidence in fireplace condition.",
+      "minutes": 90,
+      "timeLow": 60,
+      "timeHigh": 120,
+      "serviceRanges": [
+        {
+          "low": 100,
+          "high": 250,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 200,
+          "high": 850,
+          "label": "Minor repairs",
+          "openEnded": false
+        },
+        {
+          "low": 500,
+          "high": 7000,
+          "label": "extensive repairs",
+          "openEnded": false
+        }
+      ],
+      "ratio": 21.429,
+      "comparisonRepair": {
+        "low": 500,
+        "high": 7000,
+        "label": "extensive repairs",
+        "openEnded": false
+      },
+      "location": "interior",
+      "category": "safety",
+      "icon": "home"
+    },
+    {
+      "id": "t22",
+      "row": 23,
+      "name": "Check smoke alarms, CO alarms & fire extinguishers",
+      "short": "Alarms & extinguishers",
+      "description": "Alarm tests, battery/date checks, and visual extinguisher checks.",
+      "frequency": "Monthly checks",
+      "sourceTime": "20–40 min",
+      "service": "$20–55* plus batteries",
+      "repairs": "Professionally installed combination smoke/CO detector: $140–360+ each. This is device replacement, not a value assigned to safety. Source",
+      "benefit": "Working safety equipment and peace of mind.",
+      "minutes": 30,
+      "timeLow": 20,
+      "timeHigh": 40,
+      "serviceRanges": [
+        {
+          "low": 20,
+          "high": 55,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 140,
+          "high": 360,
+          "label": "Professionally installed combination smoke/CO detector",
+          "openEnded": true
+        }
+      ],
+      "ratio": 6.667,
+      "comparisonRepair": {
+        "low": 140,
+        "high": 360,
+        "label": "Professionally installed combination smoke/CO detector",
+        "openEnded": true
+      },
+      "location": "interior",
+      "category": "safety",
+      "icon": "shield"
+    },
+    {
+      "id": "t23",
+      "row": 24,
+      "name": "Inspect electrical fixtures & test GFCIs",
+      "short": "Electrical & GFCI checks",
+      "description": "GFCI tests, visible outlets/switches, and outdoor lighting.",
+      "frequency": "Monthly GFCI tests; other checks condition-dependent.",
+      "sourceTime": "1–2 hours",
+      "service": "$100–200 for a professional electrical inspection",
+      "repairs": "Outlet repair: $80–200 each. Inspection, repair",
+      "benefit": "Reliable lighting and functioning protective devices.",
+      "minutes": 90,
+      "timeLow": 60,
+      "timeHigh": 120,
+      "serviceRanges": [
+        {
+          "low": 100,
+          "high": 200,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 80,
+          "high": 200,
+          "label": "Outlet repair",
+          "openEnded": false
+        }
+      ],
+      "ratio": 0.933,
+      "comparisonRepair": {
+        "low": 80,
+        "high": 200,
+        "label": "Outlet repair",
+        "openEnded": false
+      },
+      "location": "whole",
+      "category": "safety",
+      "icon": "bolt"
+    },
+    {
+      "id": "t24",
+      "row": 25,
+      "name": "Review emergency preparedness",
+      "short": "Emergency readiness",
+      "description": "Supplies, first aid, flashlights, and household plans.",
+      "frequency": "2/year",
+      "sourceTime": "30–60 min",
+      "service": "$25–80* for review labor",
+      "repairs": "Catch-up review: $25–80*; replacement supplies are additional and inventory-specific.",
+      "benefit": "Readiness and less uncertainty during emergencies.",
+      "minutes": 45,
+      "timeLow": 30,
+      "timeHigh": 60,
+      "serviceRanges": [
+        {
+          "low": 25,
+          "high": 80,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 25,
+          "high": 80,
+          "label": "Catch-up review",
+          "openEnded": false
+        }
+      ],
+      "ratio": null,
+      "comparisonRepair": null,
+      "location": "interior",
+      "category": "planning",
+      "icon": "shield"
+    },
+    {
+      "id": "t25",
+      "row": 26,
+      "name": "Inspect for pest activity & seal entry points",
+      "short": "Pest entry points",
+      "description": "Visual warning signs and sealing selected accessible gaps.",
+      "frequency": "Property-/pest-professional-specific",
+      "sourceTime": "1½–3 hours",
+      "service": "$75–240* for visual checks/small gaps",
+      "repairs": "Termite-damage repair: $300–2,000 minor, $2,000–15,000 moderate/major, excluding treatment. Source",
+      "benefit": "Fewer pest intrusions and greater comfort.",
+      "minutes": 135,
+      "timeLow": 90,
+      "timeHigh": 180,
+      "serviceRanges": [
+        {
+          "low": 75,
+          "high": 240,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 300,
+          "high": 2000,
+          "label": "Termite-damage repair",
+          "openEnded": false
+        },
+        {
+          "low": 2000,
+          "high": 15000,
+          "label": "minor",
+          "openEnded": false
+        }
+      ],
+      "ratio": 53.968,
+      "comparisonRepair": {
+        "low": 2000,
+        "high": 15000,
+        "label": "minor",
+        "openEnded": false
+      },
+      "location": "exterior",
+      "category": "exterior",
+      "icon": "shield"
+    },
+    {
+      "id": "t26",
+      "row": 27,
+      "name": "Adjust doors, cabinet hardware & sliding doors",
+      "short": "Doors & cabinet hardware",
+      "description": "Hinges, alignment, latches, tracks, and compatible moving components.",
+      "frequency": "Product-/condition-dependent",
+      "sourceTime": "1½–2½ hours",
+      "service": "$75–200* plus hardware",
+      "repairs": "Typical door repair: $132–372 per door. Source",
+      "benefit": "Smoother operation and fewer daily frustrations.",
+      "minutes": 120,
+      "timeLow": 90,
+      "timeHigh": 150,
+      "serviceRanges": [
+        {
+          "low": 75,
+          "high": 200,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 132,
+          "high": 372,
+          "label": "Typical door repair",
+          "openEnded": false
+        }
+      ],
+      "ratio": 1.833,
+      "comparisonRepair": {
+        "low": 132,
+        "high": 372,
+        "label": "Typical door repair",
+        "openEnded": false
+      },
+      "location": "interior",
+      "category": "comfort",
+      "icon": "tool"
+    },
+    {
+      "id": "t27",
+      "row": 28,
+      "name": "Inspect & service garage door",
+      "short": "Garage door care",
+      "description": "Safety tests and accessible moving-part maintenance.",
+      "frequency": "Monthly inspections/tests; 1/year specified lubrication under the cited guidance.",
+      "sourceTime": "45–75 min/door",
+      "service": "$100–250/door",
+      "repairs": "Typical repair: $150–350. Source",
+      "benefit": "Convenient access and smoother operation.",
+      "minutes": 60,
+      "timeLow": 45,
+      "timeHigh": 75,
+      "serviceRanges": [
+        {
+          "low": 100,
+          "high": 250,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 150,
+          "high": 350,
+          "label": "Typical repair",
+          "openEnded": false
+        }
+      ],
+      "ratio": 1.429,
+      "comparisonRepair": {
+        "low": 150,
+        "high": 350,
+        "label": "Typical repair",
+        "openEnded": false
+      },
+      "location": "exterior",
+      "category": "safety",
+      "icon": "tool"
+    },
+    {
+      "id": "t28",
+      "row": 29,
+      "name": "Review & prioritize home maintenance list",
+      "short": "Home care priorities",
+      "description": "Review outstanding items and agree on next actions.",
+      "frequency": "Not fixed — Surfside’s service-design choice.",
+      "sourceTime": "20–40 min",
+      "service": "$20–55*",
+      "repairs": "Catch-up review: $20–55*; no separate standardized repair charge.",
+      "benefit": "Less mental load and clearer next steps.",
+      "minutes": 30,
+      "timeLow": 20,
+      "timeHigh": 40,
+      "serviceRanges": [
+        {
+          "low": 20,
+          "high": 55,
+          "label": "",
+          "openEnded": false
+        }
+      ],
+      "repairRanges": [
+        {
+          "low": 20,
+          "high": 55,
+          "label": "Catch-up review",
+          "openEnded": false
+        }
+      ],
+      "ratio": null,
+      "comparisonRepair": null,
+      "location": "whole",
+      "category": "planning",
+      "icon": "calendar"
+    }
+  ],
+  "plans": {
+    "protect": {
+      "jobs": [
+        {
+          "id": "protect-0",
+          "task": "t25",
+          "preferredMonth": 3,
+          "minutes": 135
+        },
+        {
+          "id": "protect-1",
+          "task": "t20",
+          "preferredMonth": 0,
+          "minutes": 90
+        },
+        {
+          "id": "protect-2",
+          "task": "t10",
+          "preferredMonth": 2,
+          "minutes": 240
+        },
+        {
+          "id": "protect-3",
+          "task": "t10",
+          "preferredMonth": 8,
+          "minutes": 240
+        },
+        {
+          "id": "protect-4",
+          "task": "t21",
+          "preferredMonth": 7,
+          "minutes": 90
+        },
+        {
+          "id": "protect-5",
+          "task": "t02",
+          "preferredMonth": 2,
+          "minutes": 90
+        },
+        {
+          "id": "protect-6",
+          "task": "t02",
+          "preferredMonth": 8,
+          "minutes": 90
+        },
+        {
+          "id": "protect-7",
+          "task": "t12",
+          "preferredMonth": 2,
+          "minutes": 135
+        },
+        {
+          "id": "protect-8",
+          "task": "t12",
+          "preferredMonth": 8,
+          "minutes": 135
+        },
+        {
+          "id": "protect-9",
+          "task": "t07",
+          "preferredMonth": 5,
+          "minutes": 135
+        },
+        {
+          "id": "protect-10",
+          "task": "t09",
+          "preferredMonth": 1,
+          "minutes": 30
+        },
+        {
+          "id": "protect-11",
+          "task": "t09",
+          "preferredMonth": 7,
+          "minutes": 30
+        }
+      ],
+      "calendar": [
+        [
+          {
+            "task": "t20",
+            "job": "protect-1",
+            "minutes": 90,
+            "fullMinutes": 90,
+            "part": 1,
+            "parts": 1
+          },
+          {
+            "task": "t10",
+            "job": "protect-2",
+            "minutes": 30,
+            "fullMinutes": 240,
+            "part": 1,
+            "parts": 4
+          }
+        ],
+        [
+          {
+            "task": "t09",
+            "job": "protect-10",
+            "minutes": 30,
+            "fullMinutes": 30,
+            "part": 1,
+            "parts": 1
+          },
+          {
+            "task": "t10",
+            "job": "protect-2",
+            "minutes": 90,
+            "fullMinutes": 240,
+            "part": 2,
+            "parts": 4
+          }
+        ],
+        [
+          {
+            "task": "t02",
+            "job": "protect-5",
+            "minutes": 90,
+            "fullMinutes": 90,
+            "part": 1,
+            "parts": 1
+          },
+          {
+            "task": "t10",
+            "job": "protect-2",
+            "minutes": 30,
+            "fullMinutes": 240,
+            "part": 3,
+            "parts": 4
+          }
+        ],
+        [
+          {
+            "task": "t10",
+            "job": "protect-2",
+            "minutes": 90,
+            "fullMinutes": 240,
+            "part": 4,
+            "parts": 4
+          },
+          {
+            "task": "t12",
+            "job": "protect-7",
+            "minutes": 30,
+            "fullMinutes": 135,
+            "part": 1,
+            "parts": 2
+          }
+        ],
+        [
+          {
+            "task": "t12",
+            "job": "protect-7",
+            "minutes": 105,
+            "fullMinutes": 135,
+            "part": 2,
+            "parts": 2
+          },
+          {
+            "task": "t25",
+            "job": "protect-0",
+            "minutes": 15,
+            "fullMinutes": 135,
+            "part": 1,
+            "parts": 2
+          }
+        ],
+        [
+          {
+            "task": "t25",
+            "job": "protect-0",
+            "minutes": 120,
+            "fullMinutes": 135,
+            "part": 2,
+            "parts": 2
+          }
+        ],
+        [
+          {
+            "task": "t07",
+            "job": "protect-9",
+            "minutes": 120,
+            "fullMinutes": 135,
+            "part": 1,
+            "parts": 2
+          }
+        ],
+        [
+          {
+            "task": "t21",
+            "job": "protect-4",
+            "minutes": 90,
+            "fullMinutes": 90,
+            "part": 1,
+            "parts": 1
+          },
+          {
+            "task": "t09",
+            "job": "protect-11",
+            "minutes": 30,
+            "fullMinutes": 30,
+            "part": 1,
+            "parts": 1
+          }
+        ],
+        [
+          {
+            "task": "t02",
+            "job": "protect-6",
+            "minutes": 90,
+            "fullMinutes": 90,
+            "part": 1,
+            "parts": 1
+          },
+          {
+            "task": "t07",
+            "job": "protect-9",
+            "minutes": 15,
+            "fullMinutes": 135,
+            "part": 2,
+            "parts": 2
+          },
+          {
+            "task": "t10",
+            "job": "protect-3",
+            "minutes": 15,
+            "fullMinutes": 240,
+            "part": 1,
+            "parts": 3
+          }
+        ],
+        [
+          {
+            "task": "t10",
+            "job": "protect-3",
+            "minutes": 120,
+            "fullMinutes": 240,
+            "part": 2,
+            "parts": 3
+          }
+        ],
+        [
+          {
+            "task": "t10",
+            "job": "protect-3",
+            "minutes": 105,
+            "fullMinutes": 240,
+            "part": 3,
+            "parts": 3
+          },
+          {
+            "task": "t12",
+            "job": "protect-8",
+            "minutes": 15,
+            "fullMinutes": 135,
+            "part": 1,
+            "parts": 2
+          }
+        ],
+        [
+          {
+            "task": "t12",
+            "job": "protect-8",
+            "minutes": 120,
+            "fullMinutes": 135,
+            "part": 2,
+            "parts": 2
+          }
+        ]
+      ]
+    },
+    "outside": {
+      "jobs": [
+        {
+          "id": "outside-0",
+          "task": "t10",
+          "preferredMonth": 2,
+          "minutes": 240
+        },
+        {
+          "id": "outside-1",
+          "task": "t10",
+          "preferredMonth": 8,
+          "minutes": 240
+        },
+        {
+          "id": "outside-2",
+          "task": "t13",
+          "preferredMonth": 4,
+          "minutes": 270
+        },
+        {
+          "id": "outside-3",
+          "task": "t15",
+          "preferredMonth": 10,
+          "minutes": 180
+        },
+        {
+          "id": "outside-4",
+          "task": "t17",
+          "preferredMonth": 0,
+          "minutes": 360
+        },
+        {
+          "id": "outside-5",
+          "task": "t18",
+          "preferredMonth": 5,
+          "minutes": 75
+        },
+        {
+          "id": "outside-6",
+          "task": "t18",
+          "preferredMonth": 11,
+          "minutes": 75
+        }
+      ],
+      "calendar": [
+        [
+          {
+            "task": "t17",
+            "job": "outside-4",
+            "minutes": 120,
+            "fullMinutes": 360,
+            "part": 1,
+            "parts": 3
+          }
+        ],
+        [
+          {
+            "task": "t17",
+            "job": "outside-4",
+            "minutes": 120,
+            "fullMinutes": 360,
+            "part": 2,
+            "parts": 3
+          }
+        ],
+        [
+          {
+            "task": "t17",
+            "job": "outside-4",
+            "minutes": 120,
+            "fullMinutes": 360,
+            "part": 3,
+            "parts": 3
+          }
+        ],
+        [
+          {
+            "task": "t10",
+            "job": "outside-0",
+            "minutes": 120,
+            "fullMinutes": 240,
+            "part": 1,
+            "parts": 2
+          }
+        ],
+        [
+          {
+            "task": "t10",
+            "job": "outside-0",
+            "minutes": 120,
+            "fullMinutes": 240,
+            "part": 2,
+            "parts": 2
+          }
+        ],
+        [
+          {
+            "task": "t18",
+            "job": "outside-5",
+            "minutes": 75,
+            "fullMinutes": 75,
+            "part": 1,
+            "parts": 1
+          },
+          {
+            "task": "t13",
+            "job": "outside-2",
+            "minutes": 45,
+            "fullMinutes": 270,
+            "part": 1,
+            "parts": 3
+          }
+        ],
+        [
+          {
+            "task": "t13",
+            "job": "outside-2",
+            "minutes": 120,
+            "fullMinutes": 270,
+            "part": 2,
+            "parts": 3
+          }
+        ],
+        [
+          {
+            "task": "t13",
+            "job": "outside-2",
+            "minutes": 105,
+            "fullMinutes": 270,
+            "part": 3,
+            "parts": 3
+          },
+          {
+            "task": "t10",
+            "job": "outside-1",
+            "minutes": 15,
+            "fullMinutes": 240,
+            "part": 1,
+            "parts": 3
+          }
+        ],
+        [
+          {
+            "task": "t10",
+            "job": "outside-1",
+            "minutes": 120,
+            "fullMinutes": 240,
+            "part": 2,
+            "parts": 3
+          }
+        ],
+        [
+          {
+            "task": "t10",
+            "job": "outside-1",
+            "minutes": 105,
+            "fullMinutes": 240,
+            "part": 3,
+            "parts": 3
+          },
+          {
+            "task": "t15",
+            "job": "outside-3",
+            "minutes": 15,
+            "fullMinutes": 180,
+            "part": 1,
+            "parts": 3
+          }
+        ],
+        [
+          {
+            "task": "t15",
+            "job": "outside-3",
+            "minutes": 120,
+            "fullMinutes": 180,
+            "part": 2,
+            "parts": 3
+          }
+        ],
+        [
+          {
+            "task": "t18",
+            "job": "outside-6",
+            "minutes": 75,
+            "fullMinutes": 75,
+            "part": 1,
+            "parts": 1
+          },
+          {
+            "task": "t15",
+            "job": "outside-3",
+            "minutes": 45,
+            "fullMinutes": 180,
+            "part": 3,
+            "parts": 3
+          }
+        ]
+      ]
+    },
+    "inside": {
+      "jobs": [
+        {
+          "id": "inside-0",
+          "task": "t22",
+          "preferredMonth": 0,
+          "minutes": 30
+        },
+        {
+          "id": "inside-1",
+          "task": "t22",
+          "preferredMonth": 1,
+          "minutes": 30
+        },
+        {
+          "id": "inside-2",
+          "task": "t22",
+          "preferredMonth": 2,
+          "minutes": 30
+        },
+        {
+          "id": "inside-3",
+          "task": "t22",
+          "preferredMonth": 3,
+          "minutes": 30
+        },
+        {
+          "id": "inside-4",
+          "task": "t22",
+          "preferredMonth": 4,
+          "minutes": 30
+        },
+        {
+          "id": "inside-5",
+          "task": "t22",
+          "preferredMonth": 5,
+          "minutes": 30
+        },
+        {
+          "id": "inside-6",
+          "task": "t22",
+          "preferredMonth": 6,
+          "minutes": 30
+        },
+        {
+          "id": "inside-7",
+          "task": "t22",
+          "preferredMonth": 7,
+          "minutes": 30
+        },
+        {
+          "id": "inside-8",
+          "task": "t22",
+          "preferredMonth": 8,
+          "minutes": 30
+        },
+        {
+          "id": "inside-9",
+          "task": "t22",
+          "preferredMonth": 9,
+          "minutes": 30
+        },
+        {
+          "id": "inside-10",
+          "task": "t22",
+          "preferredMonth": 10,
+          "minutes": 30
+        },
+        {
+          "id": "inside-11",
+          "task": "t22",
+          "preferredMonth": 11,
+          "minutes": 30
+        },
+        {
+          "id": "inside-12",
+          "task": "t02",
+          "preferredMonth": 2,
+          "minutes": 90
+        },
+        {
+          "id": "inside-13",
+          "task": "t02",
+          "preferredMonth": 8,
+          "minutes": 90
+        },
+        {
+          "id": "inside-14",
+          "task": "t09",
+          "preferredMonth": 1,
+          "minutes": 30
+        },
+        {
+          "id": "inside-15",
+          "task": "t09",
+          "preferredMonth": 7,
+          "minutes": 30
+        },
+        {
+          "id": "inside-16",
+          "task": "t08",
+          "preferredMonth": 4,
+          "minutes": 120
+        },
+        {
+          "id": "inside-17",
+          "task": "t06",
+          "preferredMonth": 6,
+          "minutes": 90
+        },
+        {
+          "id": "inside-18",
+          "task": "t05",
+          "preferredMonth": 0,
+          "minutes": 90
+        },
+        {
+          "id": "inside-19",
+          "task": "t04",
+          "preferredMonth": 3,
+          "minutes": 120
+        },
+        {
+          "id": "inside-20",
+          "task": "t04",
+          "preferredMonth": 9,
+          "minutes": 120
+        },
+        {
+          "id": "inside-21",
+          "task": "t07",
+          "preferredMonth": 5,
+          "minutes": 135
+        },
+        {
+          "id": "inside-22",
+          "task": "t03",
+          "preferredMonth": 10,
+          "minutes": 105
+        },
+        {
+          "id": "inside-23",
+          "task": "t28",
+          "preferredMonth": 0,
+          "minutes": 30
+        },
+        {
+          "id": "inside-24",
+          "task": "t28",
+          "preferredMonth": 11,
+          "minutes": 30
+        }
+      ],
+      "calendar": [
+        [
+          {
+            "task": "t22",
+            "job": "inside-0",
+            "minutes": 30,
+            "fullMinutes": 30,
+            "part": 1,
+            "parts": 1
+          },
+          {
+            "task": "t05",
+            "job": "inside-18",
+            "minutes": 90,
+            "fullMinutes": 90,
+            "part": 1,
+            "parts": 1
+          }
+        ],
+        [
+          {
+            "task": "t22",
+            "job": "inside-1",
+            "minutes": 30,
+            "fullMinutes": 30,
+            "part": 1,
+            "parts": 1
+          },
+          {
+            "task": "t28",
+            "job": "inside-23",
+            "minutes": 30,
+            "fullMinutes": 30,
+            "part": 1,
+            "parts": 1
+          },
+          {
+            "task": "t09",
+            "job": "inside-14",
+            "minutes": 30,
+            "fullMinutes": 30,
+            "part": 1,
+            "parts": 1
+          },
+          {
+            "task": "t04",
+            "job": "inside-19",
+            "minutes": 30,
+            "fullMinutes": 120,
+            "part": 1,
+            "parts": 2
+          }
+        ],
+        [
+          {
+            "task": "t22",
+            "job": "inside-2",
+            "minutes": 30,
+            "fullMinutes": 30,
+            "part": 1,
+            "parts": 1
+          },
+          {
+            "task": "t02",
+            "job": "inside-12",
+            "minutes": 90,
+            "fullMinutes": 90,
+            "part": 1,
+            "parts": 1
+          }
+        ],
+        [
+          {
+            "task": "t22",
+            "job": "inside-3",
+            "minutes": 30,
+            "fullMinutes": 30,
+            "part": 1,
+            "parts": 1
+          },
+          {
+            "task": "t04",
+            "job": "inside-19",
+            "minutes": 90,
+            "fullMinutes": 120,
+            "part": 2,
+            "parts": 2
+          }
+        ],
+        [
+          {
+            "task": "t22",
+            "job": "inside-4",
+            "minutes": 30,
+            "fullMinutes": 30,
+            "part": 1,
+            "parts": 1
+          },
+          {
+            "task": "t08",
+            "job": "inside-16",
+            "minutes": 90,
+            "fullMinutes": 120,
+            "part": 1,
+            "parts": 2
+          }
+        ],
+        [
+          {
+            "task": "t22",
+            "job": "inside-5",
+            "minutes": 30,
+            "fullMinutes": 30,
+            "part": 1,
+            "parts": 1
+          },
+          {
+            "task": "t08",
+            "job": "inside-16",
+            "minutes": 30,
+            "fullMinutes": 120,
+            "part": 2,
+            "parts": 2
+          },
+          {
+            "task": "t07",
+            "job": "inside-21",
+            "minutes": 60,
+            "fullMinutes": 135,
+            "part": 1,
+            "parts": 3
+          }
+        ],
+        [
+          {
+            "task": "t22",
+            "job": "inside-6",
+            "minutes": 30,
+            "fullMinutes": 30,
+            "part": 1,
+            "parts": 1
+          },
+          {
+            "task": "t06",
+            "job": "inside-17",
+            "minutes": 90,
+            "fullMinutes": 90,
+            "part": 1,
+            "parts": 1
+          }
+        ],
+        [
+          {
+            "task": "t22",
+            "job": "inside-7",
+            "minutes": 30,
+            "fullMinutes": 30,
+            "part": 1,
+            "parts": 1
+          },
+          {
+            "task": "t09",
+            "job": "inside-15",
+            "minutes": 30,
+            "fullMinutes": 30,
+            "part": 1,
+            "parts": 1
+          },
+          {
+            "task": "t07",
+            "job": "inside-21",
+            "minutes": 60,
+            "fullMinutes": 135,
+            "part": 2,
+            "parts": 3
+          }
+        ],
+        [
+          {
+            "task": "t22",
+            "job": "inside-8",
+            "minutes": 30,
+            "fullMinutes": 30,
+            "part": 1,
+            "parts": 1
+          },
+          {
+            "task": "t02",
+            "job": "inside-13",
+            "minutes": 90,
+            "fullMinutes": 90,
+            "part": 1,
+            "parts": 1
+          }
+        ],
+        [
+          {
+            "task": "t22",
+            "job": "inside-9",
+            "minutes": 30,
+            "fullMinutes": 30,
+            "part": 1,
+            "parts": 1
+          },
+          {
+            "task": "t07",
+            "job": "inside-21",
+            "minutes": 15,
+            "fullMinutes": 135,
+            "part": 3,
+            "parts": 3
+          },
+          {
+            "task": "t04",
+            "job": "inside-20",
+            "minutes": 75,
+            "fullMinutes": 120,
+            "part": 1,
+            "parts": 2
+          }
+        ],
+        [
+          {
+            "task": "t22",
+            "job": "inside-10",
+            "minutes": 30,
+            "fullMinutes": 30,
+            "part": 1,
+            "parts": 1
+          },
+          {
+            "task": "t04",
+            "job": "inside-20",
+            "minutes": 45,
+            "fullMinutes": 120,
+            "part": 2,
+            "parts": 2
+          },
+          {
+            "task": "t03",
+            "job": "inside-22",
+            "minutes": 45,
+            "fullMinutes": 105,
+            "part": 1,
+            "parts": 2
+          }
+        ],
+        [
+          {
+            "task": "t22",
+            "job": "inside-11",
+            "minutes": 30,
+            "fullMinutes": 30,
+            "part": 1,
+            "parts": 1
+          },
+          {
+            "task": "t28",
+            "job": "inside-24",
+            "minutes": 30,
+            "fullMinutes": 30,
+            "part": 1,
+            "parts": 1
+          },
+          {
+            "task": "t03",
+            "job": "inside-22",
+            "minutes": 60,
+            "fullMinutes": 105,
+            "part": 2,
+            "parts": 2
+          }
+        ]
+      ]
+    }
+  }
+}

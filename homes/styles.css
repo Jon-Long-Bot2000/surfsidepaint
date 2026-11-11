@@ -27,25 +27,26 @@
 .homes-page .homes-header-actions > .button:hover { background: #cbe4d1; }
 .homes-page .homes-hero { padding-block: 64px 74px; }
 .homes-page .homes-hero-copy { position: relative; z-index: 1; grid-area: intro; }
-.homes-page .homes-hero-copy > .homes-eyebrow { display: flex; align-items: center; gap: 9px; color: var(--homes-green); margin-bottom: 24px; }
-.homes-page .homes-hero-copy > .homes-eyebrow > span { width: 6px; height: 6px; border-radius: 50%; background: var(--homes-green); }
+.homes-page .homes-hero-intro > .homes-eyebrow { display: flex; align-items: center; gap: 9px; color: var(--homes-green); margin-bottom: 24px; }
+.homes-page .homes-hero-intro > .homes-eyebrow > span { width: 6px; height: 6px; border-radius: 50%; background: var(--homes-green); }
 .homes-page .homes-hero h1 { font-size: clamp(2.8rem, 5.65vw, 4.65rem); font-weight: 650; line-height: 1.2; max-width: 660px; }
 .homes-page .homes-hero h1 > span { display: block; margin-top: 3px; color: var(--homes-green); }
 .homes-page .homes-lead { font-size: 1.1rem; line-height: 1.7; max-width: 450px; margin-top: 26px; color: var(--homes-muted); }
 .homes-page .homes-lead strong { display: block; margin-top: 12px; font-size: .9rem; color: var(--homes-ink); font-weight: 600; }
-.homes-page .homes-subscription-overview { max-width: 740px; margin-top: 28px; padding: 36px 24px 24px; border: 1px solid var(--homes-line); border-radius: 18px; background: #fff; }
-.homes-page .homes-hero-subtext { margin-top: 22px; font-size: .95rem; line-height: 1.6; color: var(--homes-muted); }
+.homes-page .homes-subscription-overview { max-width: 740px; margin-top: 80px; padding: 36px 24px 24px; border: 0; background: transparent; }
+.homes-page .homes-hero-subtext { margin-top: 22px; font-size: 1.235rem; line-height: 1.6; color: var(--homes-muted); }
 .homes-page .homes-hero-subtext > strong { display: block; color: var(--homes-green); font-weight: 650; }
 .homes-page .homes-hero-subtext > span { display: block; }
 .homes-page .homes-hero-illustrations { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; max-width: 740px; margin-top: 0; }
 .homes-page .homes-hero-illustrations > div { min-width: 0; }
 .homes-page .homes-hero-illustrations img { display: block; width: 100%; height: auto; }
-.homes-page .homes-illustration-heading { margin-top: 6px; text-align: center; font-size: 1.1rem; line-height: 1.35; letter-spacing: -.025em; font-weight: 650; }
+.homes-page .homes-illustration-heading { margin-top: 6px; text-align: center; font-size: 3.2076rem; line-height: 1.35; letter-spacing: -.025em; font-weight: 650; }
 
 .homes-page .homes-overview-price { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin-top: 0; }
 .homes-page .homes-overview-price strong { color: var(--homes-green); font-size: 1.2rem; font-weight: 650; }
 .homes-page .homes-overview-price > span { font-size: .87rem; color: var(--homes-muted); }
 .homes-page .homes-overview-note { font-size: .73rem; line-height: 1.5; color: var(--homes-muted); margin-top: 12px; }
+.homes-page .homes-area { margin-top: 36px; text-align: left; }
 .homes-page .homes-area > .homes-service-map { max-width: 580px; margin-inline: auto; }
 .homes-page .homes-service-map { overflow: hidden; border: 1px solid #cbd9cf; border-radius: 24px; background: #eef2e8; box-shadow: 0 14px 38px #183e470a; scroll-margin-top: 24px; }
 .homes-page .homes-map-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; padding: 22px 24px 18px; background: #fff; border-bottom: 1px solid #d5e1d9; }
@@ -209,6 +210,7 @@
 }
 @media (max-width: 720px) {
   .homes-page .homes-container { width: calc(100% - 40px); }
+  .homes-page #homes-problems-title > span { display: block; white-space: nowrap; }
   .homes-page .homes-header { min-height: 68px; gap: 12px; }
   .homes-page .homes-header nav { display: none; }
   .homes-page .homes-brand > .homes-icon { width: 30px; height: 34px; }
@@ -220,7 +222,7 @@
   .homes-page .homes-section { padding-block: 64px; }
   .homes-page .homes-hero { padding-block: 48px 34px; }
   .homes-page .homes-hero h1 { font-size: clamp(2.65rem, 9.3vw, 4rem); max-width: 540px; }
-  .homes-page .homes-hero-copy > .homes-eyebrow { font-size: .55rem; margin-bottom: 21px; }
+  .homes-page .homes-hero-intro > .homes-eyebrow { font-size: .55rem; margin-bottom: 21px; }
   .homes-page .homes-lead { font-size: 1rem; margin-top: 21px; }
   .homes-page .homes-actions { margin-top: 0; gap: 12px 22px; }
   .homes-page .homes-actions > .button { width: 100%; }
@@ -289,7 +291,7 @@
 }
 
 @media (max-width: 720px) {
-  .homes-page .homes-subscription-overview { margin-top: 24px; padding: 30px 18px 18px; border-radius: 14px; }
+  .homes-page .homes-subscription-overview { margin-top: 80px; padding: 30px 18px 18px; border-radius: 14px; }
   .homes-page .homes-overview-price { gap: 2px 10px; }
   .homes-page .homes-subscription-footer > .button { width: 100%; padding-inline: 12px; font-size: .83rem; }
 }
@@ -299,23 +301,23 @@
 }
 
 @media (max-width: 720px) {
-  .homes-page .homes-illustration-heading { font-size: .9rem; margin-top: 4px; }
+  .homes-page .homes-illustration-heading { font-size: 2.6244rem; margin-top: 4px; }
 }
 
-.homes-page .homes-illustration-benefit { margin-top: 7px; text-align: center; color: var(--homes-muted); font-size: .86rem; line-height: 1.5; }
-.homes-page .homes-subscription-footer { margin-top: 24px; padding-top: 22px; text-align: center; }
+.homes-page .homes-illustration-benefit { margin-top: 7px; text-align: center; color: var(--homes-muted); font-size: 1.1352rem; line-height: 1.5; }
+.homes-page .homes-subscription-footer { margin-top: 64px; padding-top: 22px; text-align: center; }
 .homes-page .homes-subscription-footer .homes-overview-price { justify-content: center; }
 .homes-page .homes-subscription-footer > .button { margin-top: 16px; }
 @media (max-width: 720px) {
-  .homes-page .homes-illustration-benefit { font-size: .8rem; margin-top: 6px; }
-  .homes-page .homes-subscription-footer { margin-top: 20px; padding-top: 18px; }
+  .homes-page .homes-illustration-benefit { font-size: 1.056rem; margin-top: 6px; }
+  .homes-page .homes-subscription-footer { margin-top: 60px; padding-top: 18px; }
   .homes-page .homes-subscription-footer .homes-overview-price { flex-direction: column; align-items: center; gap: 4px; }
 }
 
-.homes-page .homes-subscription-title, .homes-page .homes-subscription-summary { color: var(--homes-ink); font-size: 1.9rem; line-height: 1.3; letter-spacing: -.035em; font-weight: 650; }
+.homes-page .homes-subscription-title, .homes-page .homes-subscription-summary { color: var(--homes-ink); font-size: 1.425rem; line-height: 1.3; letter-spacing: -.035em; font-weight: 650; }
 .homes-page .homes-subscription-title { margin-bottom: 36px; text-align: center; }
 @media (max-width: 720px) {
-  .homes-page .homes-subscription-title, .homes-page .homes-subscription-summary { font-size: 1.5rem; }
+  .homes-page .homes-subscription-title, .homes-page .homes-subscription-summary { font-size: 1.125rem; }
   .homes-page .homes-subscription-title { margin-bottom: 32px; }
 }
 
@@ -342,3 +344,308 @@
 .homes-page .homes-subscription-membership-art > img { display: block; width: 100%; height: auto; }
 
 .homes-page .homes-subscription-kicker { margin-bottom: 8px; text-align: center; color: var(--homes-muted); font-size: .65rem; font-weight: 600; letter-spacing: .15em; line-height: 1.5; }
+
+/* Keep the pillars in the original flow on mobile. */
+.homes-page .homes-subscription-pillars { display: contents; }
+
+@media (min-width: 721px) {
+  .homes-page .homes-hero { padding-block: 64px 80px; }
+  .homes-page .homes-hero-copy { text-align: center; }
+  .homes-page .homes-hero-intro > .homes-eyebrow { justify-content: center; }
+  .homes-page .homes-hero h1 { max-width: 900px; margin-inline: auto; font-size: clamp(3.2rem, 5vw, 4.4rem); }
+  .homes-page .homes-hero-subtext { margin-top: 20px; }
+  .homes-page .homes-subscription-overview { margin: 80px auto 0; padding: 36px 32px 32px; scroll-margin-top: 28px; }
+  .homes-page .homes-hero-illustrations { max-width: 600px; margin-inline: auto; }
+  .homes-page .homes-hero-illustrations img { max-width: 336px; margin-inline: auto; }
+}
+
+@media (min-width: 1001px) {
+  .homes-page .homes-hero-copy { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 0 64px; align-items: center; text-align: left; }
+  .homes-page .homes-hero-intro { min-width: 0; transform: translateY(-50px); }
+  .homes-page .homes-hero-intro > .homes-eyebrow { justify-content: flex-start; }
+  .homes-page .homes-hero h1 { max-width: 660px; margin-inline: 0; font-size: clamp(2.8rem, 4.5vw, 4rem); }
+  .homes-page .homes-hero-copy > .homes-area { margin-top: 0; transform: translateY(20px) scale(.85); transform-origin: center; }
+}
+
+@media (min-width: 1100px) {
+  .homes-page .homes-subscription-overview { width: 100%; max-width: 740px; padding: 40px 32px 32px; }
+  .homes-page .homes-subscription-pillars { display: block; min-width: 0; }
+  .homes-page .homes-subscription-title, .homes-page .homes-subscription-summary { font-size: 1.3125rem; }
+  .homes-page .homes-subscription-title { margin-bottom: 24px; }
+  .homes-page .homes-hero-illustrations { gap: 18px; }
+  .homes-page .homes-illustration-heading { font-size: 3.14928rem; }
+  .homes-page .homes-illustration-benefit { font-size: 1.1352rem; }
+  .homes-page .homes-subscription-footer { min-width: 0; margin-top: 64px; padding-top: 22px; }
+  .homes-page .homes-subscription-membership-art { width: 100%; max-width: 360px; }
+  .homes-page .homes-subscription-price-card { max-width: 360px; }
+}
+
+/* Full-width Subscription band with its original centered content width. */
+.homes-page .homes-subscription-section { --subscription-background: #eaf0e8; --subscription-wave-offset: 20px; position: relative; background: linear-gradient(to bottom, transparent var(--subscription-wave-offset), var(--subscription-background) var(--subscription-wave-offset)); padding-block: 64px; scroll-margin-top: 28px; }
+.homes-page .homes-subscription-wave { position: absolute; top: var(--subscription-wave-offset); left: 0; width: 100%; height: clamp(36px, 5vw, 80px); transform: translateY(-100%); display: block; fill: var(--subscription-background); pointer-events: none; }
+.homes-page .homes-subscription-section > .homes-subscription-overview { width: min(740px, calc(100% - 40px)); margin: 0 auto; padding-block: 0; text-align: center; }
+.homes-page .homes-subscription-pillars > .homes-hero-illustrations { position: relative; left: 50%; width: 120%; max-width: 720px; margin-inline: 0; transform: translateX(-50%); padding-top: 70px; }
+.homes-page .homes-subscription-pillars .homes-illustration-heading { margin-top: 0; margin-bottom: 0; }
+.homes-page .homes-subscription-pillars .homes-illustration-benefit { margin-top: 8px; margin-bottom: 56px; }
+.homes-page .homes-hero { padding-bottom: 80px; }
+@media (min-width: 1001px) {
+  .homes-page .homes-hero { padding-bottom: 0; margin-bottom: 10px; }
+  .homes-page .homes-subscription-section { padding-block: 80px; }
+  .homes-page .homes-subscription-pillars > .homes-hero-illustrations { width: calc(120% + 246px); max-width: 966px; column-gap: 264px; }
+  .homes-page .homes-subscription-pillars .homes-illustration-heading { font-size: 2.7rem; white-space: nowrap; }
+}
+
+.homes-page .homes-subscription-pillars img[src*="handyman-requests.svg"] { transform: translateY(-10px) rotate(-7deg) scale(1.08); transform-origin: center; }
+
+.homes-page .homes-illustration-heading > em { position: relative; display: inline-block; color: var(--homes-green); font-family: Georgia, 'Times New Roman', serif; font-weight: 400; font-style: italic; }
+
+
+
+.homes-page .homes-subscription-wave { overflow: visible; }
+.homes-page .homes-wave-edge { fill: none; stroke-linecap: round; }
+
+@media (max-width: 720px) {
+  .homes-page .homes-subscription-pillars > .homes-hero-illustrations { grid-template-columns: minmax(0, 1fr); row-gap: 78px; column-gap: 0; position: static; left: auto; width: 100%; max-width: none; margin-inline: auto; transform: none; }
+  .homes-page .homes-subscription-pillars .homes-illustration-heading { font-size: 28px; white-space: normal; }
+  .homes-page .homes-subscription-pillars .homes-illustration-benefit { margin-top: 8px; margin-bottom: 32px; }
+  .homes-page .homes-subscription-pillars .homes-hero-illustrations img { width: min(260px, 100%); max-width: 260px; margin-inline: auto; }
+}
+
+.homes-page .homes-subscription-summary { font-size: 3.2076rem; line-height: 1.35; letter-spacing: -.025em; font-weight: 650; text-align: center; }
+.homes-page .homes-subscription-summary > em { display: inline-block; color: var(--homes-green); font-family: Georgia, 'Times New Roman', serif; font-weight: 400; font-style: italic; }
+@media (min-width: 1001px) {
+  .homes-page .homes-subscription-summary { font-size: 2.7rem; white-space: nowrap; }
+}
+@media (max-width: 720px) {
+  .homes-page .homes-subscription-summary { font-size: 28px; }
+}
+
+
+@media (min-width: 1001px) {
+  .homes-page .homes-subscription-price-card { max-width: 660px; }
+}
+@media (min-width: 1100px) {
+  .homes-page .homes-subscription-price-card { max-width: 540px; }
+}
+
+@media (min-width: 1001px) {
+  .homes-page .homes-subscription-membership-art { width: 200%; max-width: 720px; }
+}
+@media (min-width: 1100px) {
+  .homes-page .homes-subscription-membership-art { width: 160%; max-width: 576px; }
+}
+
+.homes-page .homes-subscription-price-card > picture, .homes-page .homes-subscription-price-card > picture > img { display: block; width: 100%; height: auto; }
+@media (min-width: 1001px) {
+  .homes-page .homes-subscription-price-card { left: 50%; width: 140%; max-width: 924px; margin-inline: 0; transform: translateX(-50%); }
+}
+@media (min-width: 1100px) {
+  .homes-page .homes-subscription-price-card { max-width: 756px; }
+}
+
+/* Benefits flow as real text, with the action following the list. */
+.homes-page .homes-subscription-price-card { padding: 112px 50px 120px; border-radius: 18px; background: linear-gradient(to bottom, rgb(246 243 231 / 5%), #f6f3e7 60px); }
+.homes-page .homes-subscription-benefits { display: grid; gap: 44px; list-style: none; margin: 0; padding: 0; text-align: left; }
+.homes-page .homes-subscription-benefits > li { display: grid; grid-template-columns: 20px minmax(0, 1fr); gap: 14px; align-items: start; font-size: 20px; line-height: 1.5; color: var(--homes-ink); }
+.homes-page .homes-benefit-check { color: var(--homes-green); font-weight: 650; }
+.homes-page .homes-subscription-price-card > .homes-subscription-join { position: static; transform: none; height: auto; min-height: 52px; margin-top: 96px; padding: 16px; animation: none; }
+.homes-page .homes-subscription-price-card > .homes-subscription-price-microcopy { position: static; margin-top: 16px; }
+@media (min-width: 1001px) {
+  .homes-page .homes-subscription-benefits > li { font-size: 24px; }
+}
+@media (max-width: 720px) {
+  .homes-page .homes-subscription-price-card { padding: 96px 50px 112px; }
+  .homes-page .homes-subscription-benefits > li { font-size: 16px; }
+}
+
+@media (max-width: 720px) {
+  .homes-page .homes-subscription-price-card > .homes-subscription-join { margin-top: 116px; }
+}
+
+/* Ivory membership ticket. */
+.homes-page .homes-subscription-price-card { border: 1px solid #bdcbb9; border-radius: 22px; background: linear-gradient(145deg, #fffdf5, #f6f3e7 75%); box-shadow: 0 2px 3px #183e4706, 0 8px 16px #183e4708, 0 20px 36px #1466570b, 0 36px 64px #14665706; }
+.homes-page .homes-benefits-label { margin: 0 0 44px; font-size: 11px; font-weight: 700; letter-spacing: .16em; line-height: 1.6; color: var(--homes-green); text-align: left; }
+.homes-page .homes-subscription-benefits { gap: 22px; }
+.homes-page .homes-subscription-benefits > li { grid-template-columns: 28px minmax(0, 1fr); gap: 16px; padding-bottom: 22px; border-bottom: 1px solid #183e4710; }
+.homes-page .homes-subscription-benefits > li:last-child { padding-bottom: 0; border-bottom: 0; }
+.homes-page .homes-subscription-benefits strong { font-weight: 650; }
+.homes-page .homes-benefit-check { display: grid; place-items: center; width: 28px; height: 28px; margin-top: .2em; border-radius: 50%; background: #146657; color: #fffdf5; font-size: 15px; line-height: 1; box-shadow: inset 0 0 0 3px #ffffff18, 0 2px 5px #14665718; }
+.homes-page .homes-benefits-action { position: relative; margin-top: 96px; padding-top: 32px; border-top: 1px dashed #b2c3b0; }
+.homes-page .homes-benefits-action::before, .homes-page .homes-benefits-action::after { content: ''; position: absolute; top: -14px; width: 26px; height: 26px; border-radius: 50%; background: var(--subscription-background); border: 1px solid #bdcbb9; }
+.homes-page .homes-benefits-action::before { left: -64px; }
+.homes-page .homes-benefits-action::after { right: -64px; }
+.homes-page .homes-benefits-action > .homes-subscription-join { position: static; transform: none; height: auto; min-height: 52px; margin: 0; padding: 16px; animation: none; }
+.homes-page .homes-benefits-action > .homes-subscription-price-microcopy { position: static; margin: 16px 0 0; }
+@media (max-width: 720px) {
+  .homes-page .homes-benefits-label { font-size: 10px; letter-spacing: .12em; }
+  .homes-page .homes-subscription-benefits > li { grid-template-columns: 24px minmax(0, 1fr); gap: 12px; }
+  .homes-page .homes-benefit-check { width: 24px; height: 24px; font-size: 13px; }
+  .homes-page .homes-benefits-action { margin-top: 116px; }
+}
+
+.homes-page .homes-subscription-price-card { padding-bottom: 0; }
+.homes-page .homes-benefits-action { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: 76px 0; }
+.homes-page .homes-benefits-action > .homes-subscription-join { width: 100%; max-width: 420px; }
+.homes-page .homes-benefits-action > .homes-subscription-price-microcopy { margin: 0; }
+@media (max-width: 720px) {
+  .homes-page .homes-benefits-action { padding-block: 72px; }
+}
+
+/* The membership ticket's final action. */
+.homes-page .homes-benefits-action > .homes-subscription-join { display: grid; grid-template-columns: 1fr 34px; align-items: center; gap: 16px; height: 64px; min-height: 64px; padding: 0 18px 0 28px; border: 1px solid #789889; border-radius: 14px; background: #146657; color: #f6f3e7; font-size: 20px; font-weight: 700; letter-spacing: -.015em; box-shadow: inset 0 1px 0 #ffffff16, 0 2px 3px #183e470a, 0 6px 12px #183e4710, 0 12px 24px #14665718; transition: transform .2s ease, background-color .2s ease, box-shadow .2s ease; }
+.homes-page .homes-join-arrow { display: grid; place-items: center; width: 34px; height: 34px; border: 1px solid #f6f3e733; border-radius: 50%; background: #f6f3e716; }
+.homes-page .homes-join-arrow svg { display: block; width: 20px; height: 20px; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.homes-page .homes-join-price { margin: 4px 0 0; color: var(--homes-ink); font-size: 13px; line-height: 1.6; text-align: center; }
+.homes-page .homes-benefits-action > .homes-subscription-price-microcopy { margin-top: -8px; }
+@media (hover: hover) {
+  .homes-page .homes-benefits-action > .homes-subscription-join:hover { background: #104f45; transform: translateY(-2px); box-shadow: inset 0 1px 0 #ffffff16, 0 3px 5px #183e470c, 0 9px 18px #183e4714, 0 16px 28px #14665720; }
+}
+.homes-page .homes-benefits-action > .homes-subscription-join:active { transform: translateY(0); }
+@media (max-width: 720px) {
+  .homes-page .homes-benefits-action > .homes-subscription-join { max-width: none; font-size: 18px; padding-left: 16px; padding-right: 12px; gap: 10px; }
+  .homes-page .homes-join-price { font-size: 12px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .homes-page .homes-benefits-action > .homes-subscription-join { transition: none; }
+  .homes-page .homes-benefits-action > .homes-subscription-join:hover { transform: none; }
+}
+
+/* Discover To-Dos, browsed one useful idea at a time. */
+.homes-page .homes-todo-carousel { margin-top: 44px; }
+.homes-page .homes-todo-track { display: grid; grid-auto-flow: column; grid-auto-columns: calc((100% - 64px) / 5); gap: 16px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory; list-style: none; margin: 0; padding: 4px 0 20px; scrollbar-width: thin; scrollbar-color: #a5bcab transparent; }
+.homes-page .homes-todo-track:focus-visible { outline: 2px solid var(--homes-green); outline-offset: 6px; border-radius: 16px; }
+.homes-page .homes-todo-slide { min-width: 0; scroll-snap-align: start; }
+.homes-page .homes-todo-card { height: 100%; display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--homes-line); border-radius: 14px; background: #fffdf8; box-shadow: 0 5px 16px #183e4706; }
+.homes-page .homes-todo-card figure { position: relative; aspect-ratio: 4 / 3; overflow: hidden; background: #eaf0e8; }
+.homes-page .homes-todo-card img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.homes-page .homes-todo-credit { position: absolute; right: 8px; bottom: 8px; border-radius: 5px; padding: 4px 7px; background: #fffefaeb; color: #536d6b; font-size: 9px; text-decoration: none; }
+.homes-page .homes-todo-credit:hover { text-decoration: underline; }
+.homes-page .homes-todo-copy { display: flex; flex-direction: column; flex: 1; padding: 16px; text-align: left; }
+.homes-page .homes-todo-category { display: none; color: var(--homes-green); text-transform: uppercase; font-size: 10px; font-weight: 650; letter-spacing: .12em; line-height: 1.5; }
+.homes-page .homes-todo-copy h3 { margin: 0 0 14px; font-size: 1rem; line-height: 1.25; font-weight: 650; }
+.homes-page .homes-todo-copy > p { display: none; color: var(--homes-muted); font-size: .9rem; line-height: 1.6; margin-bottom: 24px; }
+.homes-page .homes-todo-frequency { display: flex; flex-direction: column; gap: 4px; margin-top: auto; border-top: 1px solid var(--homes-line); padding-top: 12px; }
+.homes-page .homes-todo-frequency > span { font-size: 10px; text-transform: uppercase; letter-spacing: .09em; color: var(--homes-muted); }
+.homes-page .homes-todo-frequency strong { font-size: .78rem; font-weight: 550; line-height: 1.5; color: var(--homes-green); }
+.homes-page .homes-carousel-footer { display: flex; align-items: center; justify-content: space-between; gap: 20px; margin-top: 12px; }
+.homes-page .homes-carousel-footer > div:first-child { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+.homes-page .homes-carousel-count { font-size: .75rem; color: var(--homes-muted); font-variant-numeric: tabular-nums; }
+.homes-page .homes-discover-link { color: var(--homes-green); font-size: .78rem; text-underline-offset: 4px; }
+.homes-page .homes-carousel-controls { display: flex; gap: 10px; }
+.homes-page .homes-carousel-controls[hidden] { display: none; }
+.homes-page .homes-carousel-controls button { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid #c3d5c7; border-radius: 50%; background: #eaf0e8; color: var(--homes-green); cursor: pointer; }
+.homes-page .homes-carousel-controls button:hover:not(:disabled) { background: #dce9dd; }
+.homes-page .homes-carousel-controls button:disabled { opacity: .35; cursor: default; }
+.homes-page .homes-carousel-controls button:focus-visible { outline: 2px solid var(--homes-green); outline-offset: 3px; }
+.homes-page .homes-carousel-controls svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.homes-page .homes-carousel-sr { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@media (min-width: 721px) and (max-width: 1000px) {
+  .homes-page .homes-todo-track { grid-auto-columns: calc((100% - 32px) / 3); }
+}
+@media (max-width: 720px) {
+  .homes-page .homes-todo-carousel { margin-top: 32px; }
+  .homes-page .homes-todo-track { grid-auto-columns: 68%; gap: 16px; }
+  .homes-page .homes-todo-copy { padding: 16px; }
+  .homes-page .homes-todo-copy h3 { font-size: 1rem; }
+  .homes-page .homes-carousel-footer { gap: 12px; }
+  .homes-page .homes-carousel-footer > div:first-child { gap: 6px; flex-direction: column; align-items: flex-start; }
+}
+
+/* Keep navigation beside the tile row, independent of the footer. */
+.homes-page .homes-carousel-stage { position: relative; padding-inline: 56px; }
+.homes-page .homes-carousel-stage .homes-carousel-controls { position: absolute; inset: 0 0 20px; align-items: center; justify-content: space-between; pointer-events: none; }
+.homes-page .homes-carousel-stage .homes-carousel-controls button { flex-shrink: 0; pointer-events: auto; }
+@media (max-width: 720px) {
+  .homes-page .homes-carousel-stage { padding-inline: 40px; }
+  .homes-page .homes-carousel-stage .homes-carousel-controls button { width: 32px; height: 32px; }
+}
+
+/* Smaller tiles with a concise service-time estimate. */
+.homes-page .homes-todo-carousel { max-width: 1040px; margin-inline: auto; }
+.homes-page .homes-todo-track { grid-auto-columns: calc((100% - 48px) / 5); gap: 12px; }
+.homes-page .homes-todo-card figure { aspect-ratio: 3 / 2; }
+.homes-page .homes-todo-copy { padding: 12px; }
+.homes-page .homes-todo-copy h3 { font-size: .9rem; }
+.homes-page .homes-todo-time-label { margin-top: 10px; }
+.homes-page .homes-todo-estimate-note { max-width: none; margin: 8px 56px 0; text-align: left; font-size: .72rem; line-height: 1.5; color: var(--homes-muted); }
+@media (min-width: 721px) and (max-width: 1000px) {
+  .homes-page .homes-todo-track { grid-auto-columns: calc((100% - 24px) / 3); }
+}
+@media (max-width: 720px) {
+  .homes-page .homes-todo-track { grid-auto-columns: 68%; }
+  .homes-page .homes-todo-estimate-note { margin-inline: 40px; }
+}
+
+
+/* Compact mobile tiles use real dimensions rather than browser zoom. */
+@media (max-width: 720px) {
+  .homes-page .homes-carousel-stage { padding-inline: 28px; }
+  .homes-page .homes-carousel-stage .homes-carousel-controls button { width: 24px; height: 32px; }
+  .homes-page .homes-todo-track { grid-auto-columns: 112px; gap: 8px; align-items: stretch; }
+  .homes-page .homes-todo-card { border-radius: 10px; }
+  .homes-page .homes-todo-card figure { margin: 0; height: 64px; aspect-ratio: auto; flex-shrink: 0; }
+  .homes-page .homes-todo-copy { padding: 8px; }
+  .homes-page .homes-todo-copy h3 { font-size: 12px; line-height: 1.25; margin-bottom: 8px; }
+  .homes-page .homes-todo-frequency { gap: 2px; padding-top: 6px; }
+  .homes-page .homes-todo-frequency > span { font-size: 8px; letter-spacing: .02em; }
+  .homes-page .homes-todo-frequency strong { font-size: 10px; line-height: 1.3; }
+  .homes-page .homes-todo-time-label { margin-top: 6px; }
+}
+
+/* Touch scrolling on mobile; stronger navigation on desktop. */
+@media (max-width: 720px) {
+  .homes-page .homes-carousel-stage { padding-inline: 0; }
+  .homes-page .homes-carousel-stage .homes-carousel-controls { display: none; }
+  .homes-page .homes-todo-estimate-note { margin-inline: 0; }
+}
+@media (min-width: 721px) {
+  .homes-page .homes-carousel-stage { padding-inline: 72px; }
+  .homes-page .homes-carousel-stage .homes-carousel-controls button { width: 56px; height: 56px; border: 1px solid #527769; background: var(--homes-green); color: #fffdf5; box-shadow: 0 3px 6px #183e471a, 0 8px 18px #183e471a; transition: background .18s, box-shadow .18s; }
+  .homes-page .homes-carousel-stage .homes-carousel-controls button:hover:not(:disabled) { background: #183e47; box-shadow: 0 4px 8px #183e4726, 0 10px 22px #183e4726; }
+  .homes-page .homes-carousel-stage .homes-carousel-controls button:disabled { opacity: .4; box-shadow: none; }
+  .homes-page .homes-carousel-stage .homes-carousel-controls svg { width: 26px; height: 26px; stroke-width: 2.2; }
+}
+
+@media (min-width: 721px) {
+  .homes-page .homes-carousel-stage .homes-carousel-controls button { background: #fff; color: var(--homes-green); border-color: #ccd8ce; }
+  .homes-page .homes-carousel-stage .homes-carousel-controls button:hover:not(:disabled) { background: #f3f7f1; }
+}
+
+/* A finite scrollbar would misrepresent the repeating tile row. */
+.homes-page .homes-todo-track { scrollbar-width: none; overflow-anchor: none; }
+.homes-page .homes-todo-track::-webkit-scrollbar { display: none; }
+
+.homes-page .homes-carousel-swipe-hint { display: none; }
+@media (max-width: 720px) {
+  .homes-page .homes-carousel-swipe-hint { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 12px; color: var(--homes-green); font-size: 11px; letter-spacing: .04em; }
+  .homes-page .homes-carousel-swipe-hint > span:first-child,
+  .homes-page .homes-carousel-swipe-hint > span:last-child { font-size: 24px; line-height: 1; }
+}
+
+@media (max-width: 720px) {
+  .homes-page .homes-carousel-swipe-hint button { display: grid; place-items: center; width: 44px; height: 44px; padding: 0; border: 1px solid #ccd8ce; border-radius: 50%; background: #fff; color: var(--homes-green); font: inherit; font-size: 24px; line-height: 1; cursor: pointer; touch-action: manipulation; }
+  .homes-page .homes-carousel-swipe-hint button:active { background: #eaf0e8; }
+  .homes-page .homes-carousel-swipe-hint button:focus-visible { outline: 2px solid var(--homes-green); outline-offset: 3px; }
+}
+
+@media (min-width: 721px) {
+  .homes-page .homes-problems .homes-section-heading > h2 + p { font-size: 1.2rem; line-height: 1.65; max-width: 800px; margin-inline: auto; }
+}
+
+.homes-page #homes-seasons-title { white-space: nowrap; font-size: clamp(1rem, 4vw, 3rem); }
+
+.homes-page .homes-seasonal-infographic { margin-top: 32px; overflow-x: auto; background: #f4f7f4; border-radius: 12px; }
+.homes-page .homes-seasonal-infographic img { display: block; width: 100%; height: auto; max-width: none; }
+.homes-page .homes-seasonal-infographic:focus-visible { outline: 2px solid var(--homes-green); outline-offset: 4px; }
+@media (max-width: 720px) {
+  .homes-page .homes-seasonal-infographic img { width: 1200px; }
+}
+
+.homes-page .homes-problems .homes-section-heading { padding-top: 50px; }
+
+.homes-page .homes-problems .homes-section-heading > h2 { margin-bottom: 45px; }
+.homes-page .homes-problems .homes-section-heading > h2 + p { margin-top: 0; }
+
+.homes-page .homes-problems .homes-todo-carousel { margin-top: 84px; }
+
+.homes-page .homes-seasons { background: #eaf0e8; }

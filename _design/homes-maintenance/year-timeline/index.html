@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Annual Care Plan · Surfside</title>
+<link rel="stylesheet" href="care-plan.css?v=1">
+<script src="care-plan.js?v=1" defer></script>
+</head>
+<body>
+<main aria-label="Annual home care plan design preview">
+  <section class="care-plan" aria-label="Seasonal maintenance for your Ventura County home">
+    <div class="care-year">
+      <svg class="care-lines" viewBox="0 0 1200 500" preserveAspectRatio="none" aria-hidden="true">
+        <defs><marker id="care-arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M1 1 7 4 1 7" fill="none" stroke="#80988c" stroke-width="1.3"/></marker></defs>
+        <path class="year-base" d="M20 250H1180"/>
+        <path class="season winter" d="M20 250H200M1100 250H1180"/>
+        <path class="season spring" d="M200 250H500"/>
+        <path class="season summer" d="M500 250H800"/>
+        <path class="season autumn" d="M800 250H1100"/>
+        <g class="care-connectors" marker-end="url(#care-arrow)"></g>
+      </svg>
+      <ol class="care-months"></ol>
+    </div>
+    <div class="care-caption"><span class="care-repeat" aria-hidden="true">↻</span><span>A little care, year after year.</span><span class="care-hint">Select a task to see the details <span aria-hidden="true">↗</span></span></div>
+  </section>
+</main>
+<dialog class="care-detail" aria-labelledby="detail-title">
+  <button class="detail-close" aria-label="Close task details" autofocus>×</button>
+  <p class="detail-month"></p><h2 id="detail-title"></h2><p class="detail-description"></p>
+  <div class="detail-scope"><h3>A practical starting point</h3><p></p></div>
+  <button class="detail-done">Back to the year <span aria-hidden="true">↗</span></button>
+</dialog>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="270" viewBox="0 0 360 270" role="img" aria-labelledby="title desc">
+  <title id="title">Handyman Requests — a home that needs a little help</title>
+  <desc id="desc">A worn stucco house with a broken window, branching wall cracks, chipped plaster, a sagging gutter and weeds beside the steps. An open envelope with a repair-request letter overlaps the house on the left.</desc>
+  <ellipse cx="178" cy="243" rx="118" ry="10" fill="#183e47" opacity=".06"/>
+  <rect x="48" y="35" width="250" height="202" rx="18" fill="#dfe9da"/>
+  <g transform="rotate(4 205 137)" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Chimney and the broad, familiar silhouette of a house. -->
+    <path d="M250 80V42h27v54" fill="#789889" stroke="#183e47" stroke-width="3"/>
+    <path d="M246 42h35v8h-35Z" fill="#183e47"/>
+    <path d="M254 60h17m-17 11h17" fill="none" stroke="#dfe9da" stroke-width="2"/>
+    <path d="M104 108h198v115H104Z" fill="#f6f3e7" stroke="#183e47" stroke-width="3"/>
+    <path d="m86 114 112-78 121 78-10 12-111-69-102 69Z" fill="#183e47" stroke="#183e47" stroke-width="3"/>
+    <path d="m109 108 89-61 97 61" fill="none" stroke="#789889" stroke-width="2.5"/>
+    <path d="m171 73 13 1m16-12 13 2m-69 29 17 1m23-4 18 2m22 1 18 2m15 12 21 2" fill="none" stroke="#789889" stroke-width="2"/>
+    <!-- A bent gutter, with one loose end. -->
+    <path d="M103 120h61m10 0 27 5 28-5h74l5 13" fill="none" stroke="#146657" stroke-width="4"/>
+    <path d="M300 138v68l8 8" fill="none" stroke="#789889" stroke-width="3"/>
+    <!-- Stucco patches and hairline cracks. -->
+    <path d="m113 130 19 2 8 10-12 9-15-4Zm167 68 17-5v21l-13 3-11-9Zm-129 19 18-6 10 8-3 4h-30Z" fill="#dfe9da"/>
+    <g fill="none" stroke="#789889" stroke-width="2">
+      <path d="m171 129-6 12 8 8-9 13 5 9m-4-30-10 2-5-7m23 13 10 1 5 8"/>
+      <path d="m273 186 7 9-6 10 9 9-3 9m0-28 12 3m-18 7-10-1-4 8"/>
+      <path d="m119 194 10 7-3 12 9 10"/>
+    </g>
+    <!-- Front door and a slightly crooked handle. -->
+    <rect x="184" y="153" width="44" height="70" rx="2" fill="#146657" stroke="#183e47" stroke-width="3"/>
+    <path d="M191 162h30v24h-30Zm0 32h30v21h-30Z" fill="none" stroke="#789889" stroke-width="1.5"/>
+    <path d="m216 190 5 2" fill="none" stroke="#f6f3e7" stroke-width="3"/>
+    <!-- A large, clearly broken four-pane window. -->
+    <rect x="239" y="133" width="48" height="47" rx="2" fill="#d5e6df" stroke="#183e47" stroke-width="3"/>
+    <path d="M263 134v45m-23-22h46" fill="none" stroke="#146657" stroke-width="3"/>
+    <path d="m244 150 10-11m-10 33 9-9" fill="none" stroke="#fff" stroke-width="3" opacity=".8"/>
+    <g fill="none" stroke="#183e47" stroke-width="1.8">
+      <path d="m275 146-3-7m3 7 8-5m-8 5 10 5m-10-5-5 7m5-7 4 8"/>
+    </g>
+    <path d="m267 169 6-7 5 8 8-7v15h-19Z" fill="#183e47"/>
+    <path d="M235 181h57v6h-57Z" fill="#789889"/>
+    <!-- Foundation, chipped steps and small tufts of weeds. -->
+    <path d="M107 222h193v7H107Z" fill="#789889"/>
+    <path d="M179 224h54v6h-54Zm-6 7h66v6h-66Z" fill="#d5e6df" stroke="#183e47" stroke-width="2"/>
+    <path d="m224 232-6 4" stroke="#789889" stroke-width="2"/>
+    <g fill="none" stroke="#146657" stroke-width="2.2">
+      <path d="m292 233-2-13m2 13 7-9m-7 9-8-6m23 8 3-17m-3 17 10-10m-10 10-5-10"/>
+    </g>
+  </g>
+  <!-- The same overlapping paper treatment as M1, expressed as an email/letter. -->
+  <g transform="rotate(-5 87 180)" stroke-linejoin="round" stroke-linecap="round">
+    <path d="m31 178 57-40 57 40v62H31Z" fill="#183e47" opacity=".08" transform="translate(3 4)"/>
+    <path d="m29 176 57-40 57 40v62H29Z" fill="#d5e6df" stroke="#183e47" stroke-width="2.8"/>
+    <rect x="41" y="112" width="90" height="110" rx="7" fill="#fff" stroke="#183e47" stroke-width="2.8"/>
+    <rect x="51" y="124" width="24" height="5" rx="2.5" fill="#dfe9da"/>
+    <text x="51" y="145" fill="#146657" font-family="system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif" font-size="7.8" font-weight="750">REPAIR REQUEST</text>
+    <path d="M52 158h65m-65 8h51m-51 8h60m-60 8h38" fill="none" stroke="#789889" stroke-width="2.7"/>
+    <path d="m29 176 57 39 57-39v62H29Z" fill="#f6f3e7" stroke="#183e47" stroke-width="2.8"/>
+    <path d="m31 236 40-34m70 34-40-34" fill="none" stroke="#789889" stroke-width="1.8"/>
+    <path d="m29 176 57 39 57-39" fill="none" stroke="#183e47" stroke-width="2.4"/>
+    <circle cx="131" cy="228" r="14" fill="#146657" stroke="#f4f7f4" stroke-width="3"/>
+    <path d="M125 228h12m-5-5 5 5-5 5" fill="none" stroke="#fff" stroke-width="2"/>
+  </g>
+</svg>

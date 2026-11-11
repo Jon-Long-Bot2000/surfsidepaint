@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#f4f7f4">
+  <title>A year of care · Surfside MPS design studies</title>
+  <link rel="stylesheet" href="styles.css?v=1">
+  <script type="module" src="app.js?v=1"></script>
+</head>
+<body>
+  <a class="skip-link" href="#study">Skip to the infographic</a>
+  <header class="studio-header wrap">
+    <a class="brand" href="/homes/#homes-mps" aria-label="Surfside Homes preview"><span class="brand-symbol" aria-hidden="true">⌂</span><span>SURFSIDE<small>HOME SERVICES</small></span></a>
+    <span class="studio-label">MPS DESIGN STUDIES <b>LOCAL PREVIEW</b></span>
+  </header>
+  <main class="wrap">
+    <section class="studio-intro" aria-labelledby="studio-title">
+      <div><p class="eyebrow">ONE MEMBERSHIP. MANY WAYS TO CARE.</p><h1 id="studio-title">A year of care,<br><em>2 hours at a time.</em></h1></div>
+      <p class="intro-copy">A little attention, month after month. <br>Explore what your service hours could do for your home.</p>
+    </section>
+    <section class="study-controls" aria-label="Choose an infographic and design">
+      <div class="control-heading"><span class="eyebrow">01 / CHOOSE YOUR YEAR</span><span>4 infographics · 6 directions each</span></div>
+      <div id="plan-tabs" class="plan-tabs" role="tablist" aria-label="Infographic"></div>
+      <div class="control-heading direction-heading"><span class="eyebrow">02 / EXPLORE A DESIGN</span><button class="text-button" id="compare-button" type="button">Compare all six <span aria-hidden="true">↗</span></button></div>
+      <div id="design-tabs" class="design-tabs" role="tablist" aria-label="Design direction"></div>
+    </section>
+    <section id="study" class="study" tabindex="-1" aria-label="Selected infographic">
+      <div id="study-copy"></div>
+      <div id="budget-summary"></div>
+      <div id="builder-tools"></div>
+      <div id="work-area"><div id="visualization"></div><aside id="task-library" hidden></aside></div>
+      <div id="study-footer"></div>
+    </section>
+    <section class="study-aftercare">
+      <div><p class="eyebrow">A STARTING POINT. YOUR HOME COMES NEXT.</p><h2>Care that fits your home.</h2><p>These examples make the hours tangible. Surfside would help tailor the scope, timing, and priorities to your home.</p></div>
+      <a class="button" href="/homes/#homes-subscription">Explore the subscription <span aria-hidden="true">↗</span></a>
+    </section>
+    <details class="method"><summary>About the estimates & this design study</summary><div id="method-content"></div></details>
+    <footer class="page-footer"><span>Surfside Home Services · JON MPS</span><span>28 source tasks · 24 design configurations</span></footer>
+  </main>
+  <dialog id="detail-dialog" aria-labelledby="detail-title"><button class="close-dialog" type="button" data-close aria-label="Close task details">×</button><div id="detail-content"></div></dialog>
+  <dialog id="compare-dialog" class="compare-dialog" aria-labelledby="compare-title"><button class="close-dialog" type="button" data-close aria-label="Close comparison">×</button><p class="eyebrow">SIX WAYS TO TELL THE STORY</p><h2 id="compare-title">Choose the direction that feels right.</h2><div id="compare-grid" class="compare-grid"></div></dialog>
+  <div id="announcement" class="sr-only" role="status" aria-live="polite"></div>
+  <div id="toast" role="status" hidden></div>
+</body>
+</html>
