@@ -1,0 +1,399 @@
+[
+  [
+    {
+      "alt": "Damp brick wall with moss and mold",
+      "category": "Seasonal",
+      "description": "Look for dampness, staining, musty odors, and underlying moisture problems.",
+      "frequency": "Every 6 months and after leaks",
+      "image": "https://images.pexels.com/photos/17401392/pexels-photo-17401392.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "photoCredit": "https://www.pexels.com/photo/17401392/",
+      "title": "Inspect for Moisture & Mold",
+      "categories": [
+        "Seasonal",
+        "Safety",
+        "Routine"
+      ],
+      "estimatedTime": "45\u201390 min",
+      "displayTitle": "Inspect for moisture after storms",
+      "note": ""
+    }
+  ],
+  [
+    {
+      "alt": "Home with an outdoor wooden deck",
+      "category": "Seasonal",
+      "description": "Identify loose connections, damaged materials, and potential safety hazards.",
+      "frequency": "Annually",
+      "image": "https://images.pexels.com/photos/12445995/pexels-photo-12445995.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "photoCredit": "https://www.pexels.com/photo/12445995/",
+      "title": "Inspect Decks & Railings",
+      "categories": [
+        "Seasonal",
+        "Safety",
+        "Routine"
+      ],
+      "estimatedTime": "30\u201360 min",
+      "displayTitle": "Inspect decks & railings",
+      "note": ""
+    },
+    {
+      "alt": "Outdoor paved patio being cleaned",
+      "category": "Seasonal",
+      "description": "Identify uneven surfaces, loose materials, and trip hazards.",
+      "frequency": "Annually",
+      "image": "https://images.pexels.com/photos/20296972/pexels-photo-20296972.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "photoCredit": "https://www.pexels.com/photo/20296972/",
+      "title": "Inspect Walkways & Steps",
+      "categories": [
+        "Seasonal",
+        "Safety",
+        "Routine"
+      ],
+      "estimatedTime": "20\u201340 min",
+      "displayTitle": "Inspect walkways & steps",
+      "note": ""
+    }
+  ],
+  [
+    {
+      "alt": "Air filter and foam filter on yellow background",
+      "category": "Routine",
+      "description": "Replace dirty filters to maintain proper airflow and system efficiency.",
+      "frequency": "Every 1\u20133 months",
+      "image": "https://images.pexels.com/photos/33693530/pexels-photo-33693530.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "photoCredit": "https://www.pexels.com/photo/33693530/",
+      "title": "Replace HVAC Air Filters",
+      "categories": [
+        "Routine"
+      ],
+      "estimatedTime": "10\u201320 min",
+      "displayTitle": "Replace air filters",
+      "note": "Before allergy season"
+    },
+    {
+      "alt": "Sprinklers watering a lawn",
+      "category": "Seasonal",
+      "description": "Repair leaks, adjust sprinkler coverage, and optimize watering schedules.",
+      "frequency": "Every 3 months during irrigation season",
+      "image": "https://images.pexels.com/photos/12887876/pexels-photo-12887876.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "photoCredit": "https://www.pexels.com/photo/12887876/",
+      "title": "Inspect & Adjust Irrigation",
+      "categories": [
+        "Seasonal",
+        "Safety",
+        "Routine"
+      ],
+      "estimatedTime": "45\u201390 min",
+      "displayTitle": "Check garden irrigation",
+      "note": "Spring has spring!"
+    }
+  ],
+  [
+    {
+      "alt": "Window frame during renovation",
+      "category": "Seasonal",
+      "description": "Check door and window seals for wear, gaps, and drafts.",
+      "frequency": "Annually; replace as needed",
+      "image": "https://images.pexels.com/photos/5691514/pexels-photo-5691514.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "photoCredit": "https://www.pexels.com/photo/5691514/",
+      "title": "Inspect & Replace Weatherstripping",
+      "categories": [
+        "Seasonal",
+        "Safety",
+        "Routine"
+      ],
+      "estimatedTime": "1\u20132 hours",
+      "displayTitle": "Inspect & replace weatherstripping",
+      "note": ""
+    },
+    {
+      "alt": "Close-up of a weathered window frame",
+      "category": "Seasonal",
+      "description": "Clear accessible drainage openings to prevent trapped water.",
+      "frequency": "Annually",
+      "image": "https://images.pexels.com/photos/2914491/pexels-photo-2914491.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "photoCredit": "https://www.pexels.com/photo/2914491/",
+      "title": "Clean Window Weep Holes",
+      "categories": [
+        "Seasonal",
+        "Safety",
+        "Routine"
+      ],
+      "estimatedTime": "30\u201360 min",
+      "displayTitle": "Clean window weep holes",
+      "note": ""
+    }
+  ],
+  [
+    {
+      "alt": "Bathroom with bathtub and tiled walls",
+      "category": "Seasonal",
+      "description": "Remove dust buildup to improve ventilation and moisture control.",
+      "frequency": "Every 6 months",
+      "image": "https://images.pexels.com/photos/6758506/pexels-photo-6758506.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "photoCredit": "https://www.pexels.com/photo/6758506/",
+      "title": "Clean Bathroom Exhaust Fans",
+      "categories": [
+        "Seasonal",
+        "Safety",
+        "Routine"
+      ],
+      "estimatedTime": "30\u201360 min",
+      "displayTitle": "Clean bathroom exhaust fans",
+      "note": ""
+    },
+    {
+      "alt": "Home with sliding glass doors",
+      "category": "Seasonal",
+      "description": "Remove debris and maintain compatible moving components.",
+      "frequency": "Every 6 months",
+      "image": "https://images.pexels.com/photos/12513489/pexels-photo-12513489.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "photoCredit": "https://www.pexels.com/photo/12513489/",
+      "title": "Clean Sliding Door Tracks",
+      "categories": [
+        "Seasonal",
+        "Safety",
+        "Routine"
+      ],
+      "estimatedTime": "30\u201360 min",
+      "displayTitle": "Clean sliding door tracks",
+      "note": ""
+    }
+  ],
+  [
+    {
+      "alt": "Water heater installed inside a cabinet",
+      "category": "Seasonal",
+      "description": "Remove sediment buildup when recommended for the equipment.",
+      "frequency": "Annually, per manufacturer",
+      "image": "https://images.pexels.com/photos/9551366/pexels-photo-9551366.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "photoCredit": "https://www.pexels.com/photo/9551366/",
+      "title": "Flush Your Water Heater",
+      "categories": [
+        "Seasonal",
+        "Safety",
+        "Routine"
+      ],
+      "estimatedTime": "1\u20132 hours",
+      "displayTitle": "Descale water heater",
+      "note": ""
+    },
+    {
+      "alt": "Kitchen with stainless steel refrigerator",
+      "category": "Seasonal",
+      "description": "Remove accessible dust buildup to improve efficiency.",
+      "frequency": "Every 6\u201312 months",
+      "image": "https://images.pexels.com/photos/6264409/pexels-photo-6264409.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "photoCredit": "https://www.pexels.com/photo/6264409/",
+      "title": "Clean Refrigerator Coils",
+      "categories": [
+        "Seasonal",
+        "Safety",
+        "Routine"
+      ],
+      "estimatedTime": "30\u201360 min",
+      "displayTitle": "Service kitchen appliances",
+      "note": ""
+    }
+  ],
+  [
+    {
+      "alt": "Pressure washing exterior siding",
+      "category": "Seasonal",
+      "description": "Remove dirt, stains, and organic buildup using suitable cleaning methods.",
+      "frequency": "Annually or as needed",
+      "image": "https://images.pexels.com/photos/5652626/pexels-photo-5652626.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "photoCredit": "https://www.pexels.com/photo/5652626/",
+      "title": "Wash Exterior Siding & Stucco",
+      "categories": [
+        "Seasonal",
+        "Safety",
+        "Routine"
+      ],
+      "estimatedTime": "4\u20138 hours",
+      "displayTitle": "Pressure wash exterior surfaces",
+      "note": ""
+    },
+    {
+      "alt": "Worker painting a building exterior",
+      "category": "Seasonal",
+      "description": "Identify peeling, cracking, and exposed surfaces before damage spreads.",
+      "frequency": "Annually",
+      "image": "https://images.pexels.com/photos/31608473/pexels-photo-31608473.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "photoCredit": "https://www.pexels.com/photo/31608473/",
+      "title": "Inspect Exterior Paint",
+      "categories": [
+        "Seasonal",
+        "Safety",
+        "Routine"
+      ],
+      "estimatedTime": "30\u201360 min",
+      "displayTitle": "Touch up exterior paint",
+      "note": ""
+    }
+  ],
+  [
+    {
+      "alt": "Rainwater dripping from a house gutter",
+      "category": "Seasonal",
+      "description": "Remove leaves and debris to prevent overflow and water damage.",
+      "frequency": "Twice yearly",
+      "image": "https://images.pexels.com/photos/20113440/pexels-photo-20113440.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "photoCredit": "https://www.pexels.com/photo/20113440/",
+      "title": "Clean Your Gutters",
+      "categories": [
+        "Seasonal",
+        "Safety",
+        "Routine"
+      ],
+      "estimatedTime": "2\u20134 hours",
+      "displayTitle": "Clean your gutters",
+      "note": ""
+    }
+  ],
+  [
+    {
+      "alt": "Wall-mounted home air conditioner",
+      "category": "Seasonal",
+      "description": "Have heating and cooling equipment inspected, cleaned, and serviced.",
+      "frequency": "Annually or per system",
+      "image": "https://images.pexels.com/photos/16592625/pexels-photo-16592625.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "photoCredit": "https://www.pexels.com/photo/16592625/",
+      "title": "Service Your HVAC System",
+      "categories": [
+        "Seasonal",
+        "Safety",
+        "Routine"
+      ],
+      "estimatedTime": "1\u20132 hours/system",
+      "displayTitle": "Service HVAC system",
+      "note": ""
+    },
+    {
+      "alt": "Laundry machine with its front door open",
+      "category": "Seasonal",
+      "description": "Remove lint buildup from the exhaust duct to reduce fire hazards.",
+      "frequency": "Every 6\u201312 months",
+      "image": "https://images.pexels.com/photos/5591590/pexels-photo-5591590.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "photoCredit": "https://www.pexels.com/photo/5591590/",
+      "title": "Clean Your Dryer Vent",
+      "categories": [
+        "Seasonal",
+        "Safety",
+        "Routine"
+      ],
+      "estimatedTime": "1\u20132 hours",
+      "displayTitle": "Clean dryer vent",
+      "note": ""
+    }
+  ],
+  [
+    {
+      "alt": "Exterior drainage pipe with visible water runoff",
+      "category": "Seasonal",
+      "description": "Ensure water flows away from your home's foundation.",
+      "frequency": "Annually",
+      "image": "https://images.pexels.com/photos/3964564/pexels-photo-3964564.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "photoCredit": "https://www.pexels.com/photo/3964564/",
+      "title": "Inspect Downspouts & Drainage",
+      "categories": [
+        "Seasonal",
+        "Safety",
+        "Routine"
+      ],
+      "estimatedTime": "30\u201360 min",
+      "displayTitle": "Inspect downspouts & drainage",
+      "note": ""
+    },
+    {
+      "alt": "Outdoor drainage grate in concrete",
+      "category": "Seasonal",
+      "description": "Remove debris from surface drains and drainage channels.",
+      "frequency": "Every 6 months",
+      "image": "https://images.pexels.com/photos/6573773/pexels-photo-6573773.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "photoCredit": "https://www.pexels.com/photo/6573773/",
+      "title": "Clear Exterior Drains",
+      "categories": [
+        "Seasonal",
+        "Safety",
+        "Routine"
+      ],
+      "estimatedTime": "30\u201390 min",
+      "displayTitle": "Clear exterior drains",
+      "note": ""
+    }
+  ],
+  [
+    {
+      "alt": "Adding detergent to a washing machine",
+      "category": "Seasonal",
+      "description": "Clean door seals, detergent dispensers, and accessible filters.",
+      "frequency": "Monthly",
+      "image": "https://images.pexels.com/photos/5591576/pexels-photo-5591576.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "photoCredit": "https://www.pexels.com/photo/5591576/",
+      "title": "Clean Your Washing Machine",
+      "categories": [
+        "Seasonal",
+        "Safety",
+        "Routine"
+      ],
+      "estimatedTime": "30\u201360 min active",
+      "displayTitle": "Clean washing machine",
+      "note": ""
+    },
+    {
+      "alt": "Bathroom with washing machine and plumbing fixtures",
+      "category": "Seasonal",
+      "description": "Check refrigerator, dishwasher, and laundry supply connections for leaks.",
+      "frequency": "Every 6 months",
+      "image": "https://images.pexels.com/photos/29252628/pexels-photo-29252628.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "photoCredit": "https://www.pexels.com/photo/29252628/",
+      "title": "Inspect Appliance Water Lines",
+      "categories": [
+        "Seasonal",
+        "Safety",
+        "Routine"
+      ],
+      "estimatedTime": "15\u201330 min",
+      "displayTitle": "Inspect appliance water lines",
+      "note": ""
+    }
+  ],
+  [
+    {
+      "alt": "Home exterior with balcony and roof overhang",
+      "category": "Seasonal",
+      "description": "Arrange a general maintenance walkthrough to identify needed repairs.",
+      "frequency": "Annually",
+      "image": "https://images.pexels.com/photos/323707/pexels-photo-323707.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "photoCredit": "https://www.pexels.com/photo/323707/",
+      "title": "Schedule an Annual Home Inspection",
+      "categories": [
+        "Seasonal",
+        "Seasonal",
+        "Safety",
+        "Routine"
+      ],
+      "estimatedTime": "2\u20134 hours",
+      "displayTitle": "Annual home inspection",
+      "note": ""
+    },
+    {
+      "alt": "Writing a checklist in a notebook",
+      "category": "Seasonal",
+      "description": "Revisit outstanding maintenance items and prioritize needed work.",
+      "frequency": "Every 3 months",
+      "image": "https://images.pexels.com/photos/35719566/pexels-photo-35719566.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "photoCredit": "https://www.pexels.com/photo/35719566/",
+      "title": "Review Your Home's To-Do List",
+      "categories": [
+        "Seasonal",
+        "Safety",
+        "Routine"
+      ],
+      "estimatedTime": "20\u201330 min",
+      "displayTitle": "Review your home\u2019s To-Do List",
+      "note": ""
+    }
+  ]
+]
