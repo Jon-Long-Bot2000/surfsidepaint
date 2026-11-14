@@ -1,0 +1,2 @@
+export async function readDraft(){const response=await fetch('/api/draft',{cache:'no-store'});if(!response.ok)throw Error('Could not load this project.');return response.json();}
+export async function saveDraft(value){const response=await fetch('/api/draft',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(value)});const result=await response.json();if(!response.ok)throw Error(result.error||'Could not save the project.');}

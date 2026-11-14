@@ -1,7 +1,7 @@
 interface:
   display_name: "Surfside Proposal Workflow"
-  short_description: "Create Surfside proposal PDFs and project webpages"
+  short_description: "Create proposals with the approved v2 local editor"
   icon_large: "./assets/preview.png"
-  default_prompt: "Use $artifact-template-surfside-proposal-workflow to create a proposal for [project address] with the approved Surfside design."
+  default_prompt: "Use $artifact-template-surfside-proposal-workflow to create a proposal for [project address] using the approved v2 editor and design. Request project-creation approval first; keep work local until publication is approved."
 policy:
   allow_implicit_invocation: true

@@ -1,28 +1,31 @@
 # Surfside proposal intake
 
-Start a new chat in the Surfside proposal Codex project with:
+Start with: **Create a proposal for [full project address].**
 
-> Create a proposal for [full project address].
+Codex first proposes the source folder, branch and street-derived URL and requests
+explicit project-creation approval. Nothing is created until you confirm.
+Then fill in the local visual editor:
 
-Include any details and photos you already have. Codex asks only for missing information.
+1. **Project:** street/full address, date, summary, multiple hero photos; select
+   the primary. Extra photos become thumbnails underneath it. URL example:
+   `123 Sample Lane` → `https://www.surfsidepaint.com/123-sample-lane/`.
+2. **Prepared for:** company, contact, mailing address, email, phone and optional
+   logo. Enter a company website to find suggestions, review them, then apply only
+   what you want. Manual entry and logo upload are always available.
+3. **Scope & options:** scope category, alternative Options and additive extras.
+   Include each title, description, scope, full price and price type (contract,
+   labor, materials, labor & materials, or custom). Do not enter a price difference
+   as an alternative's full price. Empty prices remain pending.
+4. **Details & terms:** price description, materials, schedule, exclusions and
+   terms are optional; blank entries do not appear in the proposal. Only the
+   approved 30-day validity/site conditions/written scope-change terms start filled
+   in. Confirm terms and all pricing arrangements before final submission.
 
-- **Prepared for:** contractor/company, contact, mailing address, phone, email.
-- **Project:** full site address, short project name, desired URL if different from the address.
-- **Summary:** project purpose, desired finish, important conditions or priorities.
-- **Scope:** task list, locations or quantities, preparation, coatings, exclusions, trade dependencies.
-- **Price:** fixed or itemized amounts; what labor includes; whether a total should appear.
-- **Materials:** who supplies paint and other materials; any delivery charge or markup explicitly authorized for this project.
-- **Schedule:** estimated working days, desired start, weather/access/drying dependencies.
-- **Terms:** confirm the proposed wording, validity period, change orders, payment arrangements and any project-specific warranty language. Do not carry substrate exclusions from the Poli job automatically.
-- **Photos:** choose a hero photo and provide its caption/credit if needed. Put Before and After images in the corresponding folders, or say to omit photos for now.
+Your company defaults and approved layout are retained. Customer information,
+photos, prices and project-specific commitments start blank. No Photo Gallery,
+Before/After uploads, or fifth Photos step is used. Hero photos stay in Project.
 
-Your company contact details and the approved visual design are saved defaults.
-Contractor details, prices, materials, schedules, warranty language and site photos
-are never copied from the Poli project into a new project.
-
-Say explicitly when a field should be omitted. Record approved omissions in
-`omitted_fields` using the keys shown by the `intake` command. Confirmed pricing
-and terms are recorded with `pricing_confirmed` and `terms_confirmed`.
-
-No browser uploads, R2 service or camera controls are enabled. Photos are added
-locally and published with the approved static page.
+Saves go to this project's local source file/assets. The editor provides a draft
+export and a project setup review; it never commits, branches or publishes.
+Codex asks only for missing details and records explicitly approved omissions.
+Final PDF/site review and publication each require the appropriate approval.

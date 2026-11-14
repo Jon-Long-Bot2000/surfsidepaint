@@ -1,42 +1,70 @@
 ---
 name: artifact-template-surfside-proposal-workflow
-description: "Create Surfside work proposals from an address, photos, and intake answers using the approved 1693-Poli PDF and webpage design. Use when the user asks to create a proposal for a project address, names Surfside Proposal Workflow, selects this template, or invokes $artifact-template-surfside-proposal-workflow. Generate separate local projects, PDFs and static pages in the existing surfsidepaint GitHub repository, with review before publication."
+description: "Create Surfside proposals using the approved v2 four-step local editor and interactive proposal design. Use for Create a proposal for [address], Surfside Proposal Workflow, or this template. Keep customer sources separate, require approval before project creation and publication, and use the existing surfsidepaint repository."
 ---
 
 # Surfside Proposal Workflow
 
-Use the approved Surfside PDF and webpage design retained in this template.
-The user explicitly selected the existing surfsidepaint GitHub Pages repository
-for this workflow. Do not register a new hosted Site, change hosting providers,
-provision R2, enable photo uploads, or deploy merely because this skill is invoked.
+Version 2.0.0 is the approved editor/design source for new proposals. Read
+`artifact-template.json`, then `assets/source/_proposal-workflow/WORKFLOW.md`,
+`INTAKE.md` and `defaults.json`. Follow the retained implementation, not the old
+1693-Poli gallery design. Customer projects retain their own template snapshots.
 
-## Workflow
+## Start and restore
 
-1. Read `artifact-template.json`. The retained source is `assets/source` relative
-   to this skill. Its `_proposal-workflow` folder contains the complete generator and
-   approved parameterized templates under `template/site` and `template/pdf`.
-2. Locate the existing local surfsidepaint repository. Use the installed toolkit
-   when present. If absent after a branch switch, restore missing files using
-   `assets/source/_proposal-workflow/install.py --repo REPO --restore-missing`
-   with the bundled Python interpreter. Never overwrite a different toolkit
-   version without reviewing the difference.
-3. Read the toolkit's `WORKFLOW.md` and `INTAKE.md` and follow them. Create a
-   separate project branch from current origin/main, separate local project
-   inputs and a per-project template snapshot. Ask only for missing facts.
-4. Build a draft PDF and webpage. Render and inspect every PDF page, verify the
-   browser interactions, and provide desktop and actual LAN preview URLs.
-5. After content, terms and pricing are confirmed, build and review the final
-   output. Publish to its own surfsidepaint.com URL only after user approval.
-   Preserve other routes, unrelated local edits and all branches unless the user
-   explicitly requests retirement. Verify the exact Pages deployment commit.
+Locate the existing surfsidepaint repository and use its installed toolkit when
+present. If absent, restore missing v2 files using the retained
+`assets/source/_proposal-workflow/install.py --repo REPO --restore-missing`.
+Compare versions first; never overwrite a different toolkit or unrelated edits.
+Preserve uncommitted workflow changes across Git branch switches.
 
-## Fidelity and source boundaries
+For "Create a proposal for [address]", first show the address, street-derived URL
+slug, `_proposal-projects/<slug>/`, `codex/proposal-<slug>` branch, and eventual
+`https://www.surfsidepaint.com/<slug>/` URL. Obtain explicit creation approval
+BEFORE creating any branch, project directory or files. The trigger phrase alone
+is not approval. Only then fetch origin, branch from current origin/main and run
+`proposal.py new ADDRESS --slug SLUG --confirm-create`. Keep existing branches.
+Use the new project's `_template/` snapshot for all later commands and revisions.
+Never copy another customer's information, price, photos or specific commitments.
 
-Retain the approved logo, colors, contact cards, section headings, pricing rows,
-PDF viewer, tap-to-open preview, download CTA and Before/After gallery layout.
-New proposals begin with blank customer fields and prices. Never copy the Poli
-contractor, customer photos, address, price, substrate exclusion or delivery fee.
-Saved company contact information is the reusable default. Confirm project terms.
-Private drafts and source photos remain local. Only approved PDFs, optimized
-photos and the generated static webpage are published. Use the retained parameterized templates for new project content.
-User instructions control content and requested changes.
+## Approved intake and visitor design
+
+Launch the project's snapshot `proposal.py editor PROJECT --port AVAILABLE_PORT`.
+The private editor is loopback-only and saves to that project's source JSON and
+assets. Its four steps are Project, Prepared for, Scope & options, Details & terms.
+New customer fields and prices start blank; the date defaults to today in
+America/Los_Angeles. Only the approved proposal terms are prefilled. Other details
+are optional and blank sections are hidden. Confirm prices and terms before final
+use; never infer commitments, fees, warranties or payment arrangements.
+
+Project supports multiple hero photos, a selected primary and additional hero
+thumbnails. Prepared for supports optional website lookup with review before
+applying suggested details, manual entry, and a contractor logo in its card.
+Options have alternative full prices and additive extras, each with a price type.
+Visitor selections update the scope, price and downloadable PDF. Preserve the
+approved compact hero, paint-house icon, near-equal columns, directional arrow,
+rounded cards, and preview header with left label, centered logo and right PDF CTA.
+There is NO Photo Gallery, Before/After component, gallery dialog/script, or fifth
+Photos step. Visitor uploads and R2 stay disabled; editor image inputs are local.
+
+Keep the editor, lookup backend and source JSON out of public output. Publish only
+approved generated static bundles at the existing repository's project route.
+The default PDF and browser-generated selected PDF share the same renderer.
+The screen preview trims unused bottom space; downloads retain normal letter size.
+
+## Review and publication boundaries
+
+Ask only for missing facts; read the project's intake report. During design
+iteration do not run tests, checks or builds unless authorized. Final verification
+must also be authorized if the no-check instruction remains active. Before a
+real submission, review every rendered PDF page and visitor interactions. Do not
+claim verification that has not happened.
+
+Obtain separate approval for the concrete final proposal before committing,
+merging, pushing or publishing. Existing customer proposals are unchanged by a
+workflow/template update. No contractor email or notification is authorized.
+The v2 toolkit release to the existing repository is authorized. This does not
+authorize new customer publication, hosted editors, new hosting providers, cloud
+resources, recurring services, R2 or visitor uploads. Preserve unrelated
+files, especially homes/index.html. Do not provision a new hosted Site merely
+because this personal template is used. User instructions control requested edits.

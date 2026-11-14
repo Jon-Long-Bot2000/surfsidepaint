@@ -8,27 +8,31 @@ START = '<!-- surfside-proposal-workflow:start -->'
 END = '<!-- surfside-proposal-workflow:end -->'
 GUIDANCE = '''## Surfside proposal requests
 
-When the user asks to create a proposal for an address, use the approved Surfside
-proposal workflow. Read `_proposal-workflow/WORKFLOW.md` and `INTAKE.md`. This
-applies in new chats without needing the old Poli conversation.
+For "Create a proposal for [address]", read `_proposal-workflow/WORKFLOW.md` and
+`INTAKE.md`. The approved local version is 2.0.0: four-step visual editor and
+interactive proposal site, with primary hero photos/thumbnails and NO Photo Gallery.
 
-The user's saved workflow starts from current `origin/main`, creates a distinct
-`codex/proposal-<slug>` branch and `_proposal-projects/<slug>` local source folder,
-asks only for missing details, generates a PDF and static webpage, and provides
-desktop and mobile preview URLs. Obtain approval for the concrete final proposal
-before publishing that project to its own URL. Keep branches unless asked to
-retire them. Never include unrelated local changes, especially `homes/index.html`.
+Before creating any new project folder, files or branch, show the address,
+`_proposal-projects/<street-slug>/`, `codex/proposal-<street-slug>` and eventual
+`https://www.surfsidepaint.com/<street-slug>/` URL; obtain explicit creation approval.
+Then branch from current origin/main, preserving unrelated edits, and create a
+blank project with its own `_template/` snapshot. Start the matching snapshot's
+`proposal.py editor PROJECT --port AVAILABLE_PORT` for intake and live preview.
+Use each existing project's own snapshot for revisions; do not migrate old jobs.
 
-Every project retains its own `_template/` snapshot. Use that snapshot for
-revisions. Do not reuse a different customer's details, prices, terms or images.
-Photo uploads and Cloudflare R2 are disabled. Publish only generated static files.
+The editor and website lookup are local-only. Uploaded hero photos and contractor
+logos are local editor inputs; visitor uploads, Cloudflare R2 and gallery features
+are disabled. Only generated static proposal bundles may be published after
+separate approval of the concrete final result. Keep branches unless asked to
+retire them. Never include unrelated changes, especially `homes/index.html`.
 
-If `_proposal-workflow` is absent after switching to a branch based on main,
-restore the toolkit from the personal Surfside Proposal Workflow template at
-`~/.codex/skills/artifact-template-surfside-proposal-workflow/assets/source/_proposal-workflow`
-using its `install.py --repo REPO --restore-missing` command. Do not replace
-existing toolkit files without checking their version. The personal template is
-the durable backup while this workflow branch awaits incorporation into main.
+The user authorized releasing the v2 toolkit to the existing repository. Preserve
+subsequent local changes and this guidance across branch switches. The personal skill's retained backup
+also contains v2.0.0. If the toolkit is missing, restore it using the personal
+backup's assets/source/_proposal-workflow/install.py --repo REPO --restore-missing.
+Review versions and preserve modifications before replacing any toolkit.
+Do not run tests, checks or builds during design iteration unless authorized.
+New customer proposals still require explicit creation and publication approval.
 '''
 
 

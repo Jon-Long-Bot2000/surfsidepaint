@@ -1,5 +1,5 @@
 {
-  "template_version": "1.0.0",
+  "template_version": "2.0.0",
   "business_name": "Surfside Painting Company",
   "prepared_by": {
     "name": "Jon Long",
@@ -11,11 +11,5 @@
     "email": "jon@surfsidepaint.com"
   },
   "web_title": "Surfside Paint",
-  "terms_candidates": [
-    "Proposal is good for 30 days from the proposal date.",
-    "Additional work outside the scope requires a written change order, signed by both parties with price and schedule adjustments, before proceeding.",
-    "Start date and payment schedule will be agreed in writing before work begins.",
-    "Schedule depends on weather, drying and curing, material availability, access, and other trades.",
-    "Work areas will be protected and job-related debris removed upon completion."
-  ]
+  "terms_default": "Proposal is valid for 30 days from the date of issuance. Pricing and scheduling are subject to change based on site conditions, material availability, and unforeseen circumstances. Any changes to the scope of work require written approval and may result in additional charges."
 }
